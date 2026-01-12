@@ -1,4 +1,4 @@
-import { Home } from "lucide-react";
+import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 function App() {
