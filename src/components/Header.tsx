@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import { Menu, X } from "lucide-react";
 
 type NavLink = {
@@ -60,7 +59,7 @@ const Header: React.FC = () => {
                   relative text-sm font-medium text-gray-200
                   transition hover:text-white
                   after:absolute after:left-0 after:-bottom-1
-                  after:h-[2px] after:w-0 after:bg-[#1FB6E0]
+                  after:h-0.5 after:w-0 after:bg-[#1FB6E0]
                   after:transition-all hover:after:w-full
                 "
               >
@@ -76,7 +75,7 @@ const Header: React.FC = () => {
   href="#demo"
   className="
     rounded-full
-    bg-gradient-to-r from-[#F4B400] to-[#E0A800]
+    bg-linear-to-r from-[#F4B400] to-[#E0A800]
     px-6 py-2.5 text-sm font-semibold
     text-[#0B0B0B]
     shadow-[0_4px_20px_rgba(244,180,0,0.35)]
