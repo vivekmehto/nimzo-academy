@@ -16,90 +16,90 @@ type Reason = {
 
 const reasons: Reason[] = [
   {
-    icon: <ShieldCheck className="h-7 w-7 text-emerald-600" />,
+    icon: <ShieldCheck className="h-7 w-7 text-[#1FB6E0]" />,
     title: "Certified & Experienced Coaches",
     description:
-      "Our coaches are certified professionals with years of experience in training students at different skill levels.",
+      "Our coaches are trained professionals with years of experience teaching students across different skill levels.",
   },
   {
-    icon: <BookOpen className="h-7 w-7 text-indigo-600" />,
+    icon: <BookOpen className="h-7 w-7 text-[#1FB6E0]" />,
     title: "Structured Curriculum",
     description:
-      "A well-defined curriculum that ensures consistent progress — from fundamentals to advanced strategies.",
+      "A clear learning path that ensures steady improvement — from fundamentals to advanced concepts.",
   },
   {
-    icon: <Users className="h-7 w-7 text-amber-500" />,
+    icon: <Users className="h-7 w-7 text-[#1FB6E0]" />,
     title: "Small Batch Sizes",
     description:
-      "Limited students per batch ensure personalized attention and better learning outcomes.",
+      "Limited students per batch ensure personalized attention and better understanding.",
   },
   {
-    icon: <Monitor className="h-7 w-7 text-sky-600" />,
+    icon: <Monitor className="h-7 w-7 text-[#1FB6E0]" />,
     title: "Online & Offline Classes",
     description:
-      "Flexible learning options designed to fit your schedule and comfort.",
+      "Flexible learning options designed to suit your schedule and comfort.",
   },
   {
-    icon: <Target className="h-7 w-7 text-rose-500" />,
-    title: "Tournament-Oriented Training",
+    icon: <Target className="h-7 w-7 text-[#1FB6E0]" />,
+    title: "Tournament-Focused Training",
     description:
-      "We focus on practical play, analysis, and tournament preparation to build competitive confidence.",
+      "Special attention on real-game situations, analysis, and competitive preparation.",
   },
   {
-    icon: <LineChart className="h-7 w-7 text-violet-600" />,
+    icon: <LineChart className="h-7 w-7 text-[#1FB6E0]" />,
     title: "Progress Tracking & Feedback",
     description:
-      "Regular assessments and feedback help parents track improvement clearly.",
+      "Regular assessments and feedback help parents clearly track improvement.",
   },
 ];
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-24 scroll-mt-20" id="why-choose-us">
       <div className="mx-auto max-w-7xl px-4">
-        
+
         {/* Heading */}
-        <div className="mb-16 max-w-3xl">
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
+        <div className="mb-20 max-w-3xl">
+          <h2 className="text-3xl font-bold text-[#0B0B0B] md:text-4xl">
             Why Parents Choose Our Chess Academy
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            We don’t just teach chess — we develop thinkers, problem solvers,
-            and confident decision-makers.
+          <p className="mt-4 text-lg text-[#6B7280]">
+            We focus on structured learning, personal attention, and long-term
+            skill development — not shortcuts.
           </p>
         </div>
 
-        {/* Reasons Grid */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        {/* Grid */}
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="group rounded-2xl border border-gray-100 p-8 transition hover:border-gray-200 hover:shadow-md"
+              className="
+                flex gap-5
+                rounded-2xl border border-gray-100
+                p-8
+                transition-all duration-300
+                hover:shadow-[0_10px_40px_rgba(0,0,0,0.06)]
+              "
             >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gray-50">
+              {/* Icon */}
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#1FB6E0]/10">
                 {reason.icon}
               </div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                {reason.title}
-              </h3>
-
-              <p className="mt-3 text-gray-600">
-                {reason.description}
-              </p>
+              {/* Content */}
+              <div>
+                <h3 className="text-lg font-semibold text-[#0B0B0B]">
+                  {reason.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#4B5563]">
+                  {reason.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <a
-            href="#demo"
-            className="inline-block rounded-full bg-amber-500 px-8 py-3 text-base font-semibold text-white shadow hover:bg-amber-600 transition"
-          >
-            Book a Free Demo Class
-          </a>
-        </div>
       </div>
     </section>
   );
