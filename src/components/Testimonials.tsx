@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 
 type Testimonial = {
   name: string;
-  child: string;
+  relation: string;
   rating: number;
   feedback: string;
 };
@@ -11,110 +11,90 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     name: "Rohit",
-    child: "Parent of Aarav (Age 9)",
+    relation: "Parent of Aarav (Age 9)",
     rating: 5,
     feedback:
-      "We noticed a clear improvement in Aarav’s focus and confidence within a few weeks. The coaches are very patient and explain concepts in a way kids truly understand.",
+      "We noticed a clear improvement in Aarav’s focus and confidence within a few weeks. The coaching approach is structured, calm, and very effective.",
   },
   {
     name: "Sneha",
-    child: "Parent of Riya (Age 11)",
+    relation: "Parent of Riya (Age 11)",
     rating: 5,
     feedback:
-      "The structured approach and regular feedback really stood out for us. The demo class itself showed how professional and organized the academy is.",
+      "What stood out for us was the discipline and clarity in teaching. Regular feedback helped us understand our child’s progress clearly.",
   },
   {
     name: "Ankit",
-    child: "Parent of Kunal (Age 13)",
+    relation: "Parent of Kunal (Age 13)",
     rating: 4,
     feedback:
-      "My son enjoys every class and looks forward to learning. The focus on both fundamentals and practice games makes a big difference.",
+      "My son enjoys every class and has become more thoughtful during games. The coaches focus equally on fundamentals and practice.",
   },
 ];
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="bg-slate-50 py-20">
+    <section className="bg-[#F8F9FB] py-24" id="testimonials">
       <div className="mx-auto max-w-7xl px-4">
 
         {/* Heading */}
-        <div className="mb-12 max-w-3xl">
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-            What Parents Say About Our Chess Classes
+        <div className="mb-20 max-w-3xl">
+          <h2 className="text-3xl font-bold text-[#0B0B0B] md:text-4xl">
+            What Parents Say About Us
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Honest feedback from parents who have seen real improvement in
-            their child’s learning and confidence.
+          <p className="mt-4 text-lg text-[#6B7280]">
+            Honest feedback from parents who have seen real improvement in their
+            child’s learning and confidence.
           </p>
         </div>
 
-        {/* Google Reviews Badge */}
-        <div className="mb-10 flex items-center gap-3">
-          <img
-            src="/google-logo.svg"
-            alt="Google Reviews"
-            className="h-6"
-          />
-          <div className="flex items-center gap-1">
-            <span className="text-lg font-semibold text-gray-900">4.8</span>
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="h-4 w-4 fill-amber-400 text-amber-400"
-                />
-              ))}
-            </div>
-          </div>
-          <span className="text-sm text-gray-500">
-            Rated by parents on Google
-          </span>
-        </div>
-
-        {/* Testimonials Grid (Slider-ready later) */}
-        <div className="grid gap-8 md:grid-cols-3">
+        {/* Testimonials Grid */}
+        <div className="grid gap-10 md:grid-cols-3">
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="rounded-2xl bg-white p-8 shadow-sm transition hover:shadow-md"
+              className="
+                rounded-3xl bg-white p-8
+                shadow-[0_12px_50px_rgba(0,0,0,0.06)]
+                transition-all duration-300
+                hover:-translate-y-1 hover:shadow-[0_20px_70px_rgba(0,0,0,0.08)]
+              "
             >
-              {/* Stars */}
+              {/* Rating */}
               <div className="mb-4 flex items-center gap-1">
                 {Array.from({ length: item.rating }).map((_, i) => (
                   <Star
                     key={i}
-                    className="h-5 w-5 fill-amber-400 text-amber-400"
+                    className="h-5 w-5 fill-[#F4B400] text-[#F4B400]"
                   />
                 ))}
               </div>
 
               {/* Feedback */}
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-sm leading-relaxed text-[#4B5563]">
                 “{item.feedback}”
               </p>
 
               {/* Parent Info */}
-              <div className="mt-6 border-t pt-4">
-                <p className="font-semibold text-gray-900">
+              <div className="mt-6 border-t border-gray-100 pt-4">
+                <p className="font-semibold text-[#0B0B0B]">
                   {item.name}
                 </p>
-                <p className="text-sm text-gray-500">
-                  {item.child}
+                <p className="text-sm text-[#6B7280]">
+                  {item.relation}
                 </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Trust Line */}
         <div className="mt-16 text-center">
-          <a
-            href="#demo"
-            className="inline-block rounded-full bg-amber-500 px-8 py-3 text-base font-semibold text-white shadow hover:bg-amber-600 transition"
-          >
-            Book a Free Demo Class
-          </a>
+          <p className="text-sm text-[#6B7280]">
+            ⭐ Rated 4.8/5 by parents across our chess programs
+          </p>
         </div>
+
       </div>
     </section>
   );
