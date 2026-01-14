@@ -11,7 +11,7 @@ type Program = {
 
 const programs: Program[] = [
   {
-    icon: <GraduationCap className="h-7 w-7 text-emerald-600" />,
+    icon: <GraduationCap className="h-7 w-7 text-[#1FB6E0]" />,
     title: "Beginner Program",
     subtitle: "Ages 6–10",
     description:
@@ -24,7 +24,7 @@ const programs: Program[] = [
     ],
   },
   {
-    icon: <Brain className="h-7 w-7 text-amber-500" />,
+    icon: <Brain className="h-7 w-7 text-[#1FB6E0]" />,
     title: "Intermediate Program",
     subtitle: "Ages 8–14",
     description:
@@ -37,7 +37,7 @@ const programs: Program[] = [
     ],
   },
   {
-    icon: <Trophy className="h-7 w-7 text-indigo-600" />,
+    icon: <Trophy className="h-7 w-7 text-[#1FB6E0]" />,
     title: "Advanced / Tournament Program",
     subtitle: "Competitive Players",
     description:
@@ -55,51 +55,56 @@ const Programs: React.FC = () => {
   return (
     <section
       id="programs"
-      className="bg-slate-50 py-20"
+      className="bg-[#F8F9FB] py-24"
     >
       <div className="mx-auto max-w-7xl px-4">
-        
+
         {/* Section Heading */}
-        <div className="mb-14 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl font-bold text-[#0B0B0B] md:text-4xl">
             Chess Programs Designed for Every Level
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+          <p className="mt-4 mx-auto max-w-2xl text-lg text-[#6B7280]">
             Our structured curriculum ensures steady progress — from beginners
             to tournament-ready players.
           </p>
         </div>
 
         {/* Program Cards */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-3">
           {programs.map((program, index) => (
             <div
               key={index}
-              className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition hover:shadow-lg"
+              className="
+                flex flex-col rounded-3xl bg-white p-8
+                shadow-[0_10px_40px_rgba(0,0,0,0.05)]
+                transition-all duration-300
+                hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+              "
             >
               {/* Icon */}
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gray-100">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#1FB6E0]/10">
                 {program.icon}
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 className="text-xl font-semibold text-[#0B0B0B]">
                 {program.title}
               </h3>
-              <p className="mt-1 text-sm font-medium text-gray-500">
+              <p className="mt-1 text-sm font-medium text-[#6B7280]">
                 {program.subtitle}
               </p>
 
               {/* Description */}
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-[#4B5563]">
                 {program.description}
               </p>
 
               {/* Highlights */}
-              <ul className="mt-6 space-y-2 text-sm text-gray-700">
+              <ul className="mt-6 space-y-3 text-sm text-[#374151]">
                 {program.highlights.map((point, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-emerald-500" />
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-1.5 h-2 w-2 rounded-full bg-[#1FB6E0]" />
                     {point}
                   </li>
                 ))}
@@ -108,7 +113,14 @@ const Programs: React.FC = () => {
               {/* CTA */}
               <a
                 href="#demo"
-                className="mt-8 inline-block rounded-full border border-amber-500 px-6 py-2 text-center text-sm font-semibold text-amber-600 transition hover:bg-amber-500 hover:text-white"
+                className="
+                  mt-10 inline-flex items-center justify-center
+                  rounded-full bg-[#F4B400] px-6 py-2.5
+                  text-sm font-semibold text-[#0B0B0B]
+                  shadow-[0_4px_20px_rgba(244,180,0,0.35)]
+                  transition-all duration-300
+                  hover:-translate-y-0.5 hover:shadow-[0_6px_30px_rgba(244,180,0,0.5)]
+                "
               >
                 Book Free Demo
               </a>

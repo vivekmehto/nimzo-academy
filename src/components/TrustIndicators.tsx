@@ -14,22 +14,22 @@ type Indicator = {
 
 const indicators: Indicator[] = [
   {
-    icon: <Users className="h-6 w-6 text-emerald-600" />,
+    icon: <Users className="h-6 w-6 text-[#1FB6E0]" />,
     value: "500+",
     label: "Students Trained",
   },
   {
-    icon: <Star className="h-6 w-6 text-amber-500" />,
+    icon: <Star className="h-6 w-6 text-[#F4B400]" />,
     value: "4.8/5",
     label: "Parent Rating",
   },
   {
-    icon: <Trophy className="h-6 w-6 text-indigo-600" />,
+    icon: <Trophy className="h-6 w-6 text-[#1FB6E0]" />,
     value: "100+",
     label: "Tournament Wins",
   },
   {
-    icon: <CalendarCheck className="h-6 w-6 text-sky-600" />,
+    icon: <CalendarCheck className="h-6 w-6 text-[#1FB6E0]" />,
     value: "5+ Years",
     label: "Coaching Experience",
   },
@@ -37,21 +37,26 @@ const indicators: Indicator[] = [
 
 const TrustIndicators: React.FC = () => {
   return (
-    <section className="bg-white py-12">
+    <section className="bg-[#0F0F0F] py-14">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="grid grid-cols-2 gap-6 text-center md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
           {indicators.map((item, index) => (
             <div
               key={index}
               className="flex flex-col items-center gap-3"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-50">
+              {/* Icon Container */}
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
                 {item.icon}
               </div>
-              <p className="text-2xl font-bold text-gray-900">
+
+              {/* Value */}
+              <p className="text-2xl font-bold text-white">
                 {item.value}
               </p>
-              <p className="text-sm text-gray-600">
+
+              {/* Label */}
+              <p className="text-sm text-gray-400">
                 {item.label}
               </p>
             </div>
