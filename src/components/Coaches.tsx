@@ -12,71 +12,72 @@ const coaches: Coach[] = [
   {
     name: "Vivek Mehto",
     role: "Founder & Head Coach",
-    experience: "FIDE Rated | 8+ Years Experience",
-    bio: "Vivek has trained hundreds of students across different age groups, focusing on strong fundamentals, tournament preparation, and confidence building.",
+    experience: "FIDE Rated • 10+ Years Coaching Experience",
+    bio: "Vivek has trained students across multiple age groups, focusing on strong fundamentals, structured growth, and competitive readiness.",
     image: "/coach-1.jpg",
   },
   {
     name: "Ashish Arora",
     role: "Senior Chess Coach",
-    experience: "National Level Player | 7+ Years Coaching",
-    bio: "Specializes in teaching kids and beginners using interactive methods that make learning chess enjoyable and effective.",
+    experience: "National Level Player • 7+ Years Coaching",
+    bio: "Ashish specializes in teaching children and beginners using clear explanations, interactive sessions, and confidence-building methods.",
     image: "/coach-2.jpg",
-  },
-  {
-    name: "Coach Rahul Mehta",
-    role: "Advanced & Tournament Coach",
-    experience: "FIDE Rated | Tournament Specialist",
-    bio: "Focused on advanced strategy, opening preparation, and game analysis for competitive players.",
-    image: "/coach-3.jpg",
   },
 ];
 
 const Coaches: React.FC = () => {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-24 scroll-mt-20" id="coaches">
       <div className="mx-auto max-w-7xl px-4">
 
         {/* Heading */}
-        <div className="mb-16 max-w-3xl">
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-            Meet Our Expert Chess Coaches
+        <div className="mb-20 max-w-3xl">
+          <h2 className="text-3xl font-bold text-[#0B0B0B] md:text-4xl">
+            Meet Our Chess Coaches
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Our experienced coaches are passionate educators dedicated to
-            nurturing strategic thinking and confidence in every student.
+          <p className="mt-4 text-lg text-[#6B7280]">
+            Experienced mentors dedicated to developing strategic thinking,
+            discipline, and confidence in every student.
           </p>
         </div>
 
         {/* Coaches Grid */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-14 md:grid-cols-2">
           {coaches.map((coach, index) => (
             <div
               key={index}
-              className="group rounded-2xl border border-gray-100 bg-white p-6 transition hover:shadow-lg"
+              className="
+                flex flex-col overflow-hidden rounded-3xl
+                bg-white
+                shadow-[0_12px_50px_rgba(0,0,0,0.06)]
+                transition-all duration-300
+                hover:-translate-y-1 hover:shadow-[0_20px_70px_rgba(0,0,0,0.08)]
+              "
             >
               {/* Image */}
-              <div className="relative overflow-hidden rounded-xl">
+              <div className="h-72 w-full overflow-hidden">
                 <img
                   src={coach.image}
                   alt={`${coach.name} - Chess Coach`}
-                  className="h-64 w-full object-cover transition duration-300 group-hover:scale-105"
+                  className="h-full w-full object-cover"
                 />
               </div>
 
-              {/* Info */}
-              <div className="mt-6">
-                <h3 className="text-xl font-semibold text-gray-900">
+              {/* Content */}
+              <div className="p-8">
+                <h3 className="text-xl font-semibold text-[#0B0B0B]">
                   {coach.name}
                 </h3>
-                <p className="mt-1 text-sm font-medium text-amber-600">
+
+                <p className="mt-1 text-sm font-medium text-[#1FB6E0]">
                   {coach.role}
                 </p>
-                <p className="mt-1 text-sm text-gray-500">
+
+                <p className="mt-1 text-sm text-[#6B7280]">
                   {coach.experience}
                 </p>
 
-                <p className="mt-4 text-gray-600">
+                <p className="mt-5 text-sm leading-relaxed text-[#4B5563]">
                   {coach.bio}
                 </p>
               </div>
@@ -84,15 +85,6 @@ const Coaches: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <a
-            href="#demo"
-            className="inline-block rounded-full bg-amber-500 px-8 py-3 text-base font-semibold text-white shadow hover:bg-amber-600 transition"
-          >
-            Learn From Expert Coaches
-          </a>
-        </div>
       </div>
     </section>
   );
