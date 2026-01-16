@@ -7,16 +7,25 @@ const ScrollManager = () => {
   const positions = useRef<Record<string, number>>({});
 
   useEffect(() => {
-    const key = location.key;
+    const {  hash, key } = location;
 
-    // Restore scroll position on back/forward
+    // If URL contains hash (#contact)
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
+
+    // Restore scroll on back/forward
     if (navigationType === "POP" && positions.current[key] !== undefined) {
       window.scrollTo({
         top: positions.current[key],
         behavior: "auto",
       });
     } else {
-      // New navigation → scroll to top
+      // Normal navigation → scroll to top
       window.scrollTo({
         top: 0,
         behavior: "smooth",
