@@ -8,13 +8,13 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
 
-import ScrollToTop from "./utils/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollManager from "./utils/ScrollManager";
 
 function App() {
   return (
   <BrowserRouter>
-  <ScrollToTop />
+  <ScrollManager />
     <Header />
 
     <Routes>
