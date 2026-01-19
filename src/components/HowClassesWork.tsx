@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  PhoneCall,
-  ClipboardList,
-  Users,
-  LineChart,
-} from "lucide-react";
+import { PhoneCall, ClipboardList, Users, LineChart } from "lucide-react";
 
 type Step = {
   step: string;
@@ -48,7 +43,6 @@ const HowClassesWork: React.FC = () => {
   return (
     <section className="bg-[#F8F9FB] py-24 scroll-mt-20" id="how-it-works">
       <div className="mx-auto max-w-7xl px-4">
-
         {/* Heading */}
         <div className="mb-20 max-w-3xl">
           <h2 className="text-3xl font-bold text-[#0B0B0B] md:text-4xl">
@@ -95,11 +89,11 @@ const HowClassesWork: React.FC = () => {
 
         {/* CTA */}
         <div className="mt-20 text-center">
-         <a
-  href="#demo"
-  className="
+          <a
+            href="#demo"
+            className="
     rounded-full
-    bg-gradient-to-r from-[#F4B400] to-[#E0A800]
+    bg-linear-to-r from-[#F4B400] to-[#E0A800]
     px-6 py-2.5 text-sm font-semibold
     text-[#0B0B0B]
     shadow-[0_4px_20px_rgba(244,180,0,0.35)]
@@ -112,12 +106,10 @@ const HowClassesWork: React.FC = () => {
     focus-visible:ring-offset-2
     focus-visible:ring-offset-[#0B0B0B]
   "
->
-  Book Free Demo
-</a>
-
+          >
+            Book Free Demo
+          </a>
         </div>
-
       </div>
     </section>
   );
