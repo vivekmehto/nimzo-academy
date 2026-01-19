@@ -1,129 +1,141 @@
 import React from "react";
-import { GraduationCap, Brain, Trophy } from "lucide-react";
+import { CircleDot, Layers, TrendingUp, Award } from "lucide-react";
 
-type Program = {
-  icon: React.ReactNode;
-  title: string;
-  subtitle: string;
-  description: string;
-  highlights: string[];
-};
-
-const programs: Program[] = [
+const courses = [
   {
-    icon: <GraduationCap className="h-7 w-7 text-[#1FB6E0]" />,
-    title: "Beginner Program",
-    subtitle: "Ages 6–10",
-    description:
-      "Perfect for kids who are new to chess. We focus on fundamentals, rules, and developing interest in the game.",
-    highlights: [
-      "Basic rules & piece movement",
-      "Checkmate patterns",
-      "Fun puzzles & activities",
-      "Confidence building",
+    icon: <CircleDot className="h-10 w-10 text-[#2563EB]" />,
+    title: "Beginner",
+    desc: "Ideal for children starting their chess journey",
+    recommended: false,
+    points: [
+      "48 guided training sessions",
+      "12 tactical puzzle practice classes",
+      "Online practice tournaments",
+      "Study material & worksheets",
+      "Class summary after every session",
+      "Performance tracking & feedback",
     ],
   },
   {
-    icon: <Brain className="h-7 w-7 text-[#1FB6E0]" />,
-    title: "Intermediate Program",
-    subtitle: "Ages 8–14",
-    description:
-      "Designed for students with basic knowledge who want to improve strategy, tactics, and competitive play.",
-    highlights: [
-      "Opening principles",
-      "Tactical combinations",
-      "Endgame basics",
-      "Game analysis",
+    icon: <Layers className="h-10 w-10 text-[#2563EB]" />,
+    title: "Intermediate",
+    desc: "Best choice for students with basic chess knowledge",
+    recommended: true,
+    points: [
+      "48 structured training sessions",
+      "12 tactical improvement classes",
+      "Opening principles & tactics",
+      "Online tournaments",
+      "Detailed study material",
+      "Progress tracking",
     ],
   },
   {
-    icon: <Trophy className="h-7 w-7 text-[#1FB6E0]" />,
-    title: "Advanced / Tournament Program",
-    subtitle: "Competitive Players",
-    description:
-      "For serious players preparing for tournaments with in-depth training and personalized coaching.",
-    highlights: [
-      "Advanced openings",
-      "Deep positional play",
-      "Tournament preparation",
-      "Individual feedback",
+    icon: <TrendingUp className="h-10 w-10 text-[#2563EB]" />,
+    title: "Advanced",
+    desc: "For competitive and serious learners",
+    recommended: false,
+    points: [
+      "48 advanced training sessions",
+      "24 tactical solving classes",
+      "24 online tournaments",
+      "Positional & endgame training",
+      "Game analysis reports",
+      "Performance evaluation",
+    ],
+  },
+  {
+    icon: <Award className="h-10 w-10 text-[#2563EB]" />,
+    title: "Master",
+    desc: "For tournament-focused players",
+    recommended: false,
+    points: [
+      "48 high-level sessions",
+      "Advanced opening preparation",
+      "Tournament mindset training",
+      "National & international prep",
+      "Personal development roadmap",
+      "One-on-one feedback",
     ],
   },
 ];
 
-const Programs: React.FC = () => {
+const Courses = () => {
   return (
-    <section
-      id="programs"
-      className="bg-[#F8F9FB] py-24"
-    >
+    <section className="bg-[#F5F9FF] py-28">
       <div className="mx-auto max-w-7xl px-4">
-
-        {/* Section Heading */}
+        {/* Heading */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold text-[#0B0B0B] md:text-4xl">
-            Chess Programs Designed for Every Level
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827]">
+            Our Chess Programs
           </h2>
-          <p className="mt-4 mx-auto max-w-2xl text-lg text-[#6B7280]">
-            Our structured curriculum ensures steady progress — from beginners
-            to tournament-ready players.
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-[#4B5563]">
+            A structured learning path designed to help children grow from
+            beginners to confident competitive players.
           </p>
         </div>
 
-        {/* Program Cards */}
-        <div className="grid gap-10 md:grid-cols-3">
-          {programs.map((program, index) => (
+        {/* Cards */}
+        <div className="grid gap-8 md:grid-cols-4">
+          {courses.map((course, index) => (
             <div
               key={index}
-              className="
-                flex flex-col rounded-3xl bg-white p-8
-                shadow-[0_10px_40px_rgba(0,0,0,0.05)]
-                transition-all duration-300
-                hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-              "
+              className={`
+                relative
+                bg-white
+                rounded-3xl
+                border
+                p-8
+                transition-all
+                duration-300
+                ${
+                  course.recommended
+                    ? "border-[#2563EB] shadow-md"
+                    : "border-slate-200"
+                }
+                hover:-translate-y-1
+                hover:border-[#2563EB]
+                hover:shadow-lg
+              `}
             >
+              {/* Recommended badge */}
+              {course.recommended && (
+                <span
+                  className="
+                  absolute -top-3 right-6
+                  rounded-full
+                  bg-[#2563EB]
+                  px-4 py-1
+                  text-xs font-semibold text-white
+                  shadow
+                "
+                >
+                  Recommended
+                </span>
+              )}
+
               {/* Icon */}
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#1FB6E0]/10">
-                {program.icon}
-              </div>
+              <div className="mb-6 flex justify-center">{course.icon}</div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-[#0B0B0B]">
-                {program.title}
+              <h3 className="text-xl font-semibold text-center text-[#111827]">
+                {course.title}
               </h3>
-              <p className="mt-1 text-sm font-medium text-[#6B7280]">
-                {program.subtitle}
-              </p>
 
               {/* Description */}
-              <p className="mt-4 text-[#4B5563]">
-                {program.description}
+              <p className="mt-2 text-sm text-center text-[#4B5563]">
+                {course.desc}
               </p>
 
-              {/* Highlights */}
-              <ul className="mt-6 space-y-3 text-sm text-[#374151]">
-                {program.highlights.map((point, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-2 w-2 rounded-full bg-[#1FB6E0]" />
+              {/* Points */}
+              <ul className="mt-6 space-y-3 text-sm text-[#4B5563]">
+                {course.points.map((point, i) => (
+                  <li key={i} className="flex gap-3">
+                    <span className="mt-2 h-2 w-2 rounded-full bg-[#F59E0B]" />
                     {point}
                   </li>
                 ))}
               </ul>
-
-              {/* CTA */}
-              <a
-                href="#demo"
-                className="
-                  mt-10 inline-flex items-center justify-center
-                  rounded-full bg-[#F4B400] px-6 py-2.5
-                  text-sm font-semibold text-[#0B0B0B]
-                  shadow-[0_4px_20px_rgba(244,180,0,0.35)]
-                  transition-all duration-300
-                  hover:-translate-y-0.5 hover:shadow-[0_6px_30px_rgba(244,180,0,0.5)]
-                "
-              >
-                Book Free Demo
-              </a>
             </div>
           ))}
         </div>
@@ -132,4 +144,4 @@ const Programs: React.FC = () => {
   );
 };
 
-export default Programs;
+export default Courses;
