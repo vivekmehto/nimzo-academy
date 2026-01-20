@@ -10,11 +10,25 @@ import RefundPolicy from "./pages/RefundPolicy";
 
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollManager from "./utils/ScrollManager";
+import StickyDemoButton from "./components/StickyDemoButton";
+import DemoModal from "./components/DemoModal";
+import { useState } from "react";
 
 function App() {
+
+  const [demoOpen, setDemoOpen] = useState(false);
   return (
   <BrowserRouter>
   <ScrollManager />
+
+      {/* Sticky Button (available everywhere) */}
+      <StickyDemoButton onClick={() => setDemoOpen(true)} />
+
+      {/* Demo Modal (single instance) */}
+      <DemoModal
+        open={demoOpen}
+        onClose={() => setDemoOpen(false)}
+      />
     <Header />
 
     <Routes>
