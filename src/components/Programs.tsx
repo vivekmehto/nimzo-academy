@@ -1,4 +1,4 @@
-import React from "react";
+
 import { CircleDot, Layers, TrendingUp, Award } from "lucide-react";
 
 const courses = [

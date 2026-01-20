@@ -1,6 +1,7 @@
 import React from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router";
+import { NIMZO_EMAIL,NIMZO_PHONE_NUMBER } from "../utils/constants";
 
 const Footer: React.FC = () => {
   return (
@@ -79,11 +80,11 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-[#1FB6E0]" />
-                <span>+91 97180 86186</span>
+                <span>{NIMZO_PHONE_NUMBER}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-[#1FB6E0]" />
-                <span>nimzoacademy@gmail.com</span>
+                <span>{NIMZO_EMAIL}</span>
               </li>
               <li className="flex items-center gap-3">
                 <MapPin size={16} className="text-[#1FB6E0]" />
