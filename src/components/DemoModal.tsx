@@ -25,6 +25,18 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+    useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const validateField = (name: string, value: string) => {
     let error = "";
     let isValid = false;
@@ -104,7 +116,6 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-
   if (!open) return null;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -147,24 +158,12 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
   };
 
 
-  useEffect(() => {
-  if (open) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-
-  return () => {
-    document.body.style.overflow = "";
-  };
-}, [open]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Overlay */}
-    
-<div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
 
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
 
       {/* Modal */}
       <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
