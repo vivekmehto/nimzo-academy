@@ -104,13 +104,6 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", handleEsc);
-    return () => document.removeEventListener("keydown", handleEsc);
-  }, [onClose]);
 
   if (!open) return null;
 
@@ -147,16 +140,31 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
   };
 
   const inputBase =
-    "w-full rounded-lg border border-black px-4 py-3 text-sm " +
-    "outline-none focus:border-amber-500 focus:ring-0 focus:shadow-none";
+    "w-full rounded-lg border border-black px-4 py-3 text-sm outline-none focus:border-amber-500 focus:ring-0 focus:shadow-none";
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target.value = e.target.value.replace(/\D/g, "");
+  };
+
+
+  useEffect(() => {
+  if (open) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [open]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Overlay */}
-      <div
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-        onClick={onClose}
-      />
+    
+<div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+
 
       {/* Modal */}
       <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
@@ -230,6 +238,10 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
                     placeholder="Mobile Number (Preferably WhatsApp)"
                     onBlur={(e) => validateField(e.target.name, e.target.value)}
                     className={inputBase}
+                    type="tel"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    onChange={handlePhoneChange}
                   />
                 </div>
 
