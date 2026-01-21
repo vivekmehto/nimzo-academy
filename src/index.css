@@ -4,11 +4,11 @@ html {
   scroll-behavior: smooth;
 }
 
-:focus-visible {
+/* :focus-visible {
   outline: 2px solid #1fb6e0;
   outline-offset: 3px;
   border-radius: 9999px;
-}
+} */
 
 .swiper-pagination-bullet {
   background: #22d3ee;

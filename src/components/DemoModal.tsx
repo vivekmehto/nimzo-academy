@@ -27,45 +27,38 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
 
   const validateField = (name: string, value: string) => {
     let error = "";
+    let isValid = false;
 
     switch (name) {
       case ENTRY.parentEmail:
-        if (!/^\S+@\S+\.\S+$/.test(value)) {
-          error = "Please enter a valid email address";
-        }
+        isValid = /^\S+@\S+\.\S+$/.test(value);
+        error = isValid ? "" : "Please enter a valid email address";
         break;
 
       case ENTRY.parentName:
-        if (value.trim().length < 2) {
-          error = "Please enter parent’s name";
-        }
+        isValid = value.trim().length >= 2;
+        error = isValid ? "" : "Please enter parent’s name";
         break;
 
       case ENTRY.childName:
-        if (value.trim().length < 2) {
-          error = "Please enter child’s name";
-        }
+        isValid = value.trim().length >= 2;
+        error = isValid ? "" : "Please enter child’s name";
         break;
 
       case ENTRY.phone: {
         const clean = value.replace(/\D/g, "");
-        if (clean.length < 6 || clean.length > 15) {
-          error = "Enter a valid mobile number";
-        }
+        isValid = clean.length >= 6 && clean.length <= 15;
+        error = isValid ? "" : "Enter a valid mobile number";
         break;
       }
 
       case ENTRY.childAge:
-        if (!value) {
-          error = "Please select child’s age";
-        }
+        isValid = Boolean(value);
+        error = isValid ? "" : "Please select child’s age";
         break;
     }
 
-    setErrors((prev) => ({
-      ...prev,
-      [name]: error,
-    }));
+    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const getValue = (form: HTMLFormElement, name: string): string => {
@@ -126,10 +119,21 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
 
     const form = e.currentTarget;
 
-    // ❌ stop submit if validation fails
-    if (!validateForm(form)) return;
+    if (!validateForm(form)) {
+      // auto-focus first invalid field
+      const firstErrorField = Object.keys(errors)[0];
+      if (firstErrorField) {
+        const el = form.elements.namedItem(
+          firstErrorField
+        ) as HTMLElement | null;
+        el?.focus();
+      }
+      return;
+    }
 
     const formData = new FormData(form);
+
+    formData.append(ENTRY.countryCode, countryCode);
 
     fetch(GOOGLE_FORM_ACTION, {
       method: "POST",
@@ -141,6 +145,10 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
       form.reset();
     });
   };
+
+  const inputBase =
+    "w-full rounded-lg border border-black px-4 py-3 text-sm " +
+    "outline-none focus:border-amber-500 focus:ring-0 focus:shadow-none";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -170,97 +178,101 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
             </p>
 
             {/* ✅ FIX: onSubmit ADDED */}
-            <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
-              <input
-                name={ENTRY.parentEmail}
-                type="email"
-                placeholder="Parent’s Email ID"
-                required
-                onBlur={(e) => validateField(e.target.name, e.target.value)}
-                className="w-full rounded-lg border px-4 py-3 text-sm"
-              />
-
-              {errors[ENTRY.parentEmail] && (
-                <p className="text-xs text-red-500">
-                  {errors[ENTRY.parentEmail]}
-                </p>
-              )}
-
-              <input
-                name={ENTRY.parentName}
-                placeholder="Parent’s Full Name"
-                required
-                onBlur={(e) => validateField(e.target.name, e.target.value)}
-                className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
-              />
-              {errors[ENTRY.parentName] && (
-                <p className="text-xs text-red-500">
-                  {errors[ENTRY.parentName]}
-                </p>
-              )}
-
-              <input
-                name={ENTRY.childName}
-                placeholder="Child’s Name"
-                required
-                onBlur={(e) => validateField(e.target.name, e.target.value)}
-                className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
-              />
-              {errors[ENTRY.childName] && (
-                <p className="text-xs text-red-500">
-                  {errors[ENTRY.childName]}
-                </p>
-              )}
-
-              {/* Phone */}
-              <div className="flex">
-                <CountryCode value={countryCode} onChange={setCountryCode} />
+            <form onSubmit={handleSubmit} className="mt-6 space-y-3">
+              <div className="space-y-1">
                 <input
-                  name={ENTRY.phone}
-                  placeholder="Mobile Number (Preferably WhatsApp)"
+                  name={ENTRY.parentEmail}
+                  type="email"
+                  placeholder="Parent’s Email ID"
+                  onBlur={(e) => validateField(e.target.name, e.target.value)}
+                  className={inputBase}
+                  required
+                />
+
+                <p className="h-3.5 text-xs text-red-500 leading-tight">
+                  {errors[ENTRY.parentEmail] || ""}
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <input
+                  name={ENTRY.parentName}
+                  placeholder="Parent’s Full Name"
                   required
                   onBlur={(e) => validateField(e.target.name, e.target.value)}
-                  className="w-full rounded-r-lg border px-4 py-3 text-sm"
+                  className={inputBase}
                 />
+
+                <p className="h-3.5 text-xs text-red-500">
+                  {errors[ENTRY.parentName] || ""}
+                </p>
               </div>
-              {errors[ENTRY.phone] && (
-                <p className="text-xs text-red-500">{errors[ENTRY.phone]}</p>
-              )}
 
-              <select
-                name={ENTRY.childAge}
-                required
-                onBlur={(e) => validateField(e.target.name, e.target.value)}
-                className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
-              >
-                <option value="">Select Age</option>
-                <option>5–6</option>
-                <option>7–8</option>
-                <option>9–10</option>
-                <option>11–12</option>
-                <option>13–14</option>
-                <option>15+</option>
-              </select>
-              {errors[ENTRY.childAge] && (
-                <p className="text-xs text-red-500">{errors[ENTRY.childAge]}</p>
-              )}
+              <div className="space-y-1">
+                <input
+                  name={ENTRY.childName}
+                  placeholder="Child’s Name"
+                  required
+                  onBlur={(e) => validateField(e.target.name, e.target.value)}
+                  className={inputBase}
+                />
 
-              <select
-                name={ENTRY.source}
-                className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
-              >
-                <option value="">How did you hear about us?</option>
-                <option>Google Search</option>
-                <option>Instagram / Facebook</option>
-                <option>YouTube</option>
-                <option>Friend / Word of Mouth</option>
-                <option>School / Coach</option>
-                <option>Other</option>
-              </select>
+                <p className="h-3.5 text-xs text-red-500">
+                  {errors[ENTRY.childName] || ""}
+                </p>
+              </div>
 
+              <div className="space-y-1">
+                <div className="flex">
+                  <CountryCode value={countryCode} onChange={setCountryCode} />
+                  <input
+                    name={ENTRY.phone}
+                    placeholder="Mobile Number (Preferably WhatsApp)"
+                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                    className={inputBase}
+                  />
+                </div>
+
+                <p className="h-3.5 text-xs text-red-500 leading-tight">
+                  {errors[ENTRY.phone] || ""}
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <select
+                  name={ENTRY.childAge}
+                  required
+                  onBlur={(e) => validateField(e.target.name, e.target.value)}
+                  className={inputBase}
+                >
+                  <option value="">Select Age</option>
+                  <option>5–6</option>
+                  <option>7–8</option>
+                  <option>9–10</option>
+                  <option>11–12</option>
+                  <option>13–14</option>
+                  <option>15+</option>
+                </select>
+
+                <p className="h-3.5 text-xs text-red-500">
+                  {errors[ENTRY.childAge] || ""}
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <select name={ENTRY.source} className={inputBase}>
+                  <option value="">How did you hear about us?</option>
+                  <option>Google Search</option>
+                  <option>Instagram / Facebook</option>
+                  <option>YouTube</option>
+                  <option>Friend / Word of Mouth</option>
+                  <option>School / Coach</option>
+                  <option>Other</option>
+                </select>
+              </div>
               <button
                 type="submit"
-                className="mt-2 rounded-full bg-amber-500 py-3 font-semibold text-white hover:bg-amber-600 transition"
+                className="mt-2 w-full rounded-full bg-amber-500 py-3 font-semibold text-white hover:bg-amber-600 transition"
               >
                 Book Free Demo
               </button>
