@@ -1,17 +1,7 @@
 import React from "react";
+import { countries } from "../utils/constants";
 
-type Country = {
-  code: string;
-  label: string;
-  flag: string;
-};
 
-const countries: Country[] = [
-  { code: "+91", label: "India", flag: "🇮🇳" },
-  { code: "+1", label: "USA", flag: "🇺🇸" },
-  { code: "+44", label: "UK", flag: "🇬🇧" },
-  { code: "+61", label: "Australia", flag: "🇦🇺" },
-];
 
 type Props = {
   value: string;
