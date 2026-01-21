@@ -8,23 +8,109 @@ type Props = {
 };
 
 const ENTRY = {
-  parentEmail: import.meta.env.VITE_PARENT_EMAIL,
-  parentName: import.meta.env.VITE_PARENT_NAME,
-  childName: import.meta.env.VITE_CHILD_NAME,
-  countryCode: import.meta.env.VITE_COUNTRY_CODE,
-  phone: import.meta.env.VITE_PHONE,
-  childAge: import.meta.env.VITE_CHILD_AGE,
-  source: import.meta.env.VITE_SOURCE,
+  parentEmail: "entry.1045781291",
+  parentName: "entry.2005620554",
+  childName: "entry.1065046570",
+  countryCode: "entry.1825318315",
+  phone: "entry.1166974658",
+  childAge: "entry.1182120577",
+  source: "entry.839337160",
 };
 
-const GOOGLE_FORM_ACTION = `${import.meta.env.VITE_GOOGLE_FORM_ACTION}`;
+const GOOGLE_FORM_ACTION = import.meta.env.VITE_GOOGLE_FORM_ACTION;
 
 const DemoModal: React.FC<Props> = ({ open, onClose }) => {
   const [countryCode, setCountryCode] = useState("+91");
   const [submitted, setSubmitted] = useState(false);
-  
 
-  // Close on ESC
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateField = (name: string, value: string) => {
+    let error = "";
+
+    switch (name) {
+      case ENTRY.parentEmail:
+        if (!/^\S+@\S+\.\S+$/.test(value)) {
+          error = "Please enter a valid email address";
+        }
+        break;
+
+      case ENTRY.parentName:
+        if (value.trim().length < 2) {
+          error = "Please enter parent’s name";
+        }
+        break;
+
+      case ENTRY.childName:
+        if (value.trim().length < 2) {
+          error = "Please enter child’s name";
+        }
+        break;
+
+      case ENTRY.phone: {
+        const clean = value.replace(/\D/g, "");
+        if (clean.length < 6 || clean.length > 15) {
+          error = "Enter a valid mobile number";
+        }
+        break;
+      }
+
+      case ENTRY.childAge:
+        if (!value) {
+          error = "Please select child’s age";
+        }
+        break;
+    }
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: error,
+    }));
+  };
+
+  const getValue = (form: HTMLFormElement, name: string): string => {
+    const el = form.elements.namedItem(name) as
+      | HTMLInputElement
+      | HTMLSelectElement
+      | null;
+
+    return el?.value ?? "";
+  };
+
+  const validateForm = (form: HTMLFormElement) => {
+    const newErrors: Record<string, string> = {};
+
+    const email = getValue(form, ENTRY.parentEmail);
+    const parentName = getValue(form, ENTRY.parentName);
+    const childName = getValue(form, ENTRY.childName);
+    const phone = getValue(form, ENTRY.phone);
+    const age = getValue(form, ENTRY.childAge);
+
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      newErrors[ENTRY.parentEmail] = "Please enter a valid email address";
+    }
+
+    if (!parentName || parentName.trim().length < 2) {
+      newErrors[ENTRY.parentName] = "Please enter parent’s name";
+    }
+
+    if (!childName || childName.trim().length < 2) {
+      newErrors[ENTRY.childName] = "Please enter child’s name";
+    }
+
+    const cleanPhone = phone.replace(/\D/g, "");
+    if (!cleanPhone || cleanPhone.length < 6 || cleanPhone.length > 15) {
+      newErrors[ENTRY.phone] = "Enter a valid mobile number";
+    }
+
+    if (!age) {
+      newErrors[ENTRY.childAge] = "Please select child’s age";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -38,10 +124,12 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
 
-    // ✅ append country code manually
-    formData.append(ENTRY.countryCode, countryCode);
+    // ❌ stop submit if validation fails
+    if (!validateForm(form)) return;
+
+    const formData = new FormData(form);
 
     fetch(GOOGLE_FORM_ACTION, {
       method: "POST",
@@ -49,7 +137,8 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
       body: formData,
     }).then(() => {
       setSubmitted(true);
-      e.currentTarget.reset();
+      setErrors({});
+      form.reset();
     });
   };
 
@@ -81,49 +170,67 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
             </p>
 
             {/* ✅ FIX: onSubmit ADDED */}
-            <form
-              onSubmit={handleSubmit}
-              className="mt-6 grid gap-4"
-            >
+            <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
               <input
                 name={ENTRY.parentEmail}
                 type="email"
                 placeholder="Parent’s Email ID"
                 required
-                className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                onBlur={(e) => validateField(e.target.name, e.target.value)}
+                className="w-full rounded-lg border px-4 py-3 text-sm"
               />
+
+              {errors[ENTRY.parentEmail] && (
+                <p className="text-xs text-red-500">
+                  {errors[ENTRY.parentEmail]}
+                </p>
+              )}
 
               <input
                 name={ENTRY.parentName}
                 placeholder="Parent’s Full Name"
                 required
+                onBlur={(e) => validateField(e.target.name, e.target.value)}
                 className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
+              {errors[ENTRY.parentName] && (
+                <p className="text-xs text-red-500">
+                  {errors[ENTRY.parentName]}
+                </p>
+              )}
 
               <input
                 name={ENTRY.childName}
                 placeholder="Child’s Name"
                 required
+                onBlur={(e) => validateField(e.target.name, e.target.value)}
                 className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
+              {errors[ENTRY.childName] && (
+                <p className="text-xs text-red-500">
+                  {errors[ENTRY.childName]}
+                </p>
+              )}
 
               {/* Phone */}
               <div className="flex">
-                <CountryCode
-                  value={countryCode}
-                  onChange={setCountryCode}
-                />
+                <CountryCode value={countryCode} onChange={setCountryCode} />
                 <input
                   name={ENTRY.phone}
                   placeholder="Mobile Number (Preferably WhatsApp)"
                   required
-                  className="w-full rounded-r-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  onBlur={(e) => validateField(e.target.name, e.target.value)}
+                  className="w-full rounded-r-lg border px-4 py-3 text-sm"
                 />
               </div>
+              {errors[ENTRY.phone] && (
+                <p className="text-xs text-red-500">{errors[ENTRY.phone]}</p>
+              )}
 
               <select
                 name={ENTRY.childAge}
                 required
+                onBlur={(e) => validateField(e.target.name, e.target.value)}
                 className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
               >
                 <option value="">Select Age</option>
@@ -134,6 +241,9 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
                 <option>13–14</option>
                 <option>15+</option>
               </select>
+              {errors[ENTRY.childAge] && (
+                <p className="text-xs text-red-500">{errors[ENTRY.childAge]}</p>
+              )}
 
               <select
                 name={ENTRY.source}
