@@ -70,11 +70,11 @@ const WhyChooseUs = () => {
 
           {/* RIGHT IMAGE PANEL */}
           <div className="relative flex justify-center">
-            <div className="relative rounded-4xl bg-[#2563EB] p-6">
+            <div className="relative rounded-4xl  p-6">
               <img
-                src="/why-choose-us-child.png"
+                src="/why-choose-us.jpg"
                 alt="Child learning chess"
-                className="rounded-3xl w-full max-w-sm object-cover"
+                className="rounded-3xl w-full object-cover"
               />
             </div>
           </div>
