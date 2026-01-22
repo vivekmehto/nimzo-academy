@@ -19,9 +19,9 @@ const WhyChessHelps: React.FC = () => {
             <div className="relative">
               <div className="overflow-hidden rounded-3xl shadow-sm">
                 <img
-                  src="/color-image-of-a-boy-playng-chess-768x768.png"
+                  src="/why-chess.jpg"
                   alt="Child learning chess"
-                  className="w-full h-80 object-cover"
+                  className="w-full  object-cover"
                 />
               </div>
             </div>
