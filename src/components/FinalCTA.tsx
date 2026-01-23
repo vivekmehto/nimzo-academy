@@ -4,71 +4,77 @@ const FinalCTA: React.FC = () => {
   return (
     <section
       id="demo"
-      className="relative overflow-hidden bg-[#0B0B0B] py-28 scroll"
+      className="relative overflow-hidden bg-white py-28"
     >
-      {/* Subtle Background Accent */}
+      {/* Soft background accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#1FB6E0]/10 blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#F4B400]/10 blur-3xl" />
+        <div className="absolute -top-40 -right-40 h-105 w-105 rounded-full bg-[#2563EB]/10 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 h-105 w-105 rounded-full bg-[#22D3EE]/10 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-5xl px-4 text-center">
+      <div className="relative mx-auto max-w-4xl px-4 text-center">
+        
         {/* Headline */}
-        <h2 className="text-3xl font-extrabold text-white md:text-4xl">
-          Give Your Child a Strong Strategic Foundation
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827]">
+          Help your child make the{" "}
+          <span className="bg-linear-to-r from-[#2563EB] to-[#22D3EE] bg-clip-text text-transparent">
+            right first move
+          </span>{" "}
+          in chess — and in thinking
         </h2>
 
         {/* Subheading */}
-        <p className="mt-5 text-lg text-gray-300">
-          Join our structured chess program and help your child develop focus,
-          confidence, and critical thinking skills that last a lifetime.
+        <p className="mt-6 text-lg leading-relaxed text-[#4B5563]">
+          Our structured chess program is designed to build focus, confidence,
+          and strategic thinking — skills that support academic success and
+          personal growth well beyond the chessboard.
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <div className="mt-12 flex flex-wrap justify-center gap-6">
+          
           {/* Primary CTA */}
-       <a
-  href="#demo"
-  className="
-    rounded-full
-    bg-linear-to-r from-[#F4B400] to-[#E0A800]
-    px-6 py-2.5 text-sm font-semibold
-    text-[#0B0B0B]
-    shadow-[0_4px_20px_rgba(244,180,0,0.35)]
-    transition-all duration-300
-    hover:-translate-y-0.5
-    hover:shadow-[0_6px_30px_rgba(244,180,0,0.5)]
-    focus-visible:outline-none
-    focus-visible:ring-2
-    focus-visible:ring-[#1FB6E0]
-    focus-visible:ring-offset-2
-    focus-visible:ring-offset-[#0B0B0B]
-  "
->
-  Book Free Demo
-</a>
-
-
-          {/* Secondary CTA (Optional) */}
           <a
-            href="https://wa.me/919718086186"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#demo-form"
             className="
-              inline-flex items-center justify-center
-              rounded-full border border-white/30 px-10 py-3.5
+              rounded-full
+              bg-[#F59E0B]
+              px-10 py-4
               text-sm font-semibold text-white
+              shadow-lg
               transition-all duration-300
-              hover:border-white hover:bg-white/5
+              hover:-translate-y-0.5
+              hover:bg-[#D97706]
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-[#2563EB]
+              focus-visible:ring-offset-2
             "
           >
-            WhatsApp Us
+            Book a Free Demo Class
+          </a>
+
+          {/* Secondary CTA */}
+          <a
+            href="#programs"
+            className="
+              inline-flex items-center justify-center
+              rounded-full
+              border border-[#2563EB]
+              px-10 py-4
+              text-sm font-semibold
+              text-[#2563EB]
+              transition-all duration-300
+              hover:bg-[#2563EB]/5
+            "
+          >
+            View Learning Programs
           </a>
         </div>
 
-        {/* Trust Line */}
-        <p className="mt-10 text-sm text-gray-400">
-          No commitment required • Limited batch sizes • Personal attention
+        {/* Trust reassurance */}
+        <p className="mt-10 text-sm text-[#4B5563]">
+          No commitment required • Limited batch sizes • Personal coach attention
         </p>
       </div>
     </section>
