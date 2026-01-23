@@ -1,100 +1,141 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+
+import "swiper/swiper-bundle.css";
 
 const testimonials = [
   {
-    parent: "Poovandhree Naidoo",
-    country: "South Africa",
-    image: "/parents/parent1.jpg",
-    review:
-      "Nimzo Chess Academy offers fantastic online classes with brilliant coaches. My 9-year-old son enjoys learning and has improved his game a lot. I highly recommend Nimzo Chess Academy.",
-  },
-  {
     parent: "Sonal Tewari",
     country: "India",
-    image: "/parents/parent2.jpg",
+    image: "/parents/parent1.jpg",
     review:
-      "I enrolled my son for the first time during summer camp. After that, he developed a keen interest in chess. The classes are very interactive and we have seen good progress.",
+      "We enrolled our son during the summer camp and the experience exceeded our expectations. The classes are interactive, well-planned, and fun. He now looks forward to every chess session.",
   },
   {
     parent: "Meera Kapoor",
     country: "India",
-    image: "/parents/parent3.jpg",
+    image: "/parents/parent2.jpg",
     review:
-      "The coaches are very patient and supportive. My daughter has gained confidence and enjoys every session.",
+      "The coaches are extremely patient and encouraging. My daughter was initially shy, but she now confidently participates and enjoys every class. We’ve seen great improvement in her focus.",
   },
   {
     parent: "Rahul Singh",
     country: "India",
-    image: "/parents/parent4.jpg",
+    image: "/parents/parent3.jpg",
     review:
-      "Very structured learning approach. My child’s focus and discipline have improved significantly.",
+      "Very structured learning approach with regular feedback and analysis. My child’s confidence, discipline, and strategic thinking have improved significantly.",
+  },
+  {
+    parent: "Anita Fernandez",
+    country: "United Arab Emirates",
+    image: "/parents/parent1.jpg",
+    review:
+      "Being based overseas, we were looking for quality online chess coaching and this academy delivered exactly that. The sessions are engaging and very well organized.",
+  },
+  {
+    parent: "David Miller",
+    country: "United States",
+    image: "/parents/parent2.jpg",
+    review:
+      "Clear teaching methods and excellent mentors. My child enjoys learning chess here and has developed better concentration and analytical thinking.",
+  },
+  {
+    parent: "Mark Johnson",
+    country: "United Kingdom",
+    image: "/parents/parent3.jpg",
+    review:
+      "The curriculum is well structured and suitable for children. The coaches explain concepts clearly and ensure every child understands before moving ahead.",
   },
 ];
 
-const Testimonials: React.FC = () => {
-  return (
-    <section className="bg-white py-28 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 text-center">
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-[#2563EB]">
-          Our Student’s Happy Parents
-        </h2>
-        <div className="mx-auto mt-3 h-1 w-20 bg-[#2563EB]" />
 
-        {/* Slider */}
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          autoplay={{
-            delay: 4500,
-            disableOnInteraction: false,
-          }}
-          pagination={{ clickable: true }}
-          loop
-          centeredSlides
-          spaceBetween={40}
-          slidesPerView={1.2}
-          breakpoints={{
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 2.2,
-            },
-          }}
-          className="mt-20"
-        >
-          {testimonials.map((item, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative rounded-3xl border-2 border-dashed border-[#F59E0B] bg-white px-10 pb-10 pt-20 text-left shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500">
-                {/* Floating image */}
-                <div className="absolute -top-10 left-10">
-                  <div className="relative">
-                    <div className="absolute -inset-2 rotate-6 bg-[#2563EB]" />
-                    <img
-                      src={item.image}
-                      alt={item.parent}
-                      className="relative h-20 w-20 rounded-full object-cover bg-white"
-                    />
+const Testimonials: React.FC = () => {
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  return (
+    <section className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-4">
+        {/* Heading */}
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-600">
+            Our Students’ Happy Parents
+          </h2>
+          <div className="mx-auto mt-3 h-1 w-20 bg-blue-600" />
+        </div>
+
+        {/* Slider Area */}
+        <div className="relative mt-16 flex items-center gap-6">
+          {/* LEFT ARROW */}
+          <button
+            onClick={() => swiperRef.current?.slidePrev()}
+            className="hidden md:flex h-12 w-12 items-center justify-center rounded-full border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition"
+            aria-label="Previous testimonial"
+          >
+            ❮
+          </button>
+
+          {/* SWIPER */}
+          <Swiper
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            modules={[Autoplay, Pagination]}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            pagination={{ clickable: true }}
+            loop
+            spaceBetween={32}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              1024: { slidesPerView: 2 },
+            }}
+            className="flex-1"
+          >
+            {testimonials.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="h-full rounded-2xl bg-white p-10 text-center shadow-lg">
+                  <div className="flex h-full flex-col ">
+                    <div className="flex justify-center">
+                      <img
+                        src={item.image}
+                        alt={item.parent}
+                        className="h-16 w-16 rounded-full object-cover shadow"
+                      />
+                    </div>
+
+                    <div className="mt-4 min-h-35 flex items-center justify-center">
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+                        <span className="text-orange-400 text-xl font-bold">
+                          “
+                        </span>
+                        {item.review}
+                        <span className="text-orange-400 text-xl font-bold">
+                          ”
+                        </span>
+                      </p>
+                    </div>
+
+                    <div className="mt-6">
+                      <p className="font-semibold">— {item.parent}</p>
+                    </div>
                   </div>
                 </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-                {/* Quote */}
-                <p className="text-[#111827] leading-relaxed">
-                  “{item.review}”
-                </p>
-
-                {/* Parent */}
-                <p className="mt-6 font-semibold text-[#111827]">
-                  — {item.parent}
-                </p>
-
-                <p className="text-sm text-[#4B5563]">{item.country}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          {/* RIGHT ARROW */}
+          <button
+            onClick={() => swiperRef.current?.slideNext()}
+            className="hidden md:flex h-12 w-12 items-center justify-center rounded-full border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition"
+            aria-label="Next testimonial"
+          >
+            ❯
+          </button>
+        </div>
       </div>
     </section>
   );
