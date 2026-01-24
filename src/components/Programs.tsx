@@ -1,4 +1,3 @@
-
 import { CircleDot, Layers, TrendingUp, Award } from "lucide-react";
 
 const courses = [
@@ -62,7 +61,7 @@ const courses = [
 
 const Courses = () => {
   return (
-    <section className="bg-[#F5F9FF] py-28">
+    <section id="programs" className="bg-[#F5F9FF] py-28">
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <div className="mb-16 text-center">

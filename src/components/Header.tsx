@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { useActiveSection } from "../hooks/useActiveSection";
@@ -10,11 +10,11 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { name: "Home", to: "/#home", sectionId: "home" },
-  { name: "Programs", to: "/#programs", sectionId: "programs" },
-  { name: "Testimonials", to: "/#testimonials", sectionId: "testimonials" },
-  { name: "Contact", to: "/contact" },
+  { name: "Home", to: "/", sectionId: "home" },
+  { name: "Programs", to: "/", sectionId: "programs" },
+  { name: "Testimonials", to: "/", sectionId: "testimonials" },
   { name: "About", to: "/about" },
+  { name: "Contact", to: "/contact" },
 ];
 
 const sectionIds = ["home", "programs", "testimonials"];
@@ -24,11 +24,24 @@ const Header: React.FC = () => {
   const location = useLocation();
   const activeSection = useActiveSection(sectionIds);
 
-  const isActive = (link: NavLink) => {
-    if (!link.sectionId) {
-      return location.pathname === link.to;
+  // prevent background scroll when mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+  }, [isOpen]);
+
+  const handleNavClick = (link: NavLink) => {
+    if (link.sectionId) {
+      const element = document.getElementById(link.sectionId);
+      element?.scrollIntoView({ behavior: "smooth" });
     }
-    return activeSection === link.sectionId;
+    setIsOpen(false);
+  };
+
+  const isActive = (link: NavLink) => {
+    if (link.sectionId) {
+      return activeSection === link.sectionId;
+    }
+    return location.pathname === link.to;
   };
 
   return (
@@ -47,14 +60,15 @@ const Header: React.FC = () => {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.to}
+                onClick={() => handleNavClick(link)}
                 className={`
-                  relative text-lg font-medium transition
+                  group relative text-lg font-medium transition
                   ${
                     isActive(link)
                       ? "text-[#2563EB]"
@@ -67,7 +81,7 @@ const Header: React.FC = () => {
                 {/* underline */}
                 <span
                   className={`
-                    absolute left-0 -bottom-1 h-0.5 bg-[#22D3EE] transition-all
+                    absolute left-0 -bottom-1 h-0.5 bg-[#22D3EE] transition-all duration-300
                     ${isActive(link) ? "w-full" : "w-0 group-hover:w-full"}
                   `}
                 />
@@ -75,7 +89,7 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* CTA + Mobile */}
+          {/* CTA + Mobile Button */}
           <div className="flex items-center gap-3">
             <a
               href="/#contact"
@@ -107,13 +121,13 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-slate-200">
-          <nav className="flex flex-col gap-4 px-4 py-6">
+          <nav className="flex flex-col gap-5 px-6 py-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.to}
-                onClick={() => setIsOpen(false)}
-                className={`text-sm font-medium ${
+                onClick={() => handleNavClick(link)}
+                className={`text-base font-medium ${
                   isActive(link) ? "text-[#2563EB]" : "text-[#111827]"
                 }`}
               >

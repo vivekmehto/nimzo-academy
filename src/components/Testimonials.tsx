@@ -50,12 +50,11 @@ const testimonials = [
   },
 ];
 
-
 const Testimonials: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <section className="bg-white py-24">
+    <section id="testimonials" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <div className="text-center">

@@ -5,7 +5,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative bg-white pt-32 pb-20 h-screen flex items-center overflow-hidden"
+      className="relative bg-white pt-20 pb-20 flex items-center"
     >
       {/* Background accents */}
       <div className="absolute inset-0 pointer-events-none">
@@ -13,9 +13,8 @@ const Hero: React.FC = () => {
         <div className="absolute -bottom-40 -left-40 h-105 w-105 rounded-full bg-[#22D3EE]/20 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4">
+      <div className="relative mx-auto max-w-[90%] px-4">
         <div className="grid grid-cols-1 items-center gap-20 md:grid-cols-2">
-          
           {/* LEFT CONTENT */}
           <div>
             {/* Badge */}
@@ -34,13 +33,13 @@ const Hero: React.FC = () => {
 
             {/* Sub headline */}
             <p className="mt-5 text-lg font-semibold text-[#2563EB]">
-              Online Chess Classes for Kids (Ages 6–16)
+              Chess Classes for Kids (Ages 5–16)
             </p>
 
             {/* Description */}
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#4B5563]">
+            <p className="mt-6 pr-4 max-w-xl text-lg leading-relaxed text-[#4B5563]">
               Our carefully designed chess curriculum helps children improve
-              focus, logical thinking, patience, and decision-making skills.
+              focus, logical thinking, patience, and decision making skills.
               Every class is led by experienced, FIDE-rated coaches in a
               supportive and engaging learning environment.
             </p>
@@ -71,21 +70,21 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Stats */}
-          <HeroStats />
           </div>
 
           {/* RIGHT IMAGE */}
-         
-           <div className="relative flex justify-center">
-            <div className="relative rounded-4xl  p-6">
-             <img
-              src="/hero-chess2.jpg"
-              alt="Online chess class for kids"
+
+          <div className="relative flex justify-center">
+            <div className="relative rounded-4xl">
+              <img
+                src="/hero-chess2.jpg"
+                alt="Online chess class for kids"
                 className="rounded-3xl w-full object-cover"
               />
             </div>
           </div>
         </div>
+        <HeroStats />
       </div>
     </section>
   );
