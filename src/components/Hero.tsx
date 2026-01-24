@@ -1,108 +1,89 @@
 import React from "react";
+import HeroStats from "./HeroStats";
 
 const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative bg-white pt-20 pb-28 overflow-hidden"
+      className="relative bg-white pt-32 pb-20 h-screen flex items-center overflow-hidden"
     >
-      {/* Soft background accents */}
+      {/* Background accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-48 -right-48 h-140 w-140 rounded-full bg-[#22D3EE]/20 blur-3xl" />
-        <div className="absolute -bottom-48 -left-48 h-140 w-140 rounded-full bg-[#2563EB]/15 blur-3xl" />
+        <div className="absolute -top-40 -right-40 h-105 w-105 rounded-full bg-[#2563EB]/20 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 h-105 w-105 rounded-full bg-[#22D3EE]/20 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 items-center gap-20 md:grid-cols-2">
+          
           {/* LEFT CONTENT */}
           <div>
-            {/* Trust badge */}
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#2563EB]/20 bg-[#2563EB]/5 px-5 py-2 text-sm font-medium text-[#2563EB]">
-              <span className="h-2 w-2 rounded-full bg-[#2563EB]" />
-              Trusted by Parents for Structured Chess Learning
+            {/* Badge */}
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#2563EB]/10 px-5 py-2 text-sm font-medium text-[#2563EB]">
+              ♟ Trusted by parents across the globe
             </div>
 
             {/* Headline */}
-            <h1 className="max-w-xl text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#111827]">
-              Helping Your Child Develop{" "}
+            <h1 className="max-w-xl text-4xl md:text-5xl font-extrabold leading-tight text-[#111827]">
+              Building{" "}
               <span className="bg-linear-to-r from-[#2563EB] to-[#22D3EE] bg-clip-text text-transparent">
-                Focus, Confidence & Strategic Thinking
+                smarter minds
               </span>{" "}
-              Through Chess
+              through structured chess learning
             </h1>
 
-            {/* Supporting line (very important) */}
-            <p className="mt-4 max-w-xl text-base font-medium text-[#2563EB]">
-              Designed for kids aged 6+ • Online & Offline Classes Available
+            {/* Sub headline */}
+            <p className="mt-5 text-lg font-semibold text-[#2563EB]">
+              Online Chess Classes for Kids (Ages 6–16)
             </p>
 
             {/* Description */}
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#4B5563]">
-              At Nimzo Chess Academy, we follow a structured, step-by-step
-              training approach that strengthens logical reasoning,
-              concentration, patience, and decision-making skills — taught by
-              experienced and dedicated coaches.
+              Our carefully designed chess curriculum helps children improve
+              focus, logical thinking, patience, and decision-making skills.
+              Every class is led by experienced, FIDE-rated coaches in a
+              supportive and engaging learning environment.
             </p>
 
             {/* CTA */}
             <div className="mt-10 flex flex-wrap items-center gap-6">
-              <a
-                href="#demo"
+              <button
                 className="
-                  inline-flex items-center justify-center
                   rounded-full
                   bg-[#F59E0B]
-                  px-9 py-3.5
+                  px-8 py-3.5
                   text-sm font-semibold text-white
-                  shadow-[0_12px_35px_rgba(245,158,11,0.35)]
+                  shadow-lg
                   transition-all duration-300
                   hover:-translate-y-0.5
                   hover:bg-[#D97706]
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-[#2563EB]
-                  focus-visible:ring-offset-2
                 "
               >
                 Book a Free Demo Class
-              </a>
+              </button>
 
               <a
                 href="#programs"
                 className="text-sm font-semibold text-[#2563EB] hover:underline"
               >
-                View Programs →
+                Explore Programs →
               </a>
             </div>
 
-            {/* Trust stats */}
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-slate-200 pt-8">
-              <div>
-                <p className="text-2xl font-bold text-[#111827]">500+</p>
-                <p className="text-sm text-[#4B5563]">Students Trained</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-[#111827]">5+ Years</p>
-                <p className="text-sm text-[#4B5563]">Coaching Experience</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-[#111827]">4.8★</p>
-                <p className="text-sm text-[#4B5563]">Parent Satisfaction</p>
-              </div>
-            </div>
+            {/* Stats */}
+          <HeroStats />
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="relative">
-            <div className="relative z-10 overflow-hidden rounded-4xl shadow-[0_30px_70px_rgba(0,0,0,0.14)]">
-              <img
-                src="/hero-chess.jpg"
-                alt="Chess coaching for kids"
-                className="w-full max-h-105 object-cover rounded-4xl"
+         
+           <div className="relative flex justify-center">
+            <div className="relative rounded-4xl  p-6">
+             <img
+              src="/hero-chess2.jpg"
+              alt="Online chess class for kids"
+                className="rounded-3xl w-full object-cover"
               />
             </div>
-
-            <div className="absolute inset-0 rounded-4xl ring-1 ring-slate-200 pointer-events-none" />
           </div>
         </div>
       </div>

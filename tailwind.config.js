@@ -1,17 +1,18 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // 🔥 REQUIRED
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        brand: {
-          black: "#0B0B0B",
-          blue: "#1FB6E0",
-          gold: "#F4B400",
-        },
+        background: "#FFFFFF",
+        textPrimary: "#111827",
+        textSecondary: "#4B5563",
+
+        brand: "#2563EB",
+        brandSoft: "#22D3EE",
+        cta: "#F59E0B",
       },
     },
   },
