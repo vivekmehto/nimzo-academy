@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { useActiveSection } from "../hooks/useActiveSection";
+import CTABtn from "./CTABtn";
 
 type NavLink = {
   name: string;
@@ -19,7 +20,11 @@ const navLinks: NavLink[] = [
 
 const sectionIds = ["home", "programs", "testimonials"];
 
-const Header: React.FC = () => {
+type Props = {
+  onClick: () => void;
+};
+
+const Header: React.FC<Props> = ({ onClick }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const activeSection = useActiveSection(sectionIds);
@@ -91,21 +96,7 @@ const Header: React.FC = () => {
 
           {/* CTA + Mobile Button */}
           <div className="flex items-center gap-3">
-            <a
-              href="/#contact"
-              className="
-                rounded-full
-                bg-[#F59E0B]
-                px-6 py-2.5
-                text-sm font-semibold text-white
-                shadow-[0_6px_20px_rgba(245,158,11,0.35)]
-                transition-all duration-300
-                hover:-translate-y-0.5
-                hover:bg-[#D97706]
-              "
-            >
-              Book Free Demo
-            </a>
+            <CTABtn onClick={onClick} />
 
             <button
               className="md:hidden p-2 text-[#111827]"

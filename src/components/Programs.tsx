@@ -61,7 +61,7 @@ const courses = [
 
 const Courses = () => {
   return (
-    <section id="programs" className="bg-[#F5F9FF] py-28">
+    <section id="programs" className="bg-white py-28">
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <div className="mb-16 text-center">
@@ -81,7 +81,7 @@ const Courses = () => {
               key={index}
               className={`
                 relative
-                bg-white
+                bg-[#F8FAFC]
                 rounded-3xl
                 border
                 p-8

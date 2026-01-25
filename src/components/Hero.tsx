@@ -8,10 +8,10 @@ const Hero: React.FC = () => {
       className="relative bg-white pt-20 pb-20 flex items-center"
     >
       {/* Background accents */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -right-40 h-105 w-105 rounded-full bg-[#2563EB]/20 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 h-105 w-105 rounded-full bg-[#22D3EE]/20 blur-3xl" />
-      </div>
+      </div> */}
 
       <div className="relative mx-auto max-w-[90%] px-4">
         <div className="grid grid-cols-1 items-center gap-20 md:grid-cols-2">
@@ -24,11 +24,8 @@ const Hero: React.FC = () => {
 
             {/* Headline */}
             <h1 className="max-w-xl text-4xl md:text-5xl font-extrabold leading-tight text-[#111827]">
-              Building{" "}
-              <span className="bg-linear-to-r from-[#2563EB] to-[#22D3EE] bg-clip-text text-transparent">
-                smarter minds
-              </span>{" "}
-              through structured chess learning
+              Chess Classes for kids That Build Focus, Logic and Confidence
+              <span className="bg-linear-to-r from-[#2563EB] to-[#22D3EE] bg-clip-text text-transparent"></span>
             </h1>
 
             {/* Sub headline */}
