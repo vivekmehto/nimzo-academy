@@ -1,168 +1,203 @@
 import React from "react";
+import FinalCTA from "../components/FinalCTA";
 
 const About: React.FC = () => {
   return (
-    <main className="pt-28">
-      {/* HERO SECTION */}
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h1 className="text-4xl font-extrabold text-gray-900 md:text-5xl">
-            About Nimzo Chess Academy
-          </h1>
-          <p className="mt-4 mx-auto max-w-3xl text-lg text-gray-600">
-            We help children develop strategic thinking, confidence, and focus
-            through structured and engaging chess education.
-          </p>
-        </div>
-      </section>
+    <main className="pt-18">
+    <section className="relative overflow-hidden bg-[#F8FAFC] py-18">
+  {/* Subtle grid background */}
+  <div
+    className="absolute inset-0 opacity-[0.04]"
+    style={{
+      backgroundImage:
+        "linear-gradient(to right, #2563EB 1px, transparent 1px), linear-gradient(to bottom, #2563EB 1px, transparent 1px)",
+      backgroundSize: "40px 40px",
+    }}
+  />
+
+  <div className="relative mx-auto max-w-7xl px-5 text-center">
+    {/* Small label */}
+    <p className="text-md font-semibold tracking-widest uppercase text-[#2563EB]">
+      About Us
+    </p>
+
+    {/* Main heading */}
+    <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#111827]">
+      Nimzo Chess Academy:
+      <br />
+      A Chess Learning Space for Young Minds
+    </h1>
+
+    {/* Description */}
+    <p className="mt-6 mx-auto max-w-3xl text-lg leading-relaxed text-[#4B5563]">
+      We’re on a mission to help children become stronger thinkers through
+      structured chess learning. From first moves to advanced play, our programs
+      develop focus, confidence, creativity, and a lifelong love for chess.
+    </p>
+  </div>
+</section>
+
 
       {/* OUR STORY */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 grid gap-12 md:grid-cols-2 items-center">
+      <section className="py-6">
+        <div className="mx-auto max-w-7xl px-5 grid gap-14 md:grid-cols-2 ">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">
-              Our Story
-            </h2>
-            <p className="mt-4 text-gray-600 leading-relaxed">
+            <h2 className="text-3xl font-bold text-[#111827]">Our Story</h2>
+
+            <p className="mt-5 text-[#4B5563]  text-md leading-relaxed">
               Nimzo Chess Academy was founded with a simple belief — chess is
-              more than a game. It is a powerful tool that helps children build
-              logical thinking, patience, discipline, and confidence.
+              more than a game. It is a powerful learning tool that helps
+              children develop logical reasoning, patience, emotional control,
+              and confidence.
             </p>
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              What started as small coaching sessions has grown into a trusted
-              academy training hundreds of students through a carefully
-              structured curriculum and experienced coaches.
+
+            <p className="mt-4 text-[#4B5563] text-md leading-relaxed">
+              What began as small coaching sessions has grown into a trusted
+              academy serving students across different countries through
+              structured programs, experienced coaches, and personalized
+              mentoring.
             </p>
+            <div className="pt-10">
+              <h3 className="text-3xl font-semibold text-[#111827]">
+                Our Mission
+              </h3>
+              <p className="mt-4 text-[#4B5563] text-md leading-relaxed">
+                Our mission is to provide high-quality, structured chess
+                education that helps children develop strong thinking habits,
+                focus, discipline, and confidence. Through a carefully designed
+                curriculum and supportive mentorship, we aim to make learning
+                chess both meaningful and enjoyable.
+              </p>
+
+              <p className="mt-3 text-[#4B5563] text-md leading-relaxed">
+                We believe that every child has the potential to think
+                strategically and make better decisions — not only on the
+                chessboard, but also in academics and everyday life.
+              </p>
+            </div>
+
+            {/* <div className="pt-10">
+              <h3 className="text-3xl font-semibold text-[#111827]">
+                Our Vision
+              </h3>
+              <p className="mt-4 text-[#4B5563] text-md leading-relaxed">
+                Our vision is to become a globally trusted chess academy known
+                for nurturing confident, disciplined, and independent thinkers.
+                We aspire to create a learning environment where students feel
+                motivated, supported, and inspired to continuously improve.
+              </p>
+
+              <p className="mt-3 text-[#4B5563] text-md leading-relaxed">
+                By combining modern teaching methods with strong foundational
+                values, we aim to empower students to excel academically,
+                emotionally, and competitively — preparing them for challenges
+                far beyond the chessboard.
+              </p>
+            </div> */}
           </div>
 
-          <div className="rounded-3xl bg-white p-6 shadow-sm">
+          <div className="relative flex items-center justify-center">
+            <div className="absolute -inset-8 bg-[#2563EB]/10 blur-3xl rounded-full" />
             <img
-              src="/about-chess.jpg"
+              src="/about-nimzo.jpg"
               alt="Chess coaching session"
-              className="rounded-2xl object-cover"
+              className="relative rounded-3xl shadow-xl"
             />
           </div>
         </div>
       </section>
 
-      {/* MISSION & VISION */}
-      <section className="bg-white py-20 border-t">
-        <div className="mx-auto max-w-7xl px-4 grid gap-10 md:grid-cols-2">
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-900">
-              Our Mission
-            </h3>
-            <p className="mt-3 text-gray-600">
-              To provide high-quality chess education that nurtures young minds
-              and builds lifelong skills through strategic learning and
-              mentorship.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-900">
-              Our Vision
-            </h3>
-            <p className="mt-3 text-gray-600">
-              To become a globally trusted chess academy that empowers students
-              to excel academically, emotionally, and competitively.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT MAKES US DIFFERENT */}
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-900">
-            What Makes Us Different
+      {/* WHY PARENTS TRUST US */}
+      <section className="bg-slate-50 py-24">
+        <div className="mx-auto max-w-7xl px-5">
+          
+          <h2 className="text-3xl font-bold text-center text-[#111827]">
+            Why Parents Trust Nimzo Chess Academy
           </h2>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
             {[
               {
-                title: "Structured Curriculum",
-                desc: "Well-defined learning paths designed for steady progress at every level.",
+                title: "Structured Learning Path",
+                desc: "Clear step-by-step curriculum designed for beginners to advanced players.",
               },
               {
-                title: "Experienced Coaches",
-                desc: "Certified coaches with real tournament and teaching experience.",
+                title: "Experienced & Certified Coaches",
+                desc: "Professional coaches with strong teaching experience and tournament exposure.",
               },
               {
-                title: "Small Batch Learning",
-                desc: "Personal attention to ensure every student improves confidently.",
+                title: "Personal Attention",
+                desc: "Small batches ensure every child receives guidance and confidence.",
               },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="rounded-2xl bg-white p-8 shadow-sm"
-              >
-                <h3 className="text-xl font-semibold text-gray-900">
+            ].map((item, i) => (
+              <div key={i} className="rounded-2xl bg-white p-8 shadow-sm">
+                <h3 className="text-xl font-semibold text-[#111827]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-gray-600">
-                  {item.desc}
-                </p>
+                <p className="mt-3 text-[#4B5563]">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* COACHING PHILOSOPHY */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Our Coaching Philosophy
+      {/* OUR APPROACH */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-5 text-center">
+          <h2 className="text-3xl font-bold text-[#111827]">
+            Our Learning Approach
           </h2>
-          <p className="mt-4 mx-auto max-w-3xl text-lg text-gray-600">
-            We believe every child learns differently. Our approach combines
-            structured lessons, practical gameplay, and positive mentorship to
-            help students grow both on and off the chessboard.
+
+          <p className="mt-5 mx-auto max-w-3xl text-lg text-[#4B5563]">
+            Our teaching methodology focuses on understanding, practice, and
+            confidence-building rather than memorization.
           </p>
-        </div>
-      </section>
 
-      {/* WHO WE TEACH */}
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-900">
-            Who We Teach
-          </h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-4 text-center">
+          <div className="mt-14 grid gap-8 md:grid-cols-4">
             {[
-              "Kids (6–14 Years)",
-              "Beginners",
-              "Intermediate Players",
-              "Tournament Aspirants",
-            ].map((group, index) => (
+              "Concept-Based Learning",
+              "Practical Game Analysis",
+              "Regular Assessments",
+              "Positive Mentorship",
+            ].map((step, i) => (
               <div
-                key={index}
-                className="rounded-xl bg-white p-6 shadow-sm font-medium text-gray-800"
+                key={i}
+                className="rounded-xl bg-slate-50 p-6 font-medium text-[#111827]"
               >
-                {group}
+                {step}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-amber-500 py-16 text-center">
-        <h2 className="text-3xl font-bold text-white">
-          Ready to Start Your Chess Journey?
-        </h2>
-        <p className="mt-3 text-amber-100">
-          Book a free demo class and experience our teaching approach.
-        </p>
-        <a
-          href="#demo"
-          className="mt-6 inline-block rounded-full bg-white px-8 py-3 font-semibold text-amber-600 hover:bg-gray-100 transition"
-        >
-          Book Free Demo
-        </a>
+      {/* VALUES */}
+      <section className="bg-slate-50 py-24">
+        <div className="mx-auto max-w-7xl px-5 text-center">
+          <h2 className="text-3xl font-bold text-[#111827]">
+            Values We Teach Beyond Chess
+          </h2>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-4">
+            {[
+              "Focus & Concentration",
+              "Decision Making",
+              "Patience & Discipline",
+              "Confidence & Sportsmanship",
+            ].map((value, i) => (
+              <div
+                key={i}
+                className="rounded-xl bg-white p-6 shadow-sm font-medium text-[#111827]"
+              >
+                {value}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
+
+      {/* FINAL CTA */}
+      <FinalCTA />
     </main>
   );
 };
