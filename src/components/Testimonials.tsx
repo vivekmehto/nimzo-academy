@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+import { motion } from "framer-motion";
 
 import "swiper/swiper-bundle.css";
 
@@ -58,10 +59,17 @@ const Testimonials: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-600">
-            Our Students’ Happy Parents
-          </h2>
-          <div className="mx-auto mt-3 h-1 w-20 bg-blue-600" />
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="mb-6 flex justify-center"
+          >
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+              Our Student's Happy Parents
+            </h2>
+          </motion.div>
         </div>
 
         {/* Slider Area */}
@@ -91,11 +99,11 @@ const Testimonials: React.FC = () => {
               0: { slidesPerView: 1 },
               1024: { slidesPerView: 2 },
             }}
-            className="flex-1"
+            className="flex-1 m-4"
           >
             {testimonials.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="h-full rounded-2xl bg-white p-10 text-center shadow-lg">
+                <div className="h-full rounded-4xl bg-white p-10 text-center shadow-lg border border-gray-200 flex">
                   <div className="flex h-full flex-col ">
                     <div className="flex justify-center">
                       <img
