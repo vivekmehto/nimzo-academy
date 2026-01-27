@@ -1,5 +1,6 @@
 import React from "react";
 import { Laptop, Users, User, Layers } from "lucide-react";
+import { motion } from "framer-motion";
 
 const WhatWeOffer: React.FC = () => {
   return (
@@ -7,9 +8,18 @@ const WhatWeOffer: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <div className="mb-18 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827]">
+              <motion.div
+      initial={{ opacity: 0, y: 40, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="mb-6 flex justify-center"
+    >
+              <h2 className="text-3xl md:text-5xl font-extrabold text-[#111827]">
             What We Offer
           </h2>
+            </motion.div>
+        
           <p className="mt-4 max-w-2xl mx-auto text-lg text-[#4B5563]">
             Structured chess programs designed to support every child’s learning
             style, pace, and confidence level.

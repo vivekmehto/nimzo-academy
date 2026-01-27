@@ -7,6 +7,8 @@ import {
   LineChart,
 } from "lucide-react";
 
+import { motion } from "framer-motion";
+
 const reasons = [
   {
     icon: <ShieldCheck className="h-6 w-6 text-[#2563EB]" />,
@@ -44,12 +46,18 @@ const WhyChooseUs = () => {
   return (
     <section className="bg-[#F5F9FF] py-28">
       <div className="mx-auto max-w-7xl px-4">
-        {/* Title pill */}
-        <div className="mb-14">
-          <span className="inline-block rounded-full bg-[#2563EB] px-8 py-3 text-white text-xl font-semibold">
-            Why Choose Nimzo Chess Academy?
-          </span>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="mb-16 flex justify-center"
+        >
+             <h2 className="text-3xl md:text-5xl font-extrabold text-[#111827]">
+                   Why Choose Nimzo Chess Academy?
+              </h2>
+        
+        </motion.div>
 
         <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-2">
           {/* LEFT CONTENT */}

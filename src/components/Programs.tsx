@@ -1,4 +1,5 @@
 import { CircleDot, Layers, TrendingUp, Award } from "lucide-react";
+import { motion } from "framer-motion";
 
 const courses = [
   {
@@ -65,9 +66,18 @@ const Courses = () => {
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827]">
-            Our Chess Programs
-          </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="mb-10 flex justify-center"
+          >
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#111827]">
+              Our Chess Programs
+            </h2>
+          </motion.div>
+
           <p className="mt-4 max-w-2xl mx-auto text-lg text-[#4B5563]">
             A structured learning path designed to help children grow from
             beginners to confident competitive players.

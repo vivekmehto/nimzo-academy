@@ -5,6 +5,7 @@ import {
   Users,
   LineChart,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const steps = [
   {
@@ -47,9 +48,19 @@ const HowClassesWork: React.FC = () => {
 
         {/* Heading */}
         <div className="mx-auto mb-20 max-w-3xl text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827]">
-            A Simple & Supportive Learning Journey
-          </h2>
+            <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="mb-6 flex justify-center"
+          >
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+                  A Simple & Supportive Learning Journey
+            </h2>
+          </motion.div>
+      
+          
           <p className="mt-4 text-lg text-[#4B5563]">
             We follow a clear and transparent process so parents always know
             what comes next.

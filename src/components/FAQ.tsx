@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 type FAQItem = {
   question: string;
@@ -51,9 +52,19 @@ const FAQ: React.FC = () => {
       <div className="mx-auto max-w-5xl px-4">
         {/* Heading */}
         <div className="mb-20 text-center">
-          <h2 className="text-3xl font-bold text-[#0B0B0B] md:text-4xl">
-            Frequently Asked Questions
+            <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="mb-10 flex justify-center"
+        >
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#111827]">
+           Frequently Asked Questions
           </h2>
+        
+        </motion.div>
+         
           <p className="mt-4 text-lg text-[#6B7280]">
             Common questions parents ask before enrolling their child in our
             chess programs.
