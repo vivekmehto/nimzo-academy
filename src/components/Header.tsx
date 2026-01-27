@@ -50,17 +50,18 @@ const Header: React.FC<Props> = ({ onClick }) => {
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <header className="fixed top-0 z-50 w-full bg-[#F3F6FF]/80 backdrop-blur-md border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-18  items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
+          
             <img
-              src="/logo.png"
+              src="/nimzoLogo.png"
               alt="Nimzo Chess Academy"
-              className="h-10 w-auto rounded-full"
+              className="h-14 w-auto rounded-full"
             />
-            <span className="hidden sm:block text-lg font-semibold text-[#111827]">
+            <span className="hidden sm:block text-xl font-semibold text-[#111827]">
               Nimzo Chess Academy
             </span>
           </Link>
@@ -76,8 +77,8 @@ const Header: React.FC<Props> = ({ onClick }) => {
                   group relative text-lg font-medium transition
                   ${
                     isActive(link)
-                      ? "text-[#2563EB]"
-                      : "text-[#111827] hover:text-[#2563EB]"
+                      ? "text-[#2563EB] "
+                      : "text-[#1F2A44] hover:text-[#2563EB]"
                   }
                 `}
               >
