@@ -15,12 +15,12 @@ const FinalCTA: React.FC = () => {
       <div className="relative mx-auto max-w-4xl px-4 text-center">
         
         {/* Headline */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827]">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-[#111827]">
           Help your child make the{" "}
           <span className="bg-linear-to-r from-[#2563EB] to-[#22D3EE] bg-clip-text text-transparent">
             right first move
           </span>{" "}
-          in chess — and in thinking
+          in chess
         </h2>
 
         {/* Subheading */}

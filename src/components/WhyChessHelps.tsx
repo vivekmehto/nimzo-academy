@@ -8,12 +8,27 @@ import {
   Puzzle,
 } from "lucide-react";
 
+import { motion } from "framer-motion";
+
 const WhyChessHelps: React.FC = () => {
   return (
     <section className="bg-[#F5F9FF] py-28">
       <div className="mx-auto max-w-7xl px-4">
+        
         {/* Shared container */}
         <div className="rounded-4xl border border-slate-200 bg-slate-50 p-8 md:p-14">
+             <motion.div
+      initial={{ opacity: 0, y: 40, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="mb-16 flex justify-center"
+    >
+              <h2 className="text-3xl md:text-5xl font-extrabold text-[#111827]">
+                Why Chess Helps Children
+              </h2>
+            </motion.div>
+          
           <div className="grid grid-cols-1 items-center gap-14 md:grid-cols-2">
             {/* IMAGE */}
             <div className="relative">
@@ -28,9 +43,8 @@ const WhyChessHelps: React.FC = () => {
 
             {/* CONTENT */}
             <div className="flex flex-col justify-center">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827]">
-                Why Chess Helps Children
-              </h2>
+              
+             
 
               <p className="mt-4 max-w-xl text-lg text-[#4B5563]">
                 Chess is more than a game. It develops important life skills
