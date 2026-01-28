@@ -29,78 +29,80 @@ const Header: React.FC<Props> = ({ onClick }) => {
   const location = useLocation();
   const activeSection = useActiveSection(sectionIds);
 
-  // prevent background scroll when mobile menu open
+  // ✅ Scroll lock without layout shift
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    if (isOpen) {
+      const scrollBarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
   }, [isOpen]);
 
   const handleNavClick = (link: NavLink) => {
     if (link.sectionId) {
-      const element = document.getElementById(link.sectionId);
-      element?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById(link.sectionId)
+        ?.scrollIntoView({ behavior: "smooth" });
     }
     setIsOpen(false);
   };
 
-  const isActive = (link: NavLink) => {
-    if (link.sectionId) {
-      return activeSection === link.sectionId;
-    }
-    return location.pathname === link.to;
-  };
+  const isActive = (link: NavLink) =>
+    link.sectionId
+      ? activeSection === link.sectionId
+      : location.pathname === link.to;
 
   return (
     <header className="fixed top-0 z-50 w-full bg-[#F3F6FF]/80 backdrop-blur-md border-b border-slate-200">
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="flex h-18  items-center justify-between">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-          
             <img
               src="/nimzoLogo.png"
               alt="Nimzo Chess Academy"
-              className="h-14 w-auto rounded-full"
+              className="h-12 w-auto rounded-full"
             />
-            <span className="hidden sm:block text-xl font-semibold text-[#111827]">
+            <span className="hidden lg:block text-lg font-semibold text-[#111827]">
               Nimzo Chess Academy
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.to}
                 onClick={() => handleNavClick(link)}
-                className={`
-                  group relative text-lg font-medium transition
-                  ${
-                    isActive(link)
-                      ? "text-[#2563EB] "
-                      : "text-[#1F2A44] hover:text-[#2563EB]"
-                  }
-                `}
+                className={`relative text-lg font-medium transition ${
+                  isActive(link)
+                    ? "text-[#2563EB]"
+                    : "text-[#1F2A44] hover:text-[#2563EB]"
+                }`}
               >
                 {link.name}
-
-                {/* underline */}
                 <span
-                  className={`
-                    absolute left-0 -bottom-1 h-0.5 bg-[#22D3EE] transition-all duration-300
-                    ${isActive(link) ? "w-full" : "w-0 group-hover:w-full"}
-                  `}
+                  className={`absolute left-0 -bottom-1 h-0.5 bg-[#22D3EE] transition-all duration-300 ${
+                    isActive(link) ? "w-full" : "w-0 hover:w-full"
+                  }`}
                 />
               </Link>
             ))}
           </nav>
 
-          {/* CTA + Mobile Button */}
+          {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
-            <CTABtn onClick={onClick} />
+            <div className="hidden sm:block">
+              <CTABtn onClick={onClick} />
+            </div>
 
             <button
-              className="md:hidden p-2 text-[#111827]"
+              className="lg:hidden p-2 text-[#111827]"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -112,7 +114,7 @@ const Header: React.FC<Props> = ({ onClick }) => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-slate-200">
+        <div className="lg:hidden bg-white border-t border-slate-200">
           <nav className="flex flex-col gap-5 px-6 py-6">
             {navLinks.map((link) => (
               <Link
