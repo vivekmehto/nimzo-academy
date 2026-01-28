@@ -25,7 +25,7 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-    useEffect(() => {
+  useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
     } else {
@@ -128,7 +128,7 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
       const firstErrorField = Object.keys(errors)[0];
       if (firstErrorField) {
         const el = form.elements.namedItem(
-          firstErrorField
+          firstErrorField,
         ) as HTMLElement | null;
         el?.focus();
       }
@@ -151,158 +151,184 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
   };
 
   const inputBase =
-    "w-full rounded-lg border border-black px-4 py-3 text-sm outline-none focus:border-amber-500 focus:ring-0 focus:shadow-none";
+    "w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none";
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.value = e.target.value.replace(/\D/g, "");
   };
 
-
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-4">
       {/* Overlay */}
-
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+      <div
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        onClick={onClose}
+      />
 
       {/* Modal */}
-      <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
-        {/* Close */}
-        <button
-          onClick={onClose}
-          className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
-        >
-          <X size={20} />
-        </button>
+      <div className="relative z-10 w-full max-w-sm sm:max-w-md max-h-[92vh] overflow-hidden rounded-2xl bg-white shadow-2xl">
+        {/* Scrollable content */}
+        <div className="relative max-h-[92vh] overflow-y-auto px-5 py-6 sm:px-6">
+          {/* Close */}
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition"
+            aria-label="Close"
+          >
+            <X size={18} />
+          </button>
 
-        {!submitted ? (
-          <>
-            <h2 className="text-2xl font-bold text-center">
-              Book A Free Demo Today
-            </h2>
-            <p className="mt-1 text-center text-sm text-gray-600">
-              Be a part of a growing global chess community of kids
-            </p>
+          {!submitted ? (
+            <>
+              {/* Header */}
+              <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-900">
+                Book a Free Demo
+              </h2>
 
-            {/* ✅ FIX: onSubmit ADDED */}
-            <form onSubmit={handleSubmit} className="mt-6 space-y-3">
-              <div className="space-y-1">
-                <input
-                  name={ENTRY.parentEmail}
-                  type="email"
-                  placeholder="Parent’s Email ID"
-                  onBlur={(e) => validateField(e.target.name, e.target.value)}
-                  className={inputBase}
-                  required
-                />
+              <p className="mt-1 text-center text-sm text-gray-600">
+                Join a global chess learning community for kids
+              </p>
 
-                <p className="h-3.5 text-xs text-red-500 leading-tight">
-                  {errors[ENTRY.parentEmail] || ""}
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <input
-                  name={ENTRY.parentName}
-                  placeholder="Parent’s Full Name"
-                  required
-                  onBlur={(e) => validateField(e.target.name, e.target.value)}
-                  className={inputBase}
-                />
-
-                <p className="h-3.5 text-xs text-red-500">
-                  {errors[ENTRY.parentName] || ""}
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <input
-                  name={ENTRY.childName}
-                  placeholder="Child’s Name"
-                  required
-                  onBlur={(e) => validateField(e.target.name, e.target.value)}
-                  className={inputBase}
-                />
-
-                <p className="h-3.5 text-xs text-red-500">
-                  {errors[ENTRY.childName] || ""}
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex">
-                  <CountryCode value={countryCode} onChange={setCountryCode} />
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="mt-5 space-y-3">
+                {/* Parent Email */}
+                <div>
                   <input
-                    name={ENTRY.phone}
-                    placeholder="Mobile Number (Preferably WhatsApp)"
+                    name={ENTRY.parentEmail}
+                    type="email"
+                    placeholder="Parent’s Email ID"
                     onBlur={(e) => validateField(e.target.name, e.target.value)}
                     className={inputBase}
-                    type="tel"
-                    inputMode="numeric"
-                    pattern="[0-9]*"
-                    onChange={handlePhoneChange}
+                    required
                   />
+                  <p className="min-h-3.5 text-xs text-red-500">
+                    {errors[ENTRY.parentEmail] || ""}
+                  </p>
                 </div>
 
-                <p className="h-3.5 text-xs text-red-500 leading-tight">
-                  {errors[ENTRY.phone] || ""}
-                </p>
-              </div>
+                {/* Parent Name */}
+                <div>
+                  <input
+                    name={ENTRY.parentName}
+                    placeholder="Parent’s Full Name"
+                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                    className={inputBase}
+                    required
+                  />
+                  <p className="min-h-3.5 text-xs text-red-500">
+                    {errors[ENTRY.parentName] || ""}
+                  </p>
+                </div>
 
-              <div className="space-y-1">
-                <select
-                  name={ENTRY.childAge}
-                  required
-                  onBlur={(e) => validateField(e.target.name, e.target.value)}
-                  className={inputBase}
+                {/* Child Name */}
+                <div>
+                  <input
+                    name={ENTRY.childName}
+                    placeholder="Child’s Name"
+                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                    className={inputBase}
+                    required
+                  />
+                  <p className="min-h-3.5 text-xs text-red-500">
+                    {errors[ENTRY.childName] || ""}
+                  </p>
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <div
+                    className="
+      flex items-center
+      rounded-lg border border-gray-300
+      focus-within:border-blue-500
+      focus-within:ring-2 focus-within:ring-blue-500/20
+      overflow-hidden
+    "
+                  >
+                    {/* Country Code */}
+                    <CountryCode value={countryCode} onChange={setCountryCode} />
+                    {/* Phone Input */}
+                    <input
+                      name={ENTRY.phone}
+                      type="tel"
+                      inputMode="numeric"
+                      placeholder="Mobile number (WhatsApp)"
+                      onChange={handlePhoneChange}
+                      onBlur={(e) =>
+                        validateField(e.target.name, e.target.value)
+                      }
+                      className="
+        flex-1 px-4 py-2.5 text-sm
+        outline-none
+      "
+                    />
+                  </div>
+
+                  {/* Error */}
+                  <p className="mt-1 min-h-3.5 text-xs text-red-500">
+                    {errors[ENTRY.phone] || ""}
+                  </p>
+                </div>
+
+                {/* Age */}
+                <div>
+                  <select
+                    name={ENTRY.childAge}
+                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                    className={inputBase}
+                    required
+                  >
+                    <option value="">Select Child’s Age</option>
+                    <option>5–6</option>
+                    <option>7–8</option>
+                    <option>9–10</option>
+                    <option>11–12</option>
+                    <option>13–14</option>
+                    <option>15+</option>
+                  </select>
+                  <p className="min-h-3.5 text-xs text-red-500">
+                    {errors[ENTRY.childAge] || ""}
+                  </p>
+                </div>
+
+                {/* Source */}
+                <div>
+                  <select name={ENTRY.source} className={inputBase}>
+                    <option value="">How did you hear about us?</option>
+                    <option>Google Search</option>
+                    <option>Instagram / Facebook</option>
+                    <option>YouTube</option>
+                    <option>Friend / Word of Mouth</option>
+                    <option>School / Coach</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                {/* CTA */}
+                <button
+                  type="submit"
+                  className="mt-3 w-full rounded-full bg-amber-500 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-600 active:scale-[0.98]"
                 >
-                  <option value="">Select Age</option>
-                  <option>5–6</option>
-                  <option>7–8</option>
-                  <option>9–10</option>
-                  <option>11–12</option>
-                  <option>13–14</option>
-                  <option>15+</option>
-                </select>
+                  Book Free Demo
+                </button>
 
-                <p className="h-3.5 text-xs text-red-500">
-                  {errors[ENTRY.childAge] || ""}
+                {/* Trust text */}
+                <p className="mt-2 text-center text-xs text-gray-500">
+                  🔒 We respect your privacy. No spam, ever.
                 </p>
-              </div>
-
-              <div className="space-y-1">
-                <select name={ENTRY.source} className={inputBase}>
-                  <option value="">How did you hear about us?</option>
-                  <option>Google Search</option>
-                  <option>Instagram / Facebook</option>
-                  <option>YouTube</option>
-                  <option>Friend / Word of Mouth</option>
-                  <option>School / Coach</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <button
-                type="submit"
-                className="mt-2 w-full rounded-full bg-amber-500 py-3 font-semibold text-white hover:bg-amber-600 transition"
-              >
-                Book Free Demo
-              </button>
-
-              <p className="text-center text-xs text-gray-500">
-                🔒 We respect your privacy. No spam.
+              </form>
+            </>
+          ) : (
+            <div className="py-10 text-center">
+              <h3 className="text-lg font-bold text-green-600">
+                ✅ Demo Request Received!
+              </h3>
+              <p className="mt-2 text-sm text-gray-600">
+                Our team will contact you shortly on WhatsApp.
               </p>
-            </form>
-          </>
-        ) : (
-          <div className="py-10 text-center">
-            <h3 className="text-xl font-bold text-green-600">
-              ✅ Demo Request Received!
-            </h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Our team will contact you shortly on WhatsApp.
-            </p>
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
