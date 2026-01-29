@@ -5,33 +5,25 @@ export const NIMZO_EMAIL = "nimzoacademy@gmail.com";
 export type Country = {
   code: string;
   label: string;
-  flag: string;
+
 };
 
-export const countries: Country[] = [
-  { code: "+91", label: "India", flag: "🇮🇳" },
-
-  { code: "+1", label: "United States", flag: "🇺🇸" },
-  { code: "+1", label: "Canada", flag: "🇨🇦" },
-
-  { code: "+44", label: "United Kingdom", flag: "🇬🇧" },
-  { code: "+353", label: "Ireland", flag: "🇮🇪" },
-
-  { code: "+61", label: "Australia", flag: "🇦🇺" },
-  { code: "+64", label: "New Zealand", flag: "🇳🇿" },
-
-  // Middle East (Indian expat majority)
-  { code: "+971", label: "United Arab Emirates", flag: "🇦🇪" },
-  { code: "+974", label: "Qatar", flag: "🇶🇦" },
-  { code: "+966", label: "Saudi Arabia", flag: "🇸🇦" },
-  { code: "+968", label: "Oman", flag: "🇴🇲" },
-  { code: "+965", label: "Kuwait", flag: "🇰🇼" },
-  { code: "+973", label: "Bahrain", flag: "🇧🇭" },
-
-  // Asia (education-focused)
-  { code: "+65", label: "Singapore", flag: "🇸🇬" },
-  { code: "+60", label: "Malaysia", flag: "🇲🇾" },
-
-  // Africa
-  { code: "+27", label: "South Africa", flag: "🇿🇦" },
+// utils/constants.ts
+export const countries = [
+  { code: "+91", label: "India" },
+  { code: "+1", label: "United States" },
+  { code: "+1", label: "Canada" },
+  { code: "+44", label: "United Kingdom" },
+  { code: "+353", label: "Ireland" },
+  { code: "+61", label: "Australia" },
+  { code: "+64", label: "New Zealand" },
+  { code: "+971", label: "UAE" },
+  { code: "+974", label: "Qatar" },
+  { code: "+966", label: "Saudi Arabia" },
+  { code: "+968", label: "Oman" },
+  { code: "+965", label: "Kuwait" },
+  { code: "+973", label: "Bahrain" },
+  { code: "+65", label: "Singapore" },
+  { code: "+60", label: "Malaysia" },
+  { code: "+27", label: "South Africa" },
 ];
