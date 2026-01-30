@@ -1,14 +1,15 @@
 import React from "react";
 
 type Props = {
-  onClick: () => void;
+  onDemoClick: () => void;
 };
 
-const CTABtn: React.FC<Props> = ({ onClick }) => {
+const CTABtn: React.FC<Props> = ({ onDemoClick }) => {
   return (
     <button
-      onClick={onClick}
+      onClick={onDemoClick}
       className="rounded-full
+                cursor-pointer
                 bg-[#F59E0B]
                 px-6 py-2.5
                 text-sm font-semibold text-white

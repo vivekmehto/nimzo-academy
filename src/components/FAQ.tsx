@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 type FAQItem = {
   question: string;
   answer: string;
+  onDemoClick?: () => void;
 };
 
 const faqs: FAQItem[] = [
@@ -40,7 +41,7 @@ const faqs: FAQItem[] = [
   },
 ];
 
-const FAQ: React.FC = () => {
+const FAQ: React.FC<{ onDemoClick?: () => void }> = ({ onDemoClick }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -111,10 +112,11 @@ const FAQ: React.FC = () => {
 
         {/* CTA */}
         <div className="mt-20 text-center">
-          <a
-            href="#demo"
+          <button
+            onClick={onDemoClick}
             className="
     rounded-full
+    cursor-pointer
     bg-linear-to-r from-[#F4B400] to-[#E0A800]
     px-6 py-2.5 text-sm font-semibold
     text-[#0B0B0B]
@@ -130,7 +132,7 @@ const FAQ: React.FC = () => {
   "
           >
             Still Have Questions? Book a Free Demo
-          </a>
+          </button>
         </div>
       </div>
     </section>

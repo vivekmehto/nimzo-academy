@@ -1,7 +1,11 @@
 import React from "react";
 import HeroStats from "./HeroStats";
 
-const Hero: React.FC = () => {
+type HeroProps = {
+  onDemoClick: () => void;
+};
+
+const Hero: React.FC<HeroProps> = ({ onDemoClick }) => {
   return (
     <section
       id="home"
@@ -38,20 +42,20 @@ const Hero: React.FC = () => {
 
             {/* CTA */}
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <button className="rounded-full bg-[#F59E0B] px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#D97706]">
+              <button onClick={onDemoClick} className="cursor-pointer rounded-full bg-[#F59E0B] px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#D97706]">
                 Book a Free Demo Class
               </button>
 
               <a
                 href="#programs"
-                className="text-sm font-semibold text-[#2563EB] hover:underline"
+                className="cursor-pointer text-sm font-semibold text-[#2563EB] hover:underline"
               >
                 Explore Programs →
               </a>
             </div>
 
             {/* ❌ NO STATS ON TABLET */}
-            <div className="hidden xl:block mt-10 pt-6 border-t border-black/10">
+            <div className="hidden xl:block mt-10 pt-6">
               <HeroStats />
             </div>
           </div>

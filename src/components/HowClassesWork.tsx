@@ -38,7 +38,11 @@ const steps = [
   },
 ];
 
-const HowClassesWork: React.FC = () => {
+type HowClassesWorkProps = {
+   onDemoClick: () => void;
+};
+
+const HowClassesWork: React.FC<HowClassesWorkProps> = ({ onDemoClick }) => {
   return (
     <section
       id="how-it-works"
@@ -111,8 +115,8 @@ const HowClassesWork: React.FC = () => {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <a
-            href="#demo"
+          <button
+            onClick={onDemoClick}
             className="
               inline-flex items-center justify-center
               rounded-full
@@ -129,7 +133,7 @@ const HowClassesWork: React.FC = () => {
             "
           >
             Book a Free Demo Class
-          </a>
+          </button>
         </div>
       </div>
     </section>

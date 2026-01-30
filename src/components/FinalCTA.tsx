@@ -1,6 +1,10 @@
 import React from "react";
 
-const FinalCTA: React.FC = () => {
+type FinalCTAProps = {
+  onDemoClick: () => void;
+};
+
+const FinalCTA: React.FC<FinalCTAProps> = ({ onDemoClick }) => {
   return (
     <section
       id="demo"
@@ -34,8 +38,8 @@ const FinalCTA: React.FC = () => {
         <div className="mt-12 flex flex-wrap justify-center gap-6">
           
           {/* Primary CTA */}
-          <a
-            href="#demo-form"
+          <button
+            onClick={onDemoClick}
             className="
               rounded-full
               bg-[#F59E0B]
@@ -52,7 +56,7 @@ const FinalCTA: React.FC = () => {
             "
           >
             Book a Free Demo Class
-          </a>
+          </button>
 
           {/* Secondary CTA */}
           <a
