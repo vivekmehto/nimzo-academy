@@ -16,21 +16,29 @@ import { useState } from "react";
 
 function App() {
   const [demoOpen, setDemoOpen] = useState(false);
+
+  const openDemo = () => {
+    setDemoOpen(true);
+  };
+
+  const closeDemo = () => {
+    setDemoOpen(false);
+  };  
+
   return (
     <BrowserRouter>
       <ScrollManager />
 
       {/* Sticky Button (available everywhere) */}
-      <StickyDemoButton onClick={() => setDemoOpen(true)} />
+      <StickyDemoButton onClick={openDemo} />
 
       {/* Demo Modal (single instance) */}
-      <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
-      <Header onClick={() => setDemoOpen(true)} />
-
+      <DemoModal open={demoOpen} onClose={closeDemo} />
+      <Header onDemoClick={openDemo} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<Home onDemoClick={openDemo} />} />
+        <Route path="/about" element={<About onDemoClick={openDemo} />} />
+        <Route path="/contact" element={<Contact onDemoClick={openDemo}/>} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />

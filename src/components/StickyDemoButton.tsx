@@ -6,19 +6,29 @@ type Props = {
 
 const StickyDemoButton: React.FC<Props> = ({ onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      aria-label="Book Free Demo"
-      className="
-        md:hidden fixed bottom-4 left-1/2 z-40
-    -translate-x-1/2
-    rounded-full bg-amber-500
-    px-6 py-3 text-sm font-semibold text-white
+<button
+  onClick={onClick}
+  aria-label="Book Free Demo"
+  className="
+    cursor-pointer
+    fixed right-0 top-1/3 z-40 -translate-y-1/2
+    -rotate-90 origin-bottom-right
+    rounded-t-lg bg-amber-500 px-4 py-2
+    text-sm font-semibold text-white
+
+    /* ✨ Animation + Hover */
     shadow-lg
+    transition-all duration-300 ease-out
+    hover:bg-amber-600
+    hover:shadow-2xl
+    hover:-translate-x-1
+    active:scale-95
+
   "
-    >
-      Book Free Demo
-    </button>
+>
+  Book Free Demo
+</button>
+
   );
 };
 
