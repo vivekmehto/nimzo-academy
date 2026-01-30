@@ -2,24 +2,29 @@ import React from "react";
 import { Laptop, Users, User, Layers } from "lucide-react";
 import { motion } from "framer-motion";
 
-const WhatWeOffer: React.FC = () => {
+type WhatWeOfferProps = {
+  onDemoClick: () => void;
+};
+
+
+const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ onDemoClick }) => {
   return (
     <section className="bg-white py-28">
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <div className="mb-18 text-center">
-              <motion.div
-      initial={{ opacity: 0, y: 40, scale: 0.9 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      viewport={{ once: true }}
-      className="mb-6 flex justify-center"
-    >
-              <h2 className="text-3xl md:text-5xl font-extrabold text-[#111827]">
-            What We Offer
-          </h2>
-            </motion.div>
-        
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="mb-6 flex justify-center"
+          >
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#111827]">
+              What We Offer
+            </h2>
+          </motion.div>
+
           <p className="mt-4 max-w-2xl mx-auto text-lg text-[#4B5563]">
             Structured chess programs designed to support every child’s learning
             style, pace, and confidence level.
@@ -154,12 +159,12 @@ const WhatWeOffer: React.FC = () => {
 
         {/* Reassurance */}
         <div className="mt-18 text-center">
-          <p className="text-sm text-[#4B5563]">
+          <button onClick={onDemoClick} className="hover:text-[#2563EB] cursor-pointer text-sm text-[#4B5563]">
             Not sure which program suits your child?{" "}
             <span className="font-semibold text-[#2563EB]">
               Book a free demo and our coach will guide you personally.
             </span>
-          </p>
+          </button>
         </div>
       </div>
     </section>

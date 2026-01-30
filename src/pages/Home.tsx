@@ -9,19 +9,24 @@ import WhatWeOffer from "../components/WhatWeOffer";
 import WhyChessHelps from "../components/WhyChessHelps";
 import WhyChooseUs from "../components/WhyChooseUs";
 
-const Home: React.FC = () => {
+
+type HomeProps = {
+  onDemoClick: () => void;
+};
+
+const Home: React.FC<HomeProps> = ({ onDemoClick }) => {
   return (
     <>
-      <Hero />
+      <Hero onDemoClick={onDemoClick} />
       <TrustIndicators />
-      <WhatWeOffer />
+      <WhatWeOffer onDemoClick={onDemoClick} />
       <WhyChessHelps />
       <Programs />
-      <WhyChooseUs />
+      <WhyChooseUs onDemoClick={onDemoClick}/>
       <Testimonials />
-      <HowClassesWork />
-      <FAQ />
-      <FinalCTA />
+      <HowClassesWork onDemoClick={onDemoClick}/>
+      <FAQ onDemoClick={onDemoClick}/>
+      <FinalCTA onDemoClick={onDemoClick}/>
     </>
   );
 };

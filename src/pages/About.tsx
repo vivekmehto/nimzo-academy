@@ -1,7 +1,11 @@
 import React from "react";
 import FinalCTA from "../components/FinalCTA";
 
-const About: React.FC = () => {
+type AboutProps = {
+  onDemoClick: () => void;
+};
+
+const About: React.FC<AboutProps> = ({ onDemoClick }) => {
   return (
     <main className="pt-18">
     <section className="relative overflow-hidden bg-[#F8FAFC] py-18">
@@ -197,7 +201,7 @@ const About: React.FC = () => {
       </section>
 
       {/* FINAL CTA */}
-      <FinalCTA />
+      <FinalCTA onDemoClick={onDemoClick} />
     </main>
   );
 };

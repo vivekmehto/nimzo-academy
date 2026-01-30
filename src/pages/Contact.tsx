@@ -7,7 +7,11 @@ import {
 } from "lucide-react";
 import FinalCTA from "../components/FinalCTA";
 
-const Contact: React.FC = () => {
+type Props = {
+  onDemoClick: () => void;
+};
+
+const Contact: React.FC<Props> = ({ onDemoClick }) => {
   return (
     <main className="pt-28">
       {/* HERO */}
@@ -124,7 +128,7 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-   <FinalCTA />
+   <FinalCTA onDemoClick={onDemoClick}/>
     </main>
   );
 };
