@@ -6,12 +6,22 @@ import {
   MessageCircle,
 } from "lucide-react";
 import FinalCTA from "../components/FinalCTA";
+import { NIMZO_EMAIL, NIMZO_PHONE_NUMBER } from "../utils/constants";
 
 type Props = {
   onDemoClick: () => void;
 };
 
 const Contact: React.FC<Props> = ({ onDemoClick }) => {
+
+   const phoneNumber = "919718086186";
+
+  const message = encodeURIComponent(
+    "Hello Nimzo Chess Academy! 👋 I would like to know more about your chess classes and book a free demo for my child."
+  );
+
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
   return (
     <main className="pt-28">
       {/* HERO */}
@@ -31,29 +41,29 @@ const Contact: React.FC<Props> = ({ onDemoClick }) => {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 grid gap-8 md:grid-cols-4">
           <a
-            href="tel:+919999999999"
+            href={`tel:${NIMZO_PHONE_NUMBER}`}
             className="rounded-2xl bg-white p-6 shadow-sm transition hover:shadow-md text-center"
           >
             <Phone className="mx-auto h-8 w-8 text-emerald-600" />
             <h3 className="mt-4 font-semibold text-gray-900">Call Us</h3>
             <p className="mt-1 text-sm text-gray-600">
-              +91 99999 99999
+              {NIMZO_PHONE_NUMBER}
             </p>
           </a>
 
           <a
-            href="mailto:info@nimzoacademy.com"
+            href={`mailto:${NIMZO_EMAIL}`}
             className="rounded-2xl bg-white p-6 shadow-sm transition hover:shadow-md text-center"
           >
             <Mail className="mx-auto h-8 w-8 text-amber-500" />
             <h3 className="mt-4 font-semibold text-gray-900">Email Us</h3>
             <p className="mt-1 text-sm text-gray-600">
-              info@nimzoacademy.com
+             {NIMZO_EMAIL}
             </p>
           </a>
 
           <a
-            href="https://wa.me/919999999999"
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-2xl bg-white p-6 shadow-sm transition hover:shadow-md text-center"
