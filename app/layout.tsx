@@ -1,4 +1,5 @@
 import "./globals.css";
+import Header from "@/components/layout/Header";
 
 export const metadata = {
   title: "Nimzo Academy | Chess Training for All Levels",
@@ -18,6 +19,7 @@ export default function RootLayout({
         className="min-h-screen bg-white text-body antialiased"
       >
         <div className="flex min-h-screen flex-col">
+          <Header />
           <main className="flex-1">{children}</main>
         </div>
       </body>
