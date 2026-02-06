@@ -4,56 +4,51 @@
    NIMZO ACADEMY — DESIGN SYSTEM (TAILWIND v4)
 ===================================================== */
 @theme {
-    /* 🔵 Primary Blue (Trust / Authority) */
-    --color-primary-500: #3b6cf6;
-    --color-primary-600: #2f5bea; /* MAIN brand blue */
-    --color-primary-700: #1e3fae;
+  /* 🔵 Primary Blue (Trust / Authority) */
+  --color-primary-500: #3b6cf6;
+  --color-primary-600: #2f5bea; /* MAIN brand blue */
+  --color-primary-700: #1e3fae;
 
-    /* Soft blue for backgrounds (hero / sections) */
-    --color-back-500: #eef2ff;
+  /* Soft blue for backgrounds (hero / sections) */
+  --color-back-500: #eef2ff;
 
-    /* 🟡 Accent Yellow (Actions only) */
-    --color-accent-500: #fbbf24; /* CTA */
-    --color-accent-600: #f59e0b; /* CTA hover */
+  /* 🟡 Accent Yellow (Actions only) */
+  --color-accent-500: #fbbf24; /* CTA */
+  --color-accent-600: #f59e0b; /* CTA hover */
 
-    /* Softened primary blue for trust sections */
---color-primary-100: color-mix(
-  in srgb,
-  var(--color-primary-600) 88%,
-  white
-);
+  /* Softened primary blue for trust sections */
+  --color-primary-100: color-mix(in srgb, var(--color-primary-600) 88%, white);
 
-
-    /* =========================
+  /* =========================
        TEXT COLORS
        ========================= */
 
-    --color-heading-900: #0f172a; /* Headings */
-    --color-body-700: #334155;    /* Paragraphs */
-    --color-muted-500: #64748b;   /* Helper / muted */
+  --color-heading-900: #0f172a; /* Headings */
+  --color-body-700: #334155; /* Paragraphs */
+  --color-muted-500: #64748b; /* Helper / muted */
 
-    /* =========================
+  /* =========================
        BACKGROUNDS
        ========================= */
 
-    --color-white-100: #ffffff;   /* Cards / surfaces */
-    --color-light-100: #f8fafc;   /* Page background */
-    --color-dark-900: #0f172a;    /* Dark sections (rare) */
+  --color-white-100: #ffffff; /* Cards / surfaces */
+  --color-light-100: #f8fafc; /* Page background */
+  --color-dark-900: #0f172a; /* Dark sections (rare) */
 
-    /* =========================
+  /* =========================
        BORDERS
        ========================= */
 
-    --color-border-300: #e5e7eb;
-    --color-border-400: #cbd5e1;
+  --color-border-300: #e5e7eb;
+  --color-border-400: #cbd5e1;
 
-    /* =========================
+  /* =========================
        RADIUS
        ========================= */
 
-    --radius-sm: 0.5rem;
-    --radius-md: 0.75rem;
-    --radius-lg: 1rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
 }
 
 @keyframes fade-up {
@@ -66,8 +61,6 @@
     transform: translateY(0);
   }
 }
-
-
 
 /* Base – keep neutral */
 html {
@@ -82,3 +75,44 @@ body {
 .animate-fade-up {
   animation: fade-up 0.6s ease-out forwards;
 }
+
+
+.footer-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-heading-900);
+  margin-bottom: 1rem;
+}
+
+.footer-subtitle {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-muted-500);
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-body-700);
+}
+
+.footer-list a:hover {
+  color: var(--color-primary-600);
+}
+
+.social-icon {
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
