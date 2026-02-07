@@ -31,23 +31,21 @@ export default function MobileNav({ isOpen, onClose }) {
       <aside
         className="
           fixed right-0 top-0 z-50
-          h-full w-[280px]
-          bg-[var(--color-white-100)]
+          h-full w-70
+          bg-white-100
           shadow-xl
           flex flex-col
-          transition-transform duration-300
-          translate-x-0
         "
       >
         {/* Header */}
         <div
           className="
-            flex min-h-[64px] items-center justify-between
-            border-b border-[var(--color-border-300)]
+            flex min-h-16 items-center justify-between
+            border-b border-border-300
             px-4
           "
         >
-          <span className="text-base font-semibold text-[var(--color-heading-900)]">
+          <span className="text-lg font-semibold text-heading-900">
             Menu
           </span>
 
@@ -55,11 +53,11 @@ export default function MobileNav({ isOpen, onClose }) {
             onClick={onClose}
             aria-label="Close menu"
             className="
-              rounded-[var(--radius-sm)]
-              border border-[var(--color-border-300)]
+              rounded-sm
+              border border-border-300
               px-3 py-1
               text-sm
-              text-[var(--color-heading-900)]
+              text-heading-900
             "
           >
             ✕
@@ -96,11 +94,11 @@ function MobileLink({ href, children, onClose }) {
       href={href}
       onClick={onClose}
       className="
-        rounded-[var(--radius-sm)]
+        rounded-sm
         px-3 py-2
-        text-sm font-medium
-        text-[var(--color-body-700)]
-        hover:bg-[var(--color-light-100)]
+        text-base font-medium
+        text-body-700
+        hover:bg-light-100
       "
     >
       {children}

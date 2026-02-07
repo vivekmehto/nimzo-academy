@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
-import Button from "@/components/ui/Button";
 import { navigation } from "@/data/navigation";
 
 export default function Header() {
@@ -15,15 +14,18 @@ export default function Header() {
       <header
         className="
           sticky top-0 z-50
-          border-b border-[var(--color-border-300)]
-          bg-[var(--color-white-100)]
+          border-b border-border-300
+          bg-white-100
         "
       >
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex min-h-[64px] items-center justify-between">
+          <div className="flex min-h-16 items-center justify-between gap-4">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="flex items-center gap-2 sm:gap-3 shrink-0"
+            >
               <Image
                 src="/logo.png"
                 alt="Nimzo Chess Academy"
@@ -32,13 +34,25 @@ export default function Header() {
                 className="h-9 w-auto rounded-full"
                 priority
               />
-              <span className="text-base font-semibold text-[var(--color-heading-900)]">
+              <span
+                className="
+                  font-bold text-heading-900
+                  text-lg sm:text-xl
+                  whitespace-nowrap
+                "
+              >
                 Nimzo Academy
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav
+              className="
+                hidden md:flex
+                items-center
+                gap-6 lg:gap-8
+              "
+            >
               {navigation.map((item) => (
                 <NavLink key={item.href} href={item.href}>
                   {item.label}
@@ -47,21 +61,39 @@ export default function Header() {
             </nav>
 
             {/* Right */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <div className="hidden sm:block">
-                <Button href="/contact">Book Free Demo</Button>
+                <Link
+                  href="/contact"
+                  className="
+                    inline-flex items-center justify-center
+                    rounded-(--radius-md)
+                    bg-accent-500
+                    px-5 lg:px-7
+                    py-2.5
+                    text-sm lg:text-base
+                    font-semibold
+                    text-heading-900
+                    hover:bg-accent-600
+                    transition
+                    whitespace-nowrap
+                  "
+                >
+                  Book Free Demo
+                </Link>
               </div>
 
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(true)}
                 aria-label="Open menu"
                 className="
                   md:hidden
                   inline-flex items-center justify-center
-                  rounded-[var(--radius-sm)]
-                  border border-[var(--color-border-300)]
+                  rounded-sm
+                  border border-border-300
                   p-2
-                  text-[var(--color-heading-900)]
+                  text-heading-900
                 "
               >
                 ☰
@@ -83,10 +115,12 @@ function NavLink({ href, children }) {
     <Link
       href={href}
       className="
-        text-sm font-medium
-        text-[var(--color-body-700)]
+        text-base lg:text-lg
+        font-semibold
+        text-body-700
+        whitespace-nowrap
         transition-colors
-        hover:text-[var(--color-primary-600)]
+        hover:text-primary-600
       "
     >
       {children}
