@@ -13,7 +13,7 @@ export default function ProgramCard({
     <div
       className={`
     relative flex h-full flex-col
-    rounded-[var(--radius-lg)]
+    rounded-(--radius-lg)
     bg-white p-6
     transition-all duration-300 ease-out
 lg:hover:-translate-y-1

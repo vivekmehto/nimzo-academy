@@ -33,8 +33,8 @@ export default function Hero() {
               "
             >
               Chess Classes for kids
-              <br className="hidden sm:block" />
-              <span className="text-3xl text-primary-600">
+              <br  />
+              <span className="text-2xl lg:text-3xl text-primary-600">
                 Structured, Calm & Effective
               </span>
             </h1>
@@ -63,9 +63,7 @@ export default function Hero() {
               "
             >
               At Nimzo Academy, children learn chess through a clear step by
-              step process guided by experienced, child focused coaches. For
-              children aged 5–16, with lessons adapted to each child’s age,
-              focus level, and learning pace. Our approach emphasizes
+              step process guided by experienced, child focused coaches. Our approach emphasizes
               discipline, logical thinking, and steady progress without
               pressure.
             </p>
