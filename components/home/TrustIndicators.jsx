@@ -6,7 +6,7 @@ export default function TrustIndicators() {
     <Section
       className="
         relative
-        py-16 lg:py-20
+        py-16 sm:py-24
       bg-[#4760D0]
         "
     >
@@ -35,7 +35,7 @@ export default function TrustIndicators() {
                 {item.title}
               </h3>
 
-              <p
+              {/* <p
                 className="
                   mt-3
                   text-sm lg:text-base
@@ -44,7 +44,7 @@ export default function TrustIndicators() {
                 "
               >
                 {item.desc}
-              </p>
+              </p> */}
             </div>
           );
         })}
