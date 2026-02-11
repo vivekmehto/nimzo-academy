@@ -5,9 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
 import { navigation } from "@/data/navigation";
+import DemoModal from "@/components/forms/DemoModal"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   return (
     <>
@@ -63,8 +65,8 @@ export default function Header() {
             {/* Right */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <div className="hidden sm:block">
-                <Link
-                  href="/contact"
+                <button
+                 onClick={() => setIsDemoOpen(true)}
                   className="
                     inline-flex items-center justify-center
                     rounded-(--radius-md)
@@ -80,7 +82,7 @@ export default function Header() {
                   "
                 >
                   Book Free Demo
-                </Link>
+                </button>
               </div>
 
               {/* Mobile Menu Button */}
@@ -105,6 +107,11 @@ export default function Header() {
       </header>
 
       <MobileNav isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        <DemoModal
+  isOpen={isDemoOpen}
+  onClose={() => setIsDemoOpen(false)}
+/>
+
     </>
   );
 }

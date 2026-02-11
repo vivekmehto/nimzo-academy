@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/ui/WhatsAppButton"
 
 export const metadata = {
   title: "Nimzo Academy | Chess Training for All Levels",
@@ -22,6 +23,7 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
+          <WhatsAppButton />
           <Footer />
         </div>
 
