@@ -5,11 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
 import { navigation } from "@/data/navigation";
-import DemoModal from "@/components/forms/DemoModal"
+import { useDemoModal } from "@/context/DemoModalContext";
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-const [isDemoOpen, setIsDemoOpen] = useState(false);
+    const { openModal } = useDemoModal();
+
 
   return (
     <>
@@ -65,8 +67,8 @@ const [isDemoOpen, setIsDemoOpen] = useState(false);
             {/* Right */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <div className="hidden sm:block">
-                <button
-                 onClick={() => setIsDemoOpen(true)}
+               <button 
+               onClick={() => openModal("demo")}
                   className="
                     inline-flex items-center justify-center
                     rounded-(--radius-md)
@@ -79,6 +81,7 @@ const [isDemoOpen, setIsDemoOpen] = useState(false);
                     hover:bg-accent-600
                     transition
                     whitespace-nowrap
+                    cursor-pointer
                   "
                 >
                   Book Free Demo
@@ -107,10 +110,7 @@ const [isDemoOpen, setIsDemoOpen] = useState(false);
       </header>
 
       <MobileNav isOpen={isOpen} onClose={() => setIsOpen(false)} />
-        <DemoModal
-  isOpen={isDemoOpen}
-  onClose={() => setIsDemoOpen(false)}
-/>
+
 
     </>
   );

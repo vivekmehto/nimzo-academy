@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function DemoModal({ isOpen, onClose }) {
+export default function DemoModal({ isOpen, onClose, type }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -14,12 +14,20 @@ export default function DemoModal({ isOpen, onClose }) {
     phone: "",
     age: "",
     sourceDetail: "",
+    type: type,
   });
 
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
   }, [isOpen]);
+
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      type: type,
+    }));
+  }, [type]);
 
   if (!isOpen) return null;
 
@@ -91,7 +99,9 @@ export default function DemoModal({ isOpen, onClose }) {
             <>
               {/* Heading */}
               <h2 className="text-xl sm:text-2xl font-semibold text-center text-[var(--color-heading-900)]">
-                Book A Free Demo Today
+                {type === "demo"
+                  ? "Book A Free Demo Today"
+                  : "Book Chess Skill Assessment"}
               </h2>
 
               <p className="mt-2 text-center text-sm text-[var(--color-muted-500)]">
@@ -191,12 +201,14 @@ export default function DemoModal({ isOpen, onClose }) {
                   }}
                 >
                   <option value="">Select Age</option>
-                  {[4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].map((age) => (
-                    <option key={age} value={age}>
-                      {age}
-                    </option>
-                  ))}
-                  <option value={19} >18 Above</option>
+                  {[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map(
+                    (age) => (
+                      <option key={age} value={age}>
+                        {age}
+                      </option>
+                    ),
+                  )}
+                  <option value={19}>18 Above</option>
                 </select>
 
                 {/* Source */}
