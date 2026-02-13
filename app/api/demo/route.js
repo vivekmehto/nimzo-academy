@@ -15,12 +15,13 @@ export async function POST(req) {
       studentName,
       age,
       sourceDetail,
+      type = "demo",
     } = body;
 
     if (!parentName || !phone || !studentName || !age || !countryCode) {
       return Response.json(
         { success: false, message: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -30,6 +31,15 @@ export async function POST(req) {
     email = email?.trim() || "";
     countryCode = countryCode.trim();
 
+    const allowedTypes = ["demo", "assessment"];
+
+    if (!allowedTypes.includes(type)) {
+      return Response.json(
+        { success: false, message: "Invalid booking type" },
+        { status: 400 },
+      );
+    }
+
     // Clean names
     const cleanedParentName = parentName.replace(/[^a-zA-Z\s]/g, "");
     const cleanedStudentName = studentName.replace(/[^a-zA-Z\s]/g, "");
@@ -37,14 +47,14 @@ export async function POST(req) {
     if (!/^[a-zA-Z\s]{2,50}$/.test(cleanedParentName)) {
       return Response.json(
         { success: false, message: "Invalid parent name" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!/^[a-zA-Z\s]{2,50}$/.test(cleanedStudentName)) {
       return Response.json(
         { success: false, message: "Invalid student name" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -52,7 +62,7 @@ export async function POST(req) {
     if (email && !/^\S+@\S+\.\S+$/.test(email)) {
       return Response.json(
         { success: false, message: "Invalid email format" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -60,7 +70,7 @@ export async function POST(req) {
     if (!/^\+\d{1,4}$/.test(countryCode)) {
       return Response.json(
         { success: false, message: "Invalid country code" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -71,7 +81,7 @@ export async function POST(req) {
     if (!/^\+\d{8,15}$/.test(fullPhone)) {
       return Response.json(
         { success: false, message: "Invalid phone number" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -80,7 +90,7 @@ export async function POST(req) {
     if (isNaN(age) || age < 5 || age > 18) {
       return Response.json(
         { success: false, message: "Invalid age" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -93,6 +103,8 @@ export async function POST(req) {
       phone: fullPhone,
       email,
       age,
+
+      bookingType: type,
 
       leadSource: "website",
       referralSource: sourceDetail?.trim() || "",
@@ -111,9 +123,16 @@ export async function POST(req) {
     await resend.emails.send({
       from: "Nimzo Academy <onboarding@resend.dev>",
       to: "vivekmehto.chess@gmail.com",
-      subject: "New Demo Request Received",
+      subject:
+        type === "demo"
+          ? "New Demo Request Received"
+          : "New Assessment Booking Received",
+
       html: `
-        <h2>New Demo Request</h2>
+        <h2>
+  ${type === "demo" ? "New Demo Request" : "New Assessment Booking"}
+</h2>
+
         <p><strong>Parent Name:</strong> ${cleanedParentName}</p>
         <p><strong>Phone:</strong> ${fullPhone}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -124,12 +143,11 @@ export async function POST(req) {
     });
 
     return Response.json({ success: true });
-
   } catch (error) {
     console.error("Demo API Error:", error);
     return Response.json(
       { success: false, message: "Server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
