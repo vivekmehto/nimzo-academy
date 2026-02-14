@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 
 export default function WhatsAppButton() {
   const pathname = usePathname();
@@ -60,7 +61,7 @@ export default function WhatsAppButton() {
       )}
 
       {/* WhatsApp Button */}
-      <a
+      <Link
         href={`https://wa.me/${phone}?text=${encodedMessage}`}
         target="_blank"
         rel="noopener noreferrer nofollow"
@@ -86,7 +87,7 @@ export default function WhatsAppButton() {
           className="relative text-white"
           aria-hidden="true"
         />
-      </a>
+      </Link>
     </div>
   );
 }
