@@ -1,4 +1,11 @@
-export default function IntermediateSection() {
+"use client";
+
+import { useDemoModal } from "@/context/DemoModalContext";
+
+export default function IntermediateSection({setActiveCurriculum}) {
+
+  const {openModal} = useDemoModal();
+  
   return (
     <section className="bg-[var(--color-white-100)] py-14 sm:py-18 md:py-26">
       <div className="mx-auto max-w-6xl px-6 animate-fade-up">
@@ -123,23 +130,24 @@ export default function IntermediateSection() {
 
             {/* CTA */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <button
-                className="
-                  rounded-[var(--radius-md)]
-                  bg-[var(--color-primary-600)]
-                  px-8
-                  py-4
-                  text-sm
-                  sm:text-base
-                  font-semibold
-                  text-white
-                  hover:bg-[var(--color-primary-700)]
-                "
-              >
+               <button onClick={() => openModal("assessment")}
+               className="
+                rounded-[var(--radius-md)]
+                bg-[var(--color-primary-600)]
+                px-8
+                py-4
+                text-sm
+                sm:text-base
+                font-semibold
+                text-white
+                hover:bg-[var(--color-primary-700)]
+              ">
                 Book Free Assessment
               </button>
 
               <button
+              
+               onClick={() => setActiveCurriculum("intermediate")}
                 className="
                   rounded-[var(--radius-md)]
                   border

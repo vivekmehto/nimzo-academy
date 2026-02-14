@@ -1,4 +1,11 @@
-export default function MasterSection() {
+"use client";
+
+import { useDemoModal } from "@/context/DemoModalContext";
+
+export default function MasterSection({setActiveCurriculum}) {
+
+  const {openModal} = useDemoModal();
+
   return (
     <section className="bg-[var(--color-dark-900)] py-14 sm:py-18 md:py-24 text-white">
       <div className="mx-auto max-w-6xl px-6 animate-fade-up">
@@ -121,7 +128,8 @@ export default function MasterSection() {
 
             {/* CTA */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <button
+              <button 
+              onClick={()=> openModal("assessment")}
                 className="
                   rounded-[var(--radius-md)]
                   border
@@ -141,6 +149,8 @@ export default function MasterSection() {
               </button>
 
               <button
+
+               onClick={() => setActiveCurriculum("master")}
                 className="
                   rounded-[var(--radius-md)]
                   border

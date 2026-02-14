@@ -1,4 +1,11 @@
-export default function BeginnerSection() {
+"use client";
+
+import { useDemoModal } from "@/context/DemoModalContext";
+
+export default function BeginnerSection({setActiveCurriculum}) {
+
+  const {openModal} = useDemoModal();
+
   return (
     <section className="bg-[var(--color-light-100)] py-16 sm:py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6 animate-fade-up">
@@ -101,7 +108,8 @@ export default function BeginnerSection() {
 
             {/* CTA */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <button className="
+              <button onClick={() => openModal("assessment")}
+               className="
                 rounded-[var(--radius-md)]
                 bg-[var(--color-primary-600)]
                 px-8
@@ -115,7 +123,9 @@ export default function BeginnerSection() {
                 Book Free Assessment
               </button>
 
-              <button className="
+              <button 
+               onClick={() => setActiveCurriculum("beginner")}
+              className="
                 rounded-[var(--radius-md)]
                 border
                 border-[var(--color-accent-500)]

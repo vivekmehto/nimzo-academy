@@ -1,4 +1,11 @@
-export default function AdvancedSection() {
+"use client";
+
+import { useDemoModal } from "@/context/DemoModalContext";
+
+export default function AdvancedSection({setActiveCurriculum}) {
+
+  const {openModal} = useDemoModal();
+
   return (
     <section className="bg-[var(--color-light-100)] py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6 animate-fade-up">
@@ -106,23 +113,23 @@ export default function AdvancedSection() {
 
             {/* CTA */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
-                className="
-                  rounded-[var(--radius-md)]
-                  bg-[var(--color-primary-600)]
-                  px-8
-                  py-4
-                  text-sm
-                  sm:text-base
-                  font-semibold
-                  text-white
-                  hover:bg-[var(--color-primary-700)]
-                "
-              >
+               <button onClick={() => openModal("assessment")}
+               className="
+                rounded-[var(--radius-md)]
+                bg-[var(--color-primary-600)]
+                px-8
+                py-4
+                text-sm
+                sm:text-base
+                font-semibold
+                text-white
+                hover:bg-[var(--color-primary-700)]
+              ">
                 Book Free Assessment
               </button>
 
               <button
+               onClick={() => setActiveCurriculum("advanced")}
                 className="
                   rounded-[var(--radius-md)]
                   border
