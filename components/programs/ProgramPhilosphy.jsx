@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ProgramPhilosophy() {
   return (
-    <section className="bg-[var(--color-white-100)]">
+    <section id="learning-path" className="bg-[var(--color-white-100)]">
       <div className="mx-auto max-w-7xl px-6 py-14 sm:py-16 md:py-20">
         <div className="grid items-center gap-10 md:grid-cols-2">
 

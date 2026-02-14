@@ -1,7 +1,12 @@
-import Link from "next/link";
+"use client";
+
+import { useDemoModal } from "@/context/DemoModalContext";
 import Section from "@/components/ui/Section";
 
 export default function ProgramsCTA() {
+
+  const {openModal} = useDemoModal();
+
   return (
     <Section
       className="
@@ -52,8 +57,8 @@ export default function ProgramsCTA() {
             justify-center
           "
         >
-          <Link
-            href="/contact"
+          <button
+            onClick={()=> openModal("assessment")}
             className="
               inline-flex
               items-center
@@ -71,7 +76,7 @@ export default function ProgramsCTA() {
             "
           >
             Book Free Assessment
-          </Link>
+          </button>
         </div>
 
         {/* Trust Line */}
