@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { useDemoModal } from "@/context/DemoModalContext";
 
 export default function AboutCTA() {
+  const {openModal} = useDemoModal();
   return (
     <section className="bg-back-500 py-28 md:py-36">
       <div className="mx-auto max-w-3xl px-6 text-center animate-fade-up">
@@ -42,23 +46,21 @@ export default function AboutCTA() {
 
         {/* CTA buttons */}
         <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
-          <Link
-            href="/programs"
+          <button onClick={() => openModal("demo")}
             className="
               inline-flex
               items-center
               justify-center
               rounded-[var(--radius-md)]
-              bg-primary-500
+              bg-accent-500
               px-8 py-4
-              text-sm font-semibold
-              text-white
+              text-sm font-bold
               transition
-              hover:bg-primary-600
+              hover:bg-accent-600
             "
           >
-            Explore Programs
-          </Link>
+            Book Free Demo
+          </button>
 
           <Link
             href="/contact"
@@ -69,8 +71,8 @@ export default function AboutCTA() {
               rounded-[var(--radius-md)]
               border border-[var(--color-border-400)]
               px-8 py-4
-              text-sm font-medium
-              text-[var(--color-body-700)]
+              text-sm font-bold
+              text-primar-600
               transition
               hover:border-[var(--color-primary-600)]
               hover:text-[var(--color-primary-600)]
