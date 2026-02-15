@@ -4,8 +4,13 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { navigation } from "@/data/navigation";
+  import { useDemoModal } from "@/context/DemoModalContext";
+
 
 export default function MobileNav({ isOpen, onClose }) {
+
+  const {openModal} = useDemoModal();
+
   useEffect(() => {
     function handleEsc(e) {
       if (e.key === "Escape") onClose();
@@ -79,7 +84,7 @@ export default function MobileNav({ isOpen, onClose }) {
 
         {/* CTA */}
         <div className="mt-auto p-4">
-          <Button href="/contact" full onClick={onClose}>
+          <Button  full onClick={()=> openModal("demo")}>
             Book Free Demo
           </Button>
         </div>

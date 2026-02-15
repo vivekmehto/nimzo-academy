@@ -20,8 +20,28 @@ import ProgramPhilosophy from "../../components/programs/ProgramPhilosphy";
 import ProgramTimeline from "../../components/programs/ProgramTimeline";
 import PageProgressBar from "../../components/ui/PageProgressBar";
 
+import { useRouter, useSearchParams } from "next/navigation";
+
 export default function ProgramsPage() {
   const [activeCurriculum, setActiveCurriculum] = useState(null);
+
+    const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    const section = searchParams.get("section");
+
+    if (section) {
+      const element = document.getElementById(section);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Remove query from URL (clean URL again)
+      router.replace("/programs");
+    }
+  }, [searchParams, router]);
 
   const curriculumMap = {
     beginner: beginnerCurriculum,
