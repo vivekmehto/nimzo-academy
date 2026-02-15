@@ -4,10 +4,11 @@ import { useState } from "react";
 import Section from "@/components/ui/Section";
 import { faqs } from "@/data/faqs";
 import FaqSchema from "@/components/seo/FaqSchema";
-import Link from "next/link";
+import { useDemoModal } from "@/context/DemoModalContext";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
+  const {openModal} = useDemoModal();
 
   return (
     <>
@@ -92,8 +93,9 @@ export default function FAQ() {
               Still have questions or need personal guidance?
             </p>
 
-            <Link
-              href="/contact"
+            <button
+
+              onClick={()=> openModal("demo")}
               className="
                 inline-flex items-center justify-center
                 rounded-full
@@ -103,10 +105,11 @@ export default function FAQ() {
                 text-heading-900
                 hover:bg-accent-600
                 transition
+                cursor-pointer
               "
             >
               Book a Free Demo Class
-            </Link>
+            </button>
           </div>
         </div>
       </Section>

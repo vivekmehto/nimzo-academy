@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import Section from "@/components/ui/Section";
+import { useDemoModal } from "@/context/DemoModalContext";
 
 export default function FinalCTA() {
+  const { openModal } = useDemoModal();
   return (
     <Section
       className="
@@ -24,10 +28,7 @@ export default function FinalCTA() {
           "
         >
           Help your child build a{" "}
-          <span className="text-primary-600">
-            strong foundation
-          </span>{" "}
-          in chess
+          <span className="text-primary-600">strong foundation</span> in chess
         </h2>
 
         {/* Subheading */}
@@ -56,8 +57,9 @@ export default function FinalCTA() {
           "
         >
           {/* Primary CTA */}
-          <Link
-            href="/contact"
+          <button
+            
+            onClick={()=> openModal("demo")}
             className="
               inline-flex items-center justify-center
               rounded-full
@@ -69,10 +71,11 @@ export default function FinalCTA() {
               transition-all
               hover:bg-accent-600
               hover:shadow-xl
+              cursor-pointer
             "
           >
             Book a Free Demo Class
-          </Link>
+          </button>
 
           {/* Secondary CTA */}
           <Link
@@ -85,7 +88,8 @@ export default function FinalCTA() {
               text-base font-medium
               text-primary-600
               transition
-              hover:bg-white
+              cursor-pointer
+            hover:bg-primary-600/5
             "
           >
             Explore Chess Programs

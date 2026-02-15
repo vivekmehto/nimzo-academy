@@ -1,120 +1,124 @@
+"use client";
+
 import Section from "@/components/ui/Section";
 import { learningPath } from "@/data/learningPath";
-
+import { useRouter } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 
 export default function ChessLearningPath() {
+  const router = useRouter();
+
   return (
-    <Section className="bg-back-500 pb-20">
+    <Section className="bg-back-500 py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-heading-900">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-heading-900 tracking-tight">
             Our Chess Learning Path
           </h2>
-          <p className="mt-4 text-body-700">
-            A structured learning path designed to help children progress from
+          <p className="mt-5 text-body-700 leading-relaxed">
+            A structured progression designed to help children grow from
             beginners to confident competitive players.
           </p>
         </div>
 
         {/* Grid */}
-        <div
-          className="
-            grid
-            grid-cols-1
-            gap-6 sm:gap-8
-            md:grid-cols-2
-            lg:grid-cols-4
-          "
-        >
-          {learningPath.map((level, index) => {
-            const Icon = level.icon;
+        <div className="relative">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+            {learningPath.map((level, index) => {
+              const Icon = level.icon;
 
-            const iconBg = [
-              "bg-primary-600/8",
-              "bg-primary-600/12",
-              "bg-primary-600/16",
-              "bg-primary-600/20",
-            ][index];
+              const iconBg = [
+                "bg-primary-600/10",
+                "bg-primary-600/15",
+                "bg-primary-600/20",
+                "bg-primary-600/25",
+              ][index];
 
-            return (
-              <div
-                key={level.id}
-                className={`
-                  relative h-full
-                  rounded-lg
-                  border
-                  bg-white-100
-                  p-5 sm:p-6
-                  transition-colors
-                  ${
-                    level.recommended
-                      ? "border-primary-600 shadow-sm bg-primary-600/3"
-                      : "border-border-300 shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
-                  }
-                `}
-              >
-                {/* Recommended badge */}
-                {level.recommended && (
-                  <div
-                    className="
-                      absolute -top-3 left-1/2
-                      -translate-x-1/2
-                      rounded-full
-                      bg-primary-600
-                      px-4 py-1
-                      text-xs font-medium
-                      text-white
-                      shadow-sm
-                    "
-                  >
-                    Recommended
-                  </div>
-                )}
-
-                {/* Icon + Title */}
-                <div className="mb-4 text-center">
-                  <div
+              return (
+                <div key={level.id} className="relative flex items-center">
+                  
+                  {/* Card */}
+                  <button
+                    onClick={() =>
+                      router.push(`/programs?section=${level.id}`)
+                    }
                     className={`
-                      mx-auto
-                      mb-3
-                      inline-flex
-                      h-10 w-10 sm:h-12 sm:w-12
-                      items-center justify-center
-                      rounded-md
-                      ${iconBg}
-                      text-primary-600
+                      group relative w-full text-left
+                      rounded-2xl
+                      border
+                      bg-white-100
+                      p-6
+                      transition-all duration-300
+                      focus:outline-none focus:ring-2 focus:ring-primary-600
+                      cursor-pointer
+                      ${
+                        level.recommended
+                          ? "border-primary-600 shadow-md bg-primary-600/5 scale-[1.02]"
+                          : "border-border-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                      }
                     `}
                   >
-                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </div>
+                    {/* Recommended Badge */}
+                    {level.recommended && (
+                      <div className="absolute -top-3 left-6 rounded-full bg-gradient-to-r from-primary-600 to-accent-600 px-4 py-1 text-xs font-medium text-white shadow-md">
+                        Recommended
+                      </div>
+                    )}
 
-                  <h3 className="text-lg font-semibold text-heading-900">
-                    {level.title}
-                  </h3>
-
-                  <p className="mt-1 text-sm text-muted-500">
-                    {level.subtitle}
-                  </p>
-                </div>
-
-                {/* Points */}
-                <ul className="mt-5 text-sm text-body-700">
-                  {level.points.map((point, i) => (
-                    <li
-                      key={point}
-                      className={`flex gap-3 ${
-                        i === 3 ? "mt-3" : "mt-1.5"
-                      }`}
+                    {/* Icon */}
+                    <div
+                      className={`
+                        mb-6 inline-flex
+                        h-12 w-12
+                        items-center justify-center
+                        rounded-xl
+                        ${iconBg}
+                        text-primary-600
+                        transition-transform duration-300
+                        group-hover:scale-110
+                      `}
                     >
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent-600 shrink-0" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+                      <Icon className="h-6 w-6" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg font-semibold text-heading-900">
+                      {level.title}
+                    </h3>
+
+                    {/* Subtitle */}
+                    <p className="mt-2 text-sm text-muted-500 leading-relaxed">
+                      {level.subtitle}
+                    </p>
+
+                    {/* Points */}
+                    <ul className="mt-6 space-y-3 text-sm text-body-700">
+                      {level.points.map((point) => (
+                        <li key={point} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-600 shrink-0" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* CTA */}
+                    <div className="mt-8 flex items-center text-sm font-medium text-primary-600 transition-all duration-300 group-hover:translate-x-1">
+                      Explore Program
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </div>
+                  </button>
+
+                  {/* Arrow Between Cards (Desktop Only) */}
+                  {index !== learningPath.length - 1 && (
+                    <div className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 text-primary-600/40">
+                      <ArrowRight className=" h-6 w-6" />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </Section>

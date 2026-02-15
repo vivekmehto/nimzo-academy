@@ -1,6 +1,12 @@
+"use client"
+
 import Image from "next/image";
+import Link from "next/link";
+import { useDemoModal } from "@/context/DemoModalContext";
 
 export default function Hero() {
+
+  const {openModal } = useDemoModal();
   return (
    <section
   className="
@@ -77,8 +83,9 @@ export default function Hero() {
                 justify-center lg:justify-start
               "
             >
-              <a
-                href="/contact"
+              <button
+          
+                onClick={()=> openModal("demo")}
                 className="
                   inline-flex items-center justify-center
                   rounded-(--radius-md)
@@ -88,12 +95,13 @@ export default function Hero() {
                   text-heading-900
                   hover:bg-accent-600
                   transition
+                  cursor-pointer
                 "
               >
                 Book a Free Demo Class
-              </a>
+              </button>
 
-              <a
+              <Link
                 href="/programs"
                 className="
                   inline-flex items-center justify-center
@@ -104,10 +112,11 @@ export default function Hero() {
                   text-primary-600
                   hover:bg-primary-600/5
                   transition
+                  cursor-pointer
                 "
               >
                 View Learning Programs
-              </a>
+              </Link>
             </div>
 
             {/* Trust Points */}

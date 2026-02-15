@@ -18,7 +18,6 @@ export default function Footer() {
   return (
     <footer className="bg-light-100 border-t border-border-300">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-16">
-
         {/* =====================
            TOP BRAND + SOCIAL
         ===================== */}
@@ -35,6 +34,10 @@ export default function Footer() {
           {/* LEFT — Brand */}
           <div className="max-w-lg">
             <div className="flex items-center gap-3 mb-3">
+               <Link
+              href="/"
+              className="flex items-center gap-2 sm:gap-3 shrink-0"
+            >
               <Image
                 src="/logo.png"
                 alt="Nimzo Academy logo"
@@ -45,11 +48,13 @@ export default function Footer() {
               <span className="text-lg font-semibold text-heading-900">
                 Nimzo Academy
               </span>
+              </Link>
             </div>
 
             <p className="max-w-md text-sm text-body-700 leading-relaxed">
               Professional chess coaching for children and beginners, focused on
-              structured learning, confidence building, and long-term thinking skills.
+              structured learning, confidence building, and long-term thinking
+              skills.
             </p>
           </div>
 
@@ -60,18 +65,35 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-5 lg:justify-end">
-              <a href="#" aria-label="Instagram">
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/nimzoacademy/"
+                aria-label="Instagram"
+              >
                 <FaInstagram className="social-icon text-pink-500" />
-              </a>
-              <a href="#" aria-label="YouTube">
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.youtube.com/channel/UCGlVYL3475ysX-Tm2TJjVOw"
+                aria-label="YouTube"
+              >
                 <FaYoutube className="social-icon text-red-600" />
-              </a>
-              <a href="#" aria-label="Facebook">
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.facebook.com/people/Nimzo-Academy/61583463975965/"
+                aria-label="Facebook"
+              >
                 <FaFacebookF className="social-icon text-blue-600" />
-              </a>
-              <a href="#" aria-label="WhatsApp">
+              </Link>
+              <Link
+                href={`https://wa.me/919718086186`}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Chat with us on WhatsApp"
+              >
                 <FaWhatsapp className="social-icon text-green-500" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -80,16 +102,25 @@ export default function Footer() {
            MAIN GRID
         ===================== */}
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-
           {/* Quick Links */}
           <div>
             <h4 className="footer-title">Quick Links</h4>
             <ul className="footer-list">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/programs">Programs</Link></li>
-              <li><Link href="/teaching-process">Teaching Process</Link></li>
-              <li><Link href="/testimonials">Testimonials</Link></li>
-              <li><Link href="/contact">Contact Us</Link></li>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/programs">Programs</Link>
+              </li>
+              <li>
+                <Link href="/gallery">Gallery</Link>
+              </li>
+              <li>
+                <Link href="/about">About</Link>
+              </li>
+              <li>
+                <Link href="/contact">Contact Us</Link>
+              </li>
             </ul>
           </div>
 
@@ -116,9 +147,15 @@ export default function Footer() {
           <div>
             <h4 className="footer-title">Community</h4>
             <ul className="footer-list">
-              <li><Link href="/referral">Referral Program</Link></li>
-              <li><Link href="/careers">Career Opportunities</Link></li>
-              <li><Link href="/tournaments">Organize a Tournament</Link></li>
+              <li>
+                <Link href="/referral">Referral Program</Link>
+              </li>
+              <li>
+                <Link href="/careers">Career Opportunities</Link>
+              </li>
+              <li>
+                <Link href="/tournaments">Organize a Tournament</Link>
+              </li>
             </ul>
           </div>
 
@@ -129,28 +166,34 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-body-700">
               <li className="flex items-start gap-3">
                 <HiOutlinePhone className="mt-0.5 h-5 w-5 text-primary-600" />
-                <a href="tel:+919718086186" className="hover:text-primary-600">
+                <Link
+                  href="tel:+919718086186"
+                  className="hover:text-primary-600"
+                >
                   +91 97180 86186
-                </a>
+                </Link>
               </li>
 
               <li className="flex items-start gap-3">
                 <HiOutlineMail className="mt-0.5 h-5 w-5 text-primary-600" />
-                <a href="mailto:nimzoacademy@gmail.com" className="hover:text-primary-600">
+                <Link
+                  href="mailto:nimzoacademy@gmail.com"
+                  className="hover:text-primary-600"
+                >
                   nimzoacademy@gmail.com
-                </a>
+                </Link>
               </li>
 
               <li className="flex items-start gap-3">
                 <HiOutlineLocationMarker className="mt-0.5 h-5 w-5 text-primary-600" />
-                <a
+                <Link
                   href="https://maps.google.com?q=Dwarka,+New+Delhi,+India"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary-600 leading-relaxed"
                 >
-                  Dwarka, New Delhi, India
-                </a>
+                  262, BLOCK-A, Sector 8 Dwarka, New Delhi-110077
+                </Link>
               </li>
             </ul>
           </div>
