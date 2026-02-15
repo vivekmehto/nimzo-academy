@@ -1,57 +1,67 @@
 import { Layers, Laptop, Users } from "lucide-react";
 
-export const  programs = [
+export const programs = [
   {
     id: "hybrid",
     featured: true,
     icon: Layers,
     title: "Hybrid Chess Program",
     description:
-   "A balanced mix of online learning and offline practice for steady, long-term improvement competitive play and skill mastery.",
+      "A structured blend of online coaching and offline practice designed for consistent improvement and long-term competitive growth.",
 
     idealFor: [
-      "Faster structured progress",
-      "Busy families",
-      "Long-term development",
+      "Students balancing academics and activities",
+      "Learners seeking flexible yet structured training",
+      "Serious long-term development",
     ],
-    outcome: "Fastest and most consistent improvement",
+
+    outcome: "Consistent performance growth and tournament readiness",
+
     includes: [
-      "Weekly Online Training",
-      "Offline Practice Sessions",
+      "Weekly Live Online Coaching",
+      "Structured Offline Practice Sessions",
     ],
   },
+
   {
     id: "online",
     icon: Laptop,
     title: "Online Chess Classes",
     description:
-      "Live, interactive chess classes designed to build strong fundamentals while children learn comfortably from home.",
+      "Interactive live chess training that builds strong fundamentals, strategic thinking, and confidence — all from home.",
+
     idealFor: [
-      "Kids aged 6+",
-      "Busy family schedules",
-      "Building strong chess basics",
+      "Children aged 6+",
+      "Home-based structured learning",
+      "Building strong chess foundations",
     ],
-    outcome: "Improves consistency, focus, and confidence",
+
+    outcome: "Improved focus, consistency, and decision-making skills",
+
     includes: [
       "One-on-One Online Coaching",
-      "Small Group Online Classes",
+      "Small Group Interactive Classes",
     ],
   },
+
   {
     id: "offline",
     icon: Users,
     title: "Offline Chess Classes",
     description:
-      "Classroom-based chess learning focused on discipline, real-board practice, and deeper conceptual understanding.",
+      "In-person classroom training focused on discipline, real-board mastery, and deeper tactical understanding for competitive play.",
+
     idealFor: [
       "In-person learners",
-      "Improving focus and discipline",
-      "Tournament preparation",
+      "Developing discipline and concentration",
+      "Preparing for tournaments",
     ],
-    outcome: "Strengthens discipline and board vision",
+
+    outcome: "Stronger board vision and competitive confidence",
+
     includes: [
-      "One-on-One Offline Coaching",
-      "Offline Group Classes",
+      "One-on-One Classroom Coaching",
+      "Structured Group Training Sessions",
     ],
   },
 ];

@@ -7,7 +7,7 @@ export default function IntermediateSection({setActiveCurriculum}) {
   const {openModal} = useDemoModal();
   
   return (
-    <section className="bg-[var(--color-white-100)] py-14 sm:py-18 md:py-26">
+    <section id="intermediate" className="bg-[var(--color-white-100)] py-14 sm:py-18 md:py-26">
       <div className="mx-auto max-w-6xl px-6 animate-fade-up">
         <div className="grid items-start gap-14 md:gap-20 md:grid-cols-2">
 

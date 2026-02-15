@@ -1,56 +1,53 @@
+"use client";
+
 import Section from "@/components/ui/Section";
 import ProgramCard from "@/components/ui/ProgramCard";
-import {programs} from "@/data/programs";
+import { programs } from "@/data/programs";
 
 export default function Programs() {
   return (
-    <Section id="programs" className="bg-back-500">
+    <Section
+      id="programs"
+      className="bg-gradient-to-b from-back-500 to-white py-16 sm:py-20 lg:py-24"
+    >
       {/* Header */}
-      <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-3xl font-semibold text-heading-900 sm:text-4xl">
-          Chess Learning Programs
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <h2 className="text-2xl font-semibold tracking-tight text-heading-900 sm:text-3xl lg:text-4xl">
+          Flexible Chess Training Programs
         </h2>
-        <p className="mt-4 text-base text-body-700">
-          Structured chess programs designed to support every child’s learning
-          style, pace, and confidence — guided by experienced coaches.
+
+        <p className="mt-4 text-sm leading-relaxed text-body-700 sm:text-base">
+          Professional chess programs designed to match every child’s learning
+          style — guided by experienced coaches and supported by a structured
+          curriculum focused on measurable growth.
         </p>
       </div>
 
       {/* Programs Grid */}
-    
-<div
-  className="
-    mt-12 grid gap-6 md:gap-8
-    grid-cols-1
-    sm:grid-cols-2
-    md:grid-cols-3
-  "
->
-  {programs.map((program) => (
-    <ProgramCard
-      key={program.id}
-      featured={program.featured}
-      icon={program.icon}
-      title={program.title}
-      description={program.description}
-      idealFor={program.idealFor}
-      outcome={program.outcome}
-      includes={program.includes}
-    />
-  ))}
-</div>
+      <div
+        className="
+          mt-12 sm:mt-14 lg:mt-20
+          grid gap-6 sm:gap-8
+          grid-cols-1
+          sm:grid-cols-2
+          lg:grid-cols-3
+          px-4 sm:px-6
+        "
+      >
+        {programs.map((program) => (
+          <ProgramCard key={program.id} {...program} />
+        ))}
+      </div>
 
-
-      {/* CTA */}
-      <div className="mt-14 text-center">
-        <p className="text-sm text-muted-500">
-          Not sure which program suits your child?
+      {/* Trust Line */}
+      <div className="mt-12 sm:mt-16 text-center px-4">
+        <p className="text-xs sm:text-sm text-muted-500">
+          Trusted by 500+ students • Structured curriculum • Personalised
+          progress tracking
         </p>
-        <p className="mt-1 text-sm">
-          <span className="font-medium text-primary-600">
-            Book a free demo
-          </span>{" "}
-          and get personal guidance from our coach.
+
+        <p className="mt-3 text-xs text-muted-500">
+          Get personalised guidance from our coach.
         </p>
       </div>
     </Section>

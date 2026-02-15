@@ -7,7 +7,7 @@ export default function MasterSection({setActiveCurriculum}) {
   const {openModal} = useDemoModal();
 
   return (
-    <section className="bg-[var(--color-dark-900)] py-14 sm:py-18 md:py-24 text-white">
+    <section id="master" className="bg-[var(--color-dark-900)] py-14 sm:py-18 md:py-24 text-white">
       <div className="mx-auto max-w-6xl px-6 animate-fade-up">
         <div className="grid items-start gap-14 md:gap-20 md:grid-cols-2">
 
