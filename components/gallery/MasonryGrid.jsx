@@ -19,7 +19,7 @@ export default function MasonryGrid({ images, onImageClick }) {
       {images.map((img, index) => (
         <div
           key={img.id}
-          className="group cursor-pointer"
+          className="group cursor-pointer animate-fade-in"
           onClick={() => onImageClick(index)}
         >
           <div className="relative overflow-hidden rounded-xl">
@@ -35,10 +35,8 @@ export default function MasonryGrid({ images, onImageClick }) {
             />
 
             {/* hover caption (desktop only) */}
-            <div className="absolute inset-0 flex items-end bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="p-3 text-sm text-white">
-                {img.caption}
-              </p>
+            <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <p className="p-4 text-sm font-medium tracking-wide text-white">{img.caption}</p>
             </div>
           </div>
         </div>

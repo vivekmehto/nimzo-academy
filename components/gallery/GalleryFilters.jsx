@@ -5,7 +5,7 @@ export default function GalleryFilters({ categories, active, onChange }) {
         <button
           key={category}
           onClick={() => onChange(category)}
-          className={`rounded-full px-4 py-2 text-sm transition
+          className={`rounded-full px-4 py-2 text-sm transition cursor-pointer
             ${
               active === category
                 ? "bg-primary-600 text-white"

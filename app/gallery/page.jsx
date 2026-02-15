@@ -8,7 +8,7 @@ import LoadMoreButton from "@/components/gallery/LoadMoreButton";
 import Lightbox from "@/components/gallery/Lightbox";
 import GalleryCTA from "../../components/gallery/GalleryCTA";
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 14;
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -30,12 +30,14 @@ export default function GalleryPage() {
     <section className="bg-light-100">
       {/* Header */}
       <div className="mx-auto max-w-7xl px-4 py-14">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Gallery
+        <h1 className="text-3xl md:text-4xl font-bold text-(--color-heading-900)">
+          Inside Our Chess Academy
         </h1>
+
         <p className="mt-2 max-w-2xl text-gray-600">
-          Explore moments from our chess training sessions and classroom
-          learning.
+          Explore structured training sessions, competitive tournaments, and
+          classroom learning moments that help students build focus, confidence,
+          and strategic thinking.
         </p>
       </div>
 
@@ -50,7 +52,13 @@ export default function GalleryPage() {
           }}
         />
 
-        <MasonryGrid images={visibleImages} onImageClick={setLightboxIndex} />
+        <div className="relative">
+          <MasonryGrid images={visibleImages} onImageClick={setLightboxIndex} />
+
+          {hasMore && (
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[var(--color-light-100)]" />
+          )}
+        </div>
 
         <LoadMoreButton
           hasMore={hasMore}
