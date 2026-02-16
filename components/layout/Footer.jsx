@@ -17,80 +17,73 @@ export default function Footer() {
 
   return (
     <footer className="bg-light-100 border-t border-border-300">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
         {/* =====================
            TOP BRAND + SOCIAL
         ===================== */}
-        <div
-          className="
-            flex flex-col
-            gap-10
-            mb-14
-            lg:flex-row
-            lg:justify-between
-            lg:items-start
-          "
-        >
+        <div className="flex flex-col gap-12 mb-16 lg:flex-row lg:justify-between lg:items-start">
           {/* LEFT — Brand */}
           <div className="max-w-lg">
-            <div className="flex items-center gap-3 mb-3">
-               <Link
-              href="/"
-              className="flex items-center gap-2 sm:gap-3 shrink-0"
-            >
+            <Link href="/" className="flex items-center gap-3 mb-4 group">
               <Image
                 src="/logo.png"
                 alt="Nimzo Academy logo"
-                width={36}
-                height={36}
+                width={38}
+                height={38}
                 className="rounded-full"
               />
-              <span className="text-lg font-semibold text-heading-900">
+              <span className="text-lg font-semibold text-heading-900 group-hover:text-primary-600 transition">
                 Nimzo Academy
               </span>
-              </Link>
-            </div>
+            </Link>
 
-            <p className="max-w-md text-sm text-body-700 leading-relaxed">
-              Professional chess coaching for children and beginners, focused on
-              structured learning, confidence building, and long-term thinking
-              skills.
+            <p className="text-sm text-body-700 leading-relaxed">
+              Professional chess coaching in Dwarka, New Delhi focused on
+              structured learning, confidence building and long term strategic
+              thinking.
             </p>
           </div>
 
           {/* RIGHT — Social */}
-          <div className="lg:text-right lg:pt-0.5">
-            <p className="text-sm font-medium text-heading-900 mb-4">
-              Follow Nimzo Academy
+          <div className="lg:text-right">
+            <p className="text-sm text-center font-semibold text-heading-900 mb-4 tracking-wide">
+              Follow Us
             </p>
 
             <div className="flex gap-5 lg:justify-end">
               <Link
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://www.instagram.com/nimzoacademy/"
                 aria-label="Instagram"
+                className="hover:scale-105 transition-transform"
               >
                 <FaInstagram className="social-icon text-pink-500" />
               </Link>
               <Link
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://www.youtube.com/channel/UCGlVYL3475ysX-Tm2TJjVOw"
                 aria-label="YouTube"
+                className="hover:scale-105 transition-transform"
               >
                 <FaYoutube className="social-icon text-red-600" />
               </Link>
               <Link
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://www.facebook.com/people/Nimzo-Academy/61583463975965/"
                 aria-label="Facebook"
+                className="hover:scale-105 transition-transform"
               >
                 <FaFacebookF className="social-icon text-blue-600" />
               </Link>
               <Link
-                href={`https://wa.me/919718086186`}
+                href="https://wa.me/919718086186"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
                 aria-label="Chat with us on WhatsApp"
+                className="hover:scale-105 transition-transform"
               >
                 <FaWhatsapp className="social-icon text-green-500" />
               </Link>
@@ -101,25 +94,47 @@ export default function Footer() {
         {/* =====================
            MAIN GRID
         ===================== */}
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4">
           {/* Quick Links */}
           <div>
             <h4 className="footer-title">Quick Links</h4>
             <ul className="footer-list">
               <li>
-                <Link href="/">Home</Link>
+                <Link href="/" className="hover:text-primary-600 transition">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link href="/programs">Programs</Link>
+                <Link
+                  href="/programs"
+                  className="hover:text-primary-600 transition"
+                >
+                  Programs
+                </Link>
               </li>
               <li>
-                <Link href="/gallery">Gallery</Link>
+                <Link
+                  href="/gallery"
+                  className="hover:text-primary-600 transition"
+                >
+                  Gallery
+                </Link>
               </li>
               <li>
-                <Link href="/about">About</Link>
+                <Link
+                  href="/about"
+                  className="hover:text-primary-600 transition"
+                >
+                  About
+                </Link>
               </li>
               <li>
-                <Link href="/contact">Contact Us</Link>
+                <Link
+                  href="/contact"
+                  className="hover:text-primary-600 transition"
+                >
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
@@ -128,19 +143,54 @@ export default function Footer() {
           <div className="hidden md:block">
             <h4 className="footer-title">Programs</h4>
             <ul className="footer-list">
-              <li>Beginner Chess Program</li>
-              <li>Intermediate Chess Training</li>
-              <li>Advanced Tournament Preparation</li>
-            </ul>
+              <li>
+                <Link
+                  href={{
+                    pathname: "/programs",
+                    query: { section: "beginner" },
+                  }}
+                  className="hover:text-primary-600 transition"
+                >
+                  Beginner Program
+                </Link>
+              </li>
 
-            {/* <div className="mt-5 pt-5 border-t border-border-300">
-              <h5 className="footer-subtitle">Class Formats</h5>
-              <ul className="footer-list mt-3">
-                <li>Online Chess Classes</li>
-                <li>Offline Chess Classes</li>
-                <li>Hybrid Chess Program</li>
-              </ul>
-            </div> */}
+              <li>
+                <Link
+                  href={{
+                    pathname: "/programs",
+                    query: { section: "intermediate" },
+                  }}
+                  className="hover:text-primary-600 transition"
+                >
+                  Intermediate Program
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href={{
+                    pathname: "/programs",
+                    query: { section: "advanced" },
+                  }}
+                  className="hover:text-primary-600 transition"
+                >
+                  Advanced Program
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href={{
+                    pathname: "/programs",
+                    query: { section: "master" },
+                  }}
+                  className="hover:text-primary-600 transition"
+                >
+                  Master Program
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Community */}
@@ -148,13 +198,28 @@ export default function Footer() {
             <h4 className="footer-title">Community</h4>
             <ul className="footer-list">
               <li>
-                <Link href="/referral">Referral Program</Link>
+                <Link
+                  href="/referral"
+                  className="hover:text-primary-600 transition"
+                >
+                  Referral Program
+                </Link>
               </li>
               <li>
-                <Link href="/careers">Career Opportunities</Link>
+                <Link
+                  href="/careers"
+                  className="hover:text-primary-600 transition"
+                >
+                  Career Opportunities
+                </Link>
               </li>
               <li>
-                <Link href="/tournaments">Organize a Tournament</Link>
+                <Link
+                  href="/tournaments"
+                  className="hover:text-primary-600 transition"
+                >
+                  Organize a Tournament
+                </Link>
               </li>
             </ul>
           </div>
@@ -168,7 +233,7 @@ export default function Footer() {
                 <HiOutlinePhone className="mt-0.5 h-5 w-5 text-primary-600" />
                 <Link
                   href="tel:+919718086186"
-                  className="hover:text-primary-600"
+                  className="hover:text-primary-600 transition"
                 >
                   +91 97180 86186
                 </Link>
@@ -178,21 +243,21 @@ export default function Footer() {
                 <HiOutlineMail className="mt-0.5 h-5 w-5 text-primary-600" />
                 <Link
                   href="mailto:nimzoacademy@gmail.com"
-                  className="hover:text-primary-600"
+                  className="hover:text-primary-600 transition"
                 >
                   nimzoacademy@gmail.com
                 </Link>
               </li>
 
               <li className="flex items-start gap-3">
-                <HiOutlineLocationMarker className="mt-0.5 h-5 w-5 text-primary-600" />
+                <HiOutlineLocationMarker className="mt-0.5 h-8 w-8 text-primary-600" />
                 <Link
-                  href="https://maps.google.com?q=Dwarka,+New+Delhi,+India"
+                  href="https://maps.google.com?q=262+Block+A+Sector+8+Dwarka+New+Delhi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary-600 leading-relaxed"
+                  className="hover:text-primary-600 transition leading-relaxed"
                 >
-                  262, BLOCK-A, Sector 8 Dwarka, New Delhi-110077
+                  262, Block-A, Sector 8, Dwarka, New Delhi – 110077
                 </Link>
               </li>
             </ul>
@@ -202,13 +267,40 @@ export default function Footer() {
         {/* =====================
            BOTTOM BAR
         ===================== */}
-        <div className="mt-12 pt-4 border-t border-border-300 flex flex-col sm:flex-row gap-4 sm:justify-between text-sm text-muted-500">
+        <div className="mt-16 pt-6 border-t border-border-300 flex flex-col sm:flex-row gap-4 sm:justify-between text-sm text-muted-500">
           <p>© {year} Nimzo Academy. All rights reserved.</p>
 
-          <div className="flex gap-6">
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms">Terms & Conditions</Link>
-            <Link href="/refund-policy">Refund Policy</Link>
+          <div className="flex flex-wrap gap-6">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-primary-600 transition"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-and-conditions"
+              className="hover:text-primary-600 transition"
+            >
+              Terms & Conditions
+            </Link>
+            <Link
+              href="/refund-policy"
+              className="hover:text-primary-600 transition"
+            >
+              Refund Policy
+            </Link>
+            <Link
+              href="/child-safety-policy"
+              className="hover:text-primary-600 transition"
+            >
+              Child Safety
+            </Link>
+            <Link
+              href="/disclaimer"
+              className="hover:text-primary-600 transition"
+            >
+              Disclaimer
+            </Link>
           </div>
         </div>
       </div>
