@@ -1,16 +1,18 @@
 "use client";
 
 import { useDemoModal } from "@/context/DemoModalContext";
+import ProgramVisual from "../ui/ProgramVisual";
 
-export default function BeginnerSection({setActiveCurriculum}) {
-
-  const {openModal} = useDemoModal();
+export default function BeginnerSection({ setActiveCurriculum }) {
+  const { openModal } = useDemoModal();
 
   return (
-    <section id="beginner" className="bg-[var(--color-light-100)] py-16 sm:py-20 md:py-28">
+    <section
+      id="beginner"
+      className="bg-[var(--color-light-100)] py-16 sm:py-20 md:py-28"
+    >
       <div className="mx-auto max-w-6xl px-6 animate-fade-up">
         <div className="grid items-start gap-14 md:gap-20 md:grid-cols-2">
-
           {/* LEFT — CONTENT */}
           <div>
             {/* Journey marker */}
@@ -22,7 +24,8 @@ export default function BeginnerSection({setActiveCurriculum}) {
             </div>
 
             {/* Title */}
-            <h2 className="
+            <h2
+              className="
               text-2xl
               sm:text-3xl
               md:text-4xl
@@ -30,18 +33,21 @@ export default function BeginnerSection({setActiveCurriculum}) {
               font-bold
               tracking-tight
               text-[var(--color-heading-900)]
-            ">
+            "
+            >
               Beginner Chess Program
             </h2>
 
             {/* Core statement */}
-            <p className="
+            <p
+              className="
               mt-4
               max-w-xl
               text-base
               sm:text-lg
               text-[var(--color-body-700)]
-            ">
+            "
+            >
               This is where the chess journey begins — learning the game the
               right way, with clarity, structure, and confidence.
             </p>
@@ -50,12 +56,14 @@ export default function BeginnerSection({setActiveCurriculum}) {
             <div className="my-10 h-px w-12 bg-[var(--color-border-300)]" />
 
             {/* Core builds */}
-            <ul className="
+            <ul
+              className="
               space-y-4
               text-sm
               sm:text-base
               text-[var(--color-body-700)]
-            ">
+            "
+            >
               <li>
                 <strong className="font-semibold text-[var(--color-heading-900)]">
                   Board & piece understanding
@@ -92,13 +100,15 @@ export default function BeginnerSection({setActiveCurriculum}) {
             </div>
 
             {/* Outcome */}
-            <p className="
+            <p
+              className="
               mt-10
               text-base
               sm:text-lg
               font-semibold
               text-[var(--color-heading-900)]
-            ">
+            "
+            >
               Outcome:
               <span className="ml-2 font-normal text-[var(--color-body-700)]">
                 A child who can confidently play a complete chess game and
@@ -108,8 +118,9 @@ export default function BeginnerSection({setActiveCurriculum}) {
 
             {/* CTA */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <button onClick={() => openModal("assessment")}
-               className="
+              <button
+                onClick={() => openModal("assessment")}
+                className="
                 rounded-[var(--radius-md)]
                 bg-[var(--color-primary-600)]
                 px-8
@@ -119,13 +130,14 @@ export default function BeginnerSection({setActiveCurriculum}) {
                 font-semibold
                 text-white
                 hover:bg-[var(--color-primary-700)]
-              ">
+              "
+              >
                 Book Free Assessment
               </button>
 
-              <button 
-               onClick={() => setActiveCurriculum("beginner")}
-              className="
+              <button
+                onClick={() => setActiveCurriculum("beginner")}
+                className="
                 rounded-[var(--radius-md)]
                 border
                 border-[var(--color-accent-500)]
@@ -137,27 +149,18 @@ export default function BeginnerSection({setActiveCurriculum}) {
                 text-[var(--color-accent-600)]
                 hover:bg-[var(--color-accent-500)]
                 hover:text-white
-              ">
+              "
+              >
                 View Beginner Curriculum
               </button>
             </div>
           </div>
 
           {/* RIGHT — VISUAL */}
-          <div className="relative mt-10 md:mt-0">
-            <div className="
-              aspect-square
-              rounded-[var(--radius-lg)]
-              border
-              border-[var(--color-border-300)]
-              bg-[var(--color-white-100)]
-              p-6
-              sm:p-8
-            ">
-              <div className="h-full w-full rounded-[var(--radius-md)] bg-[var(--color-light-100)]" />
-            </div>
-          </div>
-
+          <ProgramVisual
+            imageSrc="/beginner-chess.jpg"
+            alt="Beginner Chess Training"
+          />
         </div>
       </div>
     </section>

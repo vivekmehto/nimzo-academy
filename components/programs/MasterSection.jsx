@@ -1,6 +1,7 @@
 "use client";
 
 import { useDemoModal } from "@/context/DemoModalContext";
+import ProgramVisual from "../ui/ProgramVisual";
 
 export default function MasterSection({setActiveCurriculum}) {
 
@@ -12,22 +13,10 @@ export default function MasterSection({setActiveCurriculum}) {
         <div className="grid items-start gap-14 md:gap-20 md:grid-cols-2">
 
           {/* LEFT — VISUAL */}
-          <div className="relative order-2 md:order-1 mt-10 md:mt-0">
-            <div
-              className="
-                aspect-square
-                rounded-[var(--radius-lg)]
-                border
-                border-[var(--color-border-400)]
-                bg-[var(--color-dark-900)]
-                p-6
-                sm:p-8
-                md:p-10
-              "
-            >
-              <div className="h-full w-full rounded-[var(--radius-md)] bg-[var(--color-border-300)]" />
-            </div>
-          </div>
+          <ProgramVisual
+            imageSrc="/master-chess.jpg"
+            alt="Master Chess Training"
+          />
 
           {/* RIGHT — CONTENT */}
           <div className="order-1 md:order-2">

@@ -1,32 +1,23 @@
 "use client";
 
 import { useDemoModal } from "@/context/DemoModalContext";
+import ProgramVisual from "../ui/ProgramVisual";
 
-export default function IntermediateSection({setActiveCurriculum}) {
+export default function IntermediateSection({ setActiveCurriculum }) {
+  const { openModal } = useDemoModal();
 
-  const {openModal} = useDemoModal();
-  
   return (
-    <section id="intermediate" className="bg-[var(--color-white-100)] py-14 sm:py-18 md:py-26">
+    <section
+      id="intermediate"
+      className="bg-[var(--color-white-100)] py-14 sm:py-18 md:py-26"
+    >
       <div className="mx-auto max-w-6xl px-6 animate-fade-up">
         <div className="grid items-start gap-14 md:gap-20 md:grid-cols-2">
-
           {/* LEFT — VISUAL */}
-          <div className="relative order-2 md:order-1 mt-10 md:mt-0">
-            <div
-              className="
-                aspect-square
-                rounded-[var(--radius-lg)]
-                border
-                border-[var(--color-border-300)]
-                bg-[var(--color-white-100)]
-                p-6
-                sm:p-8
-              "
-            >
-              <div className="h-full w-full rounded-[var(--radius-md)] bg-[var(--color-light-100)]" />
-            </div>
-          </div>
+          <ProgramVisual
+            imageSrc="/intermediate-chess.jpg"
+            alt="Intermediate Chess Training"
+          />
 
           {/* RIGHT — CONTENT */}
           <div className="order-1 md:order-2">
@@ -130,8 +121,9 @@ export default function IntermediateSection({setActiveCurriculum}) {
 
             {/* CTA */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
-               <button onClick={() => openModal("assessment")}
-               className="
+              <button
+                onClick={() => openModal("assessment")}
+                className="
                 rounded-[var(--radius-md)]
                 bg-[var(--color-primary-600)]
                 px-8
@@ -141,13 +133,13 @@ export default function IntermediateSection({setActiveCurriculum}) {
                 font-semibold
                 text-white
                 hover:bg-[var(--color-primary-700)]
-              ">
+              "
+              >
                 Book Free Assessment
               </button>
 
               <button
-              
-               onClick={() => setActiveCurriculum("intermediate")}
+                onClick={() => setActiveCurriculum("intermediate")}
                 className="
                   rounded-[var(--radius-md)]
                   border
@@ -166,7 +158,6 @@ export default function IntermediateSection({setActiveCurriculum}) {
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </section>

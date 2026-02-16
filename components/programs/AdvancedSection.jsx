@@ -1,6 +1,7 @@
 "use client";
 
 import { useDemoModal } from "@/context/DemoModalContext";
+import ProgramVisual from "../ui/ProgramVisual";
 
 export default function AdvancedSection({setActiveCurriculum}) {
 
@@ -150,21 +151,10 @@ export default function AdvancedSection({setActiveCurriculum}) {
           </div>
 
           {/* RIGHT — VISUAL */}
-          <div className="relative mt-10 md:mt-0">
-            <div
-              className="
-                aspect-square
-                rounded-[var(--radius-lg)]
-                border
-                border-[var(--color-border-300)]
-                bg-[var(--color-white-100)]
-                p-6
-                sm:p-8
-              "
-            >
-              <div className="h-full w-full rounded-[var(--radius-md)] bg-[var(--color-light-100)]" />
-            </div>
-          </div>
+           <ProgramVisual
+            imageSrc="/advanced-chess.jpg"
+            alt="Advanced Chess Training"
+          />
 
         </div>
       </div>
