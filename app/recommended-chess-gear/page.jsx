@@ -21,7 +21,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://nimzoacademy.com/logo.png",
+        url: "https://nimzoacademy.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Nimzo Academy Recommended Chess Equipment",
