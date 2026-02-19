@@ -252,7 +252,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <HiOutlineLocationMarker className="mt-0.5 h-8 w-8 text-primary-600" />
                 <Link
-                  href="https://maps.google.com?q=262+Block+A+Sector+8+Dwarka+New+Delhi"
+                  href="https://www.google.com/maps/dir/?api=1&destination=28.57375398674804,77.07187627520065"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary-600 transition leading-relaxed"
