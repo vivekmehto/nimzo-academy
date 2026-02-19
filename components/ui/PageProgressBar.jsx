@@ -42,10 +42,10 @@ export default function PageProgressBar() {
         fixed
         left-0
         z-40
-        h-[3px]
+        h-0.75
         w-full
         origin-left
-        bg-[var(--color-primary-600)]
+        bg-primary-600
         will-change-transform
       "
       style={{

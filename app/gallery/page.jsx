@@ -56,7 +56,7 @@ export default function GalleryPage() {
           <MasonryGrid images={visibleImages} onImageClick={setLightboxIndex} />
 
           {hasMore && (
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[var(--color-light-100)]" />
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-linear-to-b from-transparent to-light-100" />
           )}
         </div>
 

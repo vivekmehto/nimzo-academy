@@ -30,7 +30,7 @@ export default function ProgramCard({
               border border-accent-500/40
               ring-2 ring-accent-500/20
               shadow-md
-              bg-accent-500/[0.025]
+              bg-accent-500/2.5
             `
             : `
               border border-border-300

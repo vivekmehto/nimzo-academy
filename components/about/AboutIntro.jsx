@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutIntro() {
   return (
-    <section className="bg-[var(--color-back-500)] py-24 md:py-32">
+    <section className="bg-back-500 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center">
         
         {/* TEXT SIDE */}
@@ -13,7 +13,7 @@ export default function AboutIntro() {
             className="
               text-sm
               font-medium
-              text-[var(--color-muted-500)]
+              text-muted-500
               mb-2
             "
           >
@@ -25,7 +25,7 @@ export default function AboutIntro() {
             className="
               text-3xl md:text-4xl
               font-semibold
-              text-[var(--color-heading-900)]
+              text-(--color-heading-900)
               leading-tight
               max-w-xl
             "
@@ -40,7 +40,7 @@ export default function AboutIntro() {
               mt-5 md:mt-6
               text-base md:text-lg
               leading-relaxed
-              text-[var(--color-body-700)]
+              text-body-700
               max-w-xl
             "
           >
@@ -55,9 +55,9 @@ export default function AboutIntro() {
             className="
               mt-5 md:mt-6
               border-l-2 md:border-l-4
-              border-[var(--color-primary-600)]
+              border-primary-600
               pl-4
-              text-[var(--color-body-700)]
+              text-body-700
               italic
               max-w-lg
             "
@@ -73,7 +73,7 @@ export default function AboutIntro() {
               grid grid-cols-1 sm:grid-cols-2
               gap-3
               text-sm
-              text-[var(--color-body-700)]
+              text-body-700
             "
           >
             <li>Designed for children & beginners</li>
@@ -88,8 +88,8 @@ export default function AboutIntro() {
           <div
             className="
               overflow-hidden
-              rounded-[var(--radius-lg)]
-              bg-[var(--color-white-100)]
+              rounded-(--radius-lg)
+              bg-white-100
               shadow-sm
             "
           >
@@ -104,7 +104,7 @@ export default function AboutIntro() {
           </div>
 
           {/* Caption */}
-          <p className="mt-3 text-xs text-[var(--color-muted-500)]">
+          <p className="mt-3 text-xs text-muted-500">
             A calm, supportive environment for young learners
           </p>
         </div>

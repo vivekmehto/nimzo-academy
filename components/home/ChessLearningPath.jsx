@@ -61,7 +61,7 @@ export default function ChessLearningPath() {
                   >
                     {/* Recommended Badge */}
                     {level.recommended && (
-                      <div className="absolute -top-3 left-6 rounded-full bg-gradient-to-r from-primary-600 to-accent-600 px-4 py-1 text-xs font-medium text-white shadow-md">
+                      <div className="absolute -top-3 left-6 rounded-full bg-linear-to-r from-primary-600 to-accent-600 px-4 py-1 text-xs font-medium text-white shadow-md">
                         Recommended
                       </div>
                     )}

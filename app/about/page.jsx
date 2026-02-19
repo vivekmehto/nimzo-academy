@@ -10,7 +10,7 @@ import PageProgressBar from "@/components/ui/PageProgressBar";
 
 export default function AboutPage() {
   return (
-    <main className="bg-[var(--color-light-100)]">
+    <main className="bg-light-100">
       <PageProgressBar />
       <AboutIntro />
       <AboutWhy />

@@ -8,7 +8,7 @@ export default function Programs() {
   return (
     <Section
       id="programs"
-      className="bg-gradient-to-b from-back-500 to-white py-16 sm:py-20 lg:py-24"
+      className="bg-linear-to-b from-back-500 to-white py-16 sm:py-20 lg:py-24"
     >
       {/* Header */}
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">

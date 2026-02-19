@@ -90,7 +90,7 @@ export default function DemoModal({ isOpen, onClose, type }) {
           {/* Close */}
           <button
             onClick={onClose}
-            className="absolute right-5 top-4 text-sm text-[var(--color-muted-500)] hover:text-[var(--color-heading-900)] transition"
+            className="absolute right-5 top-4 text-sm text-muted-500 hover:text-(--color-heading-900) transition"
           >
             ✕
           </button>
@@ -98,13 +98,13 @@ export default function DemoModal({ isOpen, onClose, type }) {
           {!success ? (
             <>
               {/* Heading */}
-              <h2 className="text-xl sm:text-2xl font-semibold text-center text-[var(--color-heading-900)]">
+              <h2 className="text-xl sm:text-2xl font-semibold text-center text-(--color-heading-900)">
                 {type === "demo"
                   ? "Book A Free Demo Today"
                   : "Book Chess Skill Assessment"}
               </h2>
 
-              <p className="mt-2 text-center text-sm text-[var(--color-muted-500)]">
+              <p className="mt-2 text-center text-sm text-muted-500">
                 Be a part of our growing global chess community.
               </p>
 
@@ -127,7 +127,7 @@ export default function DemoModal({ isOpen, onClose, type }) {
                     required
                     value={formData[field.name]}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 text-sm border bg-white outline-none transition-all duration-200 focus:ring-2 focus:ring-[var(--color-primary-100)]"
+                    className="w-full px-4 py-2.5 text-sm border bg-white outline-none transition-all duration-200 focus:ring-2 focus:ring-back-500"
                     style={{
                       borderColor: "var(--color-border-300)",
                       borderRadius: "var(--radius-md)",
@@ -180,7 +180,7 @@ export default function DemoModal({ isOpen, onClose, type }) {
                         phone: onlyNumbers,
                       });
                     }}
-                    className="flex-1 px-4 py-2.5 text-sm border bg-white outline-none transition-all duration-200 focus:ring-2 focus:ring-[var(--color-primary-100)]"
+                    className="flex-1 px-4 py-2.5 text-sm border bg-white outline-none transition-all duration-200 focus:ring-2 focus:ring-muted-500"
                     style={{
                       borderColor: "var(--color-border-300)",
                       borderRadius: "var(--radius-md)",
@@ -252,17 +252,17 @@ export default function DemoModal({ isOpen, onClose, type }) {
                   </button>
                 </div>
 
-                <p className="text-center text-xs text-[var(--color-muted-500)] pt-3">
+                <p className="text-center text-xs text-muted-500 pt-3">
                   We typically respond within 24 hours.
                 </p>
               </form>
             </>
           ) : (
             <div className="text-center py-8 animate-fade-in">
-              <h3 className="text-lg font-semibold text-[var(--color-primary-600)]">
+              <h3 className="text-lg font-semibold text-primary-600">
                 🎉 Request Submitted!
               </h3>
-              <p className="mt-2 text-sm text-[var(--color-body-700)]">
+              <p className="mt-2 text-sm text-body-700">
                 Thank you. Our team will contact you shortly.
               </p>
             </div>

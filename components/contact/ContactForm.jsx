@@ -79,12 +79,12 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Enter your full name"
           className="
-            mt-1 w-full rounded-[var(--radius-md)]
-            border border-[var(--color-border-300)]
-            bg-[var(--color-light-100)]
+            mt-1 w-full rounded-(--radius-md)
+            border border-border-300
+            bg-light-100
             px-4 py-3.5 text-base
-            focus:border-[var(--color-primary-600)]
-            focus:ring-1 focus:ring-[var(--color-primary-600)]
+            focus:border-primary-600
+            focus:ring-1 focus:ring-primary-600
             focus:outline-none transition
           "
         />
@@ -92,7 +92,7 @@ export default function ContactForm() {
 
       {/* Email */}
       <div>
-        <label className="block text-sm font-medium text-[var(--color-body-700)]">
+        <label className="block text-sm font-medium text-body-700">
           Email Address *
         </label>
         <input
@@ -103,12 +103,12 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Enter your email"
           className="
-            mt-1 w-full rounded-[var(--radius-md)]
-            border border-[var(--color-border-300)]
-            bg-[var(--color-light-100)]
+            mt-1 w-full rounded-(--radius-md)
+            border border-border-300
+            bg-light-100
             px-4 py-3.5 text-base
-            focus:border-[var(--color-primary-600)]
-            focus:ring-1 focus:ring-[var(--color-primary-600)]
+            focus:border-primary-600
+            focus:ring-1 focus:ring-primary-600
             focus:outline-none transition
           "
         />
@@ -116,7 +116,7 @@ export default function ContactForm() {
 
       {/* Phone (Optional) */}
       <div>
-        <label className="block text-sm font-medium text-[var(--color-body-700)]">
+        <label className="block text-sm font-medium text-body-700">
           Phone Number (Optional)
         </label>
         <input
@@ -127,12 +127,12 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Enter your phone number"
           className="
-            mt-1 w-full rounded-[var(--radius-md)]
-            border border-[var(--color-border-300)]
-            bg-[var(--color-light-100)]
+            mt-1 w-full rounded-(--radius-md)
+            border border-border-300
+            bg-light-100
             px-4 py-3.5 text-base
-            focus:border-[var(--color-primary-600)]
-            focus:ring-1 focus:ring-[var(--color-primary-600)]
+            focus:border-primary-600
+            focus:ring-1 focus:ring-primary-600
             focus:outline-none transition
           "
         />
@@ -140,7 +140,7 @@ export default function ContactForm() {
 
       {/* Message */}
       <div>
-        <label className="block text-sm font-medium text-[var(--color-body-700)]">
+        <label className="block text-sm font-medium text-body-700">
           Message *
         </label>
         <textarea
@@ -151,12 +151,12 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Please share the student’s age and current chess level (if known)"
           className="
-            mt-1 w-full rounded-[var(--radius-md)]
-            border border-[var(--color-border-300)]
-            bg-[var(--color-light-100)]
+            mt-1 w-full rounded-(--radius-md)
+            border border-border-300
+            bg-light-100
             px-4 py-3.5 text-base
-            focus:border-[var(--color-primary-600)]
-            focus:ring-1 focus:ring-[var(--color-primary-600)]
+            focus:border-primary-600
+            focus:ring-1 focus:ring-primary-600
             focus:outline-none transition resize-none
           "
         />
