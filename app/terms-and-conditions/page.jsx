@@ -1,17 +1,11 @@
 import Link from "next/link";
 
 export const metadata = {
-  title:
-    "Terms & Conditions | Nimzo Academy – Chess Classes in Dwarka & Online",
+  title: "Terms & Conditions",
   description:
-    "Terms & Conditions of Nimzo Academy covering enrollment, payments, attendance, intellectual property, and participation in online and offline chess classes in Dwarka, New Delhi and internationally.",
-  keywords: [
-    "Nimzo Academy terms",
-    "chess academy terms and conditions",
-    "chess classes in Dwarka policies",
-    "online chess coaching India terms",
-  ],
+    "Review the Terms and Conditions governing the use of Nimzo Academy’s website, online services and offline chess coaching programs.",
 };
+
 
 export default function TermsAndConditions() {
   return (

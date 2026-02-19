@@ -1,17 +1,11 @@
 import Link from "next/link";
 
 export const metadata = {
-  title:
-    "Refund & Cancellation Policy | Nimzo Academy – Chess Classes in Dwarka & Online",
+  title: "Refund & Cancellation Policy",
   description:
-    "Refund and cancellation policy of Nimzo Academy covering online, offline and hybrid chess coaching programs in Dwarka, New Delhi and internationally.",
-  keywords: [
-    "Nimzo Academy refund policy",
-    "chess academy cancellation policy",
-    "chess classes in Dwarka refund",
-    "online chess coaching refund terms",
-  ],
+    "Learn about Nimzo Academy’s refund and cancellation policy for online, offline and hybrid chess coaching programs.",
 };
+
 
 export default function RefundPolicy() {
   return (

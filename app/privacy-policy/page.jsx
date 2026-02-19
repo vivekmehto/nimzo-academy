@@ -1,17 +1,11 @@
 import Link from "next/link";
 
 export const metadata = {
-  title:
-    "Privacy Policy | Nimzo Academy – Chess Classes in Dwarka, Delhi & Online",
+  title: "Privacy Policy",
   description:
-    "Privacy Policy of Nimzo Academy, offering professional online, offline and hybrid chess classes in Dwarka, New Delhi and internationally for children and tournament players.",
-  keywords: [
-    "Nimzo Academy privacy policy",
-    "chess classes in Dwarka",
-    "online chess academy India",
-    "chess coaching for kids",
-  ],
+    "Read the privacy policy of Nimzo Academy to understand how we collect, use and protect personal information when you use our website or enroll in our chess programs.",
 };
+
 
 export default function PrivacyPolicy() {
   return (

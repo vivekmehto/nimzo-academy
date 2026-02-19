@@ -6,49 +6,59 @@ import { DemoModalProvider } from "@/context/DemoModalContext";
 import GlobalDemoModal from "@/components/forms/GlobalDemoModal";
 
 export const metadata = {
-  title:
-    "Nimzo Academy | Chess Classes in Dwarka, Delhi & Online Coaching",
+  metadataBase: new URL("https://nimzoacademy.com"),
+
+  title: {
+    default: "Chess Classes in Dwarka & Online | Nimzo Academy",
+    template: "%s | Nimzo Academy",
+  },
+
   description:
-    "Nimzo Academy offers structured online and offline chess classes in Dwarka, New Delhi. Professional chess coaching for kids, beginners, and tournament players.",
+    "Professional chess coaching for children aged 5–16 in Dwarka and online. Structured training for beginners to advanced players. Book a free demo class today.",
+
   keywords: [
-    "chess classes in Dwarka",
-    "chess academy in Delhi",
-    "online chess coaching India",
-    "chess classes for kids",
-    "chess training in Dwarka",
+    "Chess classes in Dwarka",
+    "Online chess classes for kids",
+    "Chess academy in Dwarka Delhi",
+    "Kids chess coaching",
+    "Beginner to advanced chess training",
   ],
+
   icons: {
     icon: "/favicon.ico",
   },
 
   openGraph: {
-    title:
-      "Nimzo Academy | Chess Classes in Dwarka, Delhi & Online Coaching",
+    title: "Chess Classes in Dwarka & Online | Nimzo Academy",
     description:
-      "Structured chess coaching in Dwarka, New Delhi. Join Nimzo Academy for beginner to advanced chess training.",
+      "Professional chess coaching for children aged 5–16 in Dwarka and online.",
     url: "https://nimzoacademy.com",
     siteName: "Nimzo Academy",
+    locale: "en_IN",
+    type: "website",
     images: [
       {
         url: "https://nimzoacademy.com/logo.png",
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 630,
+        alt: "Nimzo Academy Chess Coaching",
       },
     ],
-    locale: "en_IN",
-    type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title:
-      "Nimzo Academy | Chess Classes in Dwarka, Delhi & Online Coaching",
+    title: "Chess Classes in Dwarka & Online | Nimzo Academy",
     description:
-      "Professional online and offline chess coaching in Dwarka, New Delhi.",
+      "Professional chess coaching for children aged 5–16 in Dwarka and online.",
     images: ["https://nimzoacademy.com/logo.png"],
   },
-};
 
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RootLayout({
   children,
@@ -63,13 +73,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": ["EducationalOrganization", "LocalBusiness"],
+              "@type": "EducationalOrganization",
               name: "Nimzo Academy",
               url: "https://nimzoacademy.com",
               logo: "https://nimzoacademy.com/logo.png",
               image: "https://nimzoacademy.com/logo.png",
               description:
-                "Professional chess coaching academy offering online and offline chess classes in Dwarka, New Delhi and internationally.",
+                "Professional chess coaching academy offering online and offline chess classes in Dwarka, New Delhi.",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "262, Block-A, Sector 8 Dwarka",
@@ -80,8 +90,8 @@ export default function RootLayout({
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: "28.5921",
-                longitude: "77.0460",
+                latitude: 28.5921,
+                longitude: 77.0460,
               },
               contactPoint: {
                 "@type": "ContactPoint",
@@ -121,3 +131,4 @@ export default function RootLayout({
     </html>
   );
 }
+ 

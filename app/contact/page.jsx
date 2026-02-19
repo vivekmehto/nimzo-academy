@@ -2,6 +2,13 @@
 
 import ContactForm from "../../components/contact/ContactForm";
 
+export const metadata = {
+  title: "Contact Nimzo Academy",
+  description:
+    "Get in touch with Nimzo Academy for professional chess coaching in Dwarka. Call, WhatsApp or book a free demo class for ages 5–16.",
+};
+
+
 export default function ContactPage() {
   return (
     <>

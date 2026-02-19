@@ -10,6 +10,25 @@ import FAQ from "@/components/home/FAQ";
 import TeachingProcess from "@/components/home/TeachingProcess";
 import FinalCTA from "@/components/home/FinalCTA";
 
+export const metadata = {
+  title: "Chess Classes in Dwarka & Online for Kids",
+  description:
+    "Professional chess coaching for children aged 5–16 in Dwarka. Structured beginner to advanced training available in online, offline and hybrid formats. Book a free demo class.",
+
+  alternates: {
+    canonical: "https://nimzoacademy.com/",
+  },
+
+  openGraph: {
+    title: "Chess Classes in Dwarka & Online | Nimzo Academy",
+    description:
+      "Structured chess coaching for children aged 5–16 in Dwarka and online.",
+    url: "https://nimzoacademy.com/",
+  },
+};
+
+
+
 export default function Home() {
   return (
     <>

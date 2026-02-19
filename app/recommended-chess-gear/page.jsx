@@ -1,14 +1,47 @@
-
-
 import FeaturedProduct from "@/components/recommended/FeaturedProduct";
 import SecondaryProduct from "@/components/recommended/SecondaryProduct";
 import Link from "next/link";
 import GearFAQ from "@/components/recommended/GearFAQ";
 
+export const metadata = {
+  title: "Best Chess Equipment for Beginners | Coach Recommended",
+  description:
+    "Discover coach-recommended chess boards, digital clocks and books for beginners and students. Carefully selected for structured improvement and tournament preparation.",
+
+  alternates: {
+    canonical: "https://nimzoacademy.com/recommended-chess-gear",
+  },
+
+  openGraph: {
+    title: "Best Chess Equipment for Beginners | Nimzo Academy",
+    description:
+      "Explore coach-recommended chess boards, clocks and books designed for structured improvement.",
+    url: "https://nimzoacademy.com/recommended-chess-gear",
+    siteName: "Nimzo Academy",
+    type: "website",
+    images: [
+      {
+        url: "https://nimzoacademy.com/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Nimzo Academy Recommended Chess Equipment",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Chess Equipment for Beginners | Nimzo Academy",
+    description:
+      "Coach-recommended chess boards, clocks and books for structured improvement.",
+    images: ["https://nimzoacademy.com/logo.png"],
+  },
+};
+
+
 export default function RecommendedGearPage() {
   return (
     <main className="bg-[var(--color-light-100)]">
-
       {/* ================= HERO SECTION ================= */}
       <section className="pt-20 md:pt-28 pb-16 md:pb-24 px-4 sm:px-6 text-center max-w-4xl mx-auto">
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[var(--color-heading-900)] mb-5 md:mb-6 leading-tight">
@@ -63,7 +96,7 @@ export default function RecommendedGearPage() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-           <SecondaryProduct
+          <SecondaryProduct
             image="/recommended/board-budget.jpg"
             alt="Budget Friendly Vinyl Foldable Chess Board"
             title="Budget Friendly Vinyl Foldable Chess Board"
@@ -107,7 +140,7 @@ export default function RecommendedGearPage() {
             discipline, and competitive confidence.
           </p>
 
-           <FeaturedProduct
+          <FeaturedProduct
             image="/recommended/dgt-2500.jpg"
             alt="DGT New 2500 Official Fide Digital Chess Clock"
             badge="Recommended for Training"
@@ -123,7 +156,7 @@ export default function RecommendedGearPage() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-           <SecondaryProduct
+            <SecondaryProduct
               image="/recommended/dgt-3000.jpg"
               alt="DGT 3000 Digital Chess Clock"
               title="DGT 3000 Digital Chess Clock"
@@ -166,7 +199,7 @@ export default function RecommendedGearPage() {
           selected books.
         </p>
 
-         <FeaturedProduct
+        <FeaturedProduct
           image="/recommended/book-featured.jpg"
           alt="How to Win At Chess: The Ultimate Guide for Beginners and Beyond by Levy Rozman"
           badge="Best for Beginners"
@@ -182,7 +215,7 @@ export default function RecommendedGearPage() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-           <SecondaryProduct
+          <SecondaryProduct
             image="/recommended/book-tactics.jpg"
             alt="Chess Tactics for Champions by Susan Polgar"
             title="Chess Tactics for Champions by Susan Polgar"
@@ -218,10 +251,11 @@ export default function RecommendedGearPage() {
           </h2>
 
           <p className="text-[var(--color-body-700)] text-sm sm:text-base text-center max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed">
-            Choosing the correct equipment helps students develop proper habits from the beginning.
+            Choosing the correct equipment helps students develop proper habits
+            from the beginning.
           </p>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-[var(--color-body-700)] text-sm sm:text-base">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-[var(--color-body-700)] text-sm sm:text-base">
             <div>
               <h3 className="font-semibold text-lg text-[var(--color-heading-900)] mb-3">
                 1. Board Size & King Height Matter
@@ -279,8 +313,9 @@ export default function RecommendedGearPage() {
           </h3>
 
           <p className="text-sm sm:text-base text-[var(--color-body-700)] leading-relaxed mb-8">
-            Every student progresses at a different pace. If you are unsure which board,
-            clock, or book is suitable, feel free to contact Nimzo Academy.
+            Every student progresses at a different pace. If you are unsure
+            which board, clock, or book is suitable, feel free to contact Nimzo
+            Academy.
           </p>
 
           <Link
@@ -298,25 +333,6 @@ export default function RecommendedGearPage() {
           </Link>
         </div>
       </section>
-
     </main>
   );
 }
-
-
-export const metadata = {
-  title: "Best Chess Equipment for Beginners & Students | Nimzo Academy",
-  description:
-    "Discover recommended chess boards, digital clocks, and chess books for beginners and students. Curated by Nimzo Academy coaches for serious improvement.",
-  alternates: {
-    canonical: "https://nimzoacademy.com/recommended-chess-gear",
-  },
-  openGraph: {
-    title: "Best Chess Equipment for Beginners | Nimzo Academy",
-    description:
-      "Explore coach-recommended chess boards, clocks, and books designed for structured improvement.",
-    url: "https://nimzoacademy.com/recommended-chess-gear",
-    siteName: "Nimzo Academy",
-    type: "website",
-  },
-};

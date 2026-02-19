@@ -1,17 +1,11 @@
 import Link from "next/link";
 
 export const metadata = {
-  title:
-    "Child Safety & Online Conduct Policy | Nimzo Academy – Chess Classes in Dwarka & Online",
+  title: "Child Safety Policy",
   description:
-    "Child Safety and Online Conduct Policy of Nimzo Academy ensuring a secure learning environment for children attending online and offline chess classes in Dwarka, New Delhi and internationally.",
-  keywords: [
-    "Nimzo Academy child safety policy",
-    "online chess classes safety",
-    "chess academy student conduct policy",
-    "chess classes in Dwarka for kids safety",
-  ],
+    "Read Nimzo Academy’s Child Safety Policy outlining our commitment to creating a safe, respectful and supportive learning environment for all students.",
 };
+
 
 export default function ChildSafetyPolicy() {
   return (

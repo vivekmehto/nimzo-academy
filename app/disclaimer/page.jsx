@@ -1,16 +1,11 @@
 import Link from "next/link"; 
 
 export const metadata = {
-  title: "Disclaimer | Nimzo Academy – Chess Classes in Dwarka & Online",
+  title: "Disclaimer",
   description:
-    "Official Disclaimer of Nimzo Academy regarding participation in online and offline chess classes, tournament results, and website information.",
-  keywords: [
-    "Nimzo Academy disclaimer",
-    "chess academy legal disclaimer",
-    "chess classes in Dwarka terms",
-    "online chess coaching disclaimer India",
-  ],
+    "Read the disclaimer of Nimzo Academy regarding website content, educational materials and coaching services.",
 };
+
 
 export default function Disclaimer() {
   return (

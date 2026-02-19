@@ -10,6 +10,13 @@ import GalleryCTA from "../../components/gallery/GalleryCTA";
 
 const PAGE_SIZE = 14;
 
+export const metadata = {
+  title: "Chess Classes Gallery",
+  description:
+    "Explore photos of our chess classes, tournaments and student activities at Nimzo Academy in Dwarka. Online and offline training for ages 5–16.",
+};
+
+
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);

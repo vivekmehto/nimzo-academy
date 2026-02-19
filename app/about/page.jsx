@@ -7,6 +7,12 @@ import AboutTrust from "@/components/about/AboutTrust";
 import AboutCTA from "@/components/about/AboutCTA";
 import PageProgressBar from "@/components/ui/PageProgressBar";
 
+export const metadata = {
+  title: "About Nimzo Academy | Professional Chess Coaching",
+  description:
+    "Learn about Nimzo Academy, founded by experienced chess coaches offering structured online and offline training for children aged 5–16 in Dwarka.",
+};
+
 
 export default function AboutPage() {
   return (
