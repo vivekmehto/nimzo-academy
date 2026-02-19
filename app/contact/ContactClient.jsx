@@ -2,8 +2,6 @@
 
 import ContactForm from "../../components/contact/ContactForm";
 
-
-
 export default function ContactPage() {
   return (
     <>
@@ -43,9 +41,9 @@ export default function ContactPage() {
 
           {/* Supporting text */}
           <p className="mt-4 text-base leading-relaxed text-white/90">
-            Have questions about chess classes, structured training programs,
-            or admissions? We’re happy to guide parents and students every step
-            of the way.
+            Have questions about chess classes, structured training programs, or
+            admissions? We’re happy to guide parents and students every step of
+            the way.
           </p>
         </div>
       </section>
@@ -73,7 +71,7 @@ export default function ContactPage() {
                   Send a Message
                 </h2>
 
-              <ContactForm />
+                <ContactForm />
               </div>
 
               {/* ---------------- INFO & TRUST ---------------- */}
@@ -83,18 +81,53 @@ export default function ContactPage() {
                   className="
                     rounded-(--radius-md)
                     border border-border-300
-                    p-6
+                    p-6 cursor-pointer
                   "
                 >
-                  <h3 className="text-base font-semibold text-(--color-heading-900)">
+                  <h3 className="text-base font-semibold text-(--color-heading-900) ">
                     Contact Information
                   </h3>
 
                   <div className="mt-4 space-y-3 text-base text-body-700">
-                    <p><strong>Phone:</strong> +91 97180 86186</p>
-                    <p><strong>Email:</strong> nimzoacademy@gmail.com</p>
-                    <p><strong>Location:</strong> 262, BLOCK-A, Sector 8 Dwarka, New Delhi-110077</p>
-                    <p><strong>Office Hours:</strong> Mon – Sat, 10:00 AM – 7:00 PM</p>
+                    <p>
+                      <strong>Phone:</strong>{" "}
+                      <a
+                        href="tel:+919718086186"
+                        className="hover:text-primary-600 hover:underline underline-offset-4 transition cursor-pointer
+ "
+                      >
+                        +91 97180 86186
+                      </a>
+                    </p>
+
+                    <p>
+                      <strong>Email:</strong>{" "}
+                      <a
+                        href="mailto:nimzoacademy@gmail.com"
+                        className="hover:text-primary-600 hover:underline underline-offset-4 transition cursor-pointer
+"
+                      >
+                        nimzoacademy@gmail.com
+                      </a>
+                    </p>
+
+                    <p>
+                      <strong>Location:</strong>{" "}
+                      <a
+                        href="https://maps.app.goo.gl/QQ5At2Kcg7Uky1M56"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-primary-600 hover:underline underline-offset-4 transition cursor-pointer
+"
+                      >
+                        262, BLOCK-A, Sector 8 Dwarka, New Delhi-110077
+                      </a>
+                    </p>
+
+                    <p>
+                      <strong>Office Hours:</strong> Mon – Sat, 10:00 AM – 7:00
+                      PM
+                    </p>
                   </div>
                 </div>
 
@@ -108,8 +141,8 @@ export default function ContactPage() {
                 >
                   <p className="text-base leading-relaxed text-body-700">
                     ♟️ Structured chess training with personal attention.
-                    Parents receive regular progress updates.
-                    We usually respond within 24 hours.
+                    Parents receive regular progress updates. We usually respond
+                    within 24 hours.
                   </p>
                 </div>
               </div>
@@ -127,25 +160,33 @@ export default function ContactPage() {
             Our Chess Academy Location in Dwarka, New Delhi
           </h2>
 
-          <div
-            className="
-              mt-6
-              overflow-hidden
-              rounded-(--radius-lg)
-              shadow-md
-            "
-          >
+          <div className="mt-6 overflow-hidden rounded-(--radius-lg) shadow-md">
             <iframe
               title="Nimzo Academy Location"
-              src="https://www.google.com/maps?q=Dwarka%20New%20Delhi&output=embed"
-              className="h-75 w-full md:h-95"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.86707554049!2d77.07187627520065!3d28.57375398674804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1bdead0658c3%3A0x7a2678bb398026ae!2sNimzo%20Academy!5e0!3m2!1sen!2sin!4v1771493825714!5m2!1sen!2sin"
+              className="w-full h-75 md:h-112.5"
               loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
 
           <p className="mt-4 text-sm text-muted-500">
             Visits by prior appointment only ♟️
           </p>
+          <div className="mt-6 flex justify-center">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=28.57375398674804,77.07187627520065"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-heading-900 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+            >
+              <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+              Get Directions
+            </a>
+          </div>
         </div>
       </section>
 
@@ -160,7 +201,8 @@ export default function ContactPage() {
         "
       >
         <p className="mx-auto max-w-3xl text-center text-sm leading-relaxed text-white/90">
-          Helping children build focus, confidence, and strategic thinking through chess ♟️
+          Helping children build focus, confidence, and strategic thinking
+          through chess ♟️
         </p>
       </section>
     </>
