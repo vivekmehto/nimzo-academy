@@ -11,10 +11,10 @@ export default function SecondaryProduct({
   link,
 }) {
   return (
-    <div className="bg-white border border-[var(--color-border-300)] rounded-[var(--radius-lg)] p-6 shadow-sm hover:shadow-md transition">
+    <div className="bg-white   rounded-[var(--radius-lg)] p-6 shadow-sm hover:shadow-md transition">
 
       {/* Image */}
-      <div className="relative w-full h-56 mb-5 rounded-[var(--radius-md)] overflow-hidden bg-white border border-[var(--color-border-300)] shadow-sm">
+      <div className="relative w-full h-56 mb-5 rounded-[var(--radius-md)] overflow-hidden bg-white  shadow-sm">
         <Image
           src={image}
           alt={alt}

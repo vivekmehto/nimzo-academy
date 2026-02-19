@@ -12,11 +12,11 @@ export default function FeaturedProduct({
   link,
 }) {
   return (
-    <div className="bg-white border border-[var(--color-border-300)] rounded-[var(--radius-lg)] p-8 mb-12 shadow-sm hover:shadow-md transition">
+    <div className="bg-white rounded-[var(--radius-lg)] p-8 mb-12 shadow-sm hover:shadow-md transition">
       <div className="flex flex-col md:flex-row gap-10 items-center">
 
         {/* Image */}
-        <div className="relative md:w-1/2 w-full h-80 rounded-[var(--radius-md)] overflow-hidden bg-white border border-[var(--color-border-300)] shadow-sm">
+        <div className="relative md:w-1/2 w-full h-80 rounded-[var(--radius-md)] overflow-hidden bg-white  shadow-sm">
           <Image
             src={image}
             alt={alt}
