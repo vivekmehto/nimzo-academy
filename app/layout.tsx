@@ -9,18 +9,19 @@ export const metadata = {
   metadataBase: new URL("https://nimzoacademy.com"),
 
   title: {
-    default: "Chess Classes in Dwarka & Online | Nimzo Academy",
+    default: "Chess Classes in Dwarka for Kids | Nimzo Academy",
     template: "%s | Nimzo Academy",
   },
 
   description:
-    "Professional chess coaching for children aged 5–16 in Dwarka and online. Structured training for beginners to advanced players. Book a free demo class today.",
+    "Professional chess classes in Dwarka, New Delhi for kids aged 5–16. Beginner to advanced training available offline in Sector 8 Dwarka and online across India. Book a free demo class today.",
 
   keywords: [
     "Chess classes in Dwarka",
+    "Best chess academy in Dwarka",
+    "Chess coaching in Dwarka",
     "Online chess classes for kids",
-    "Chess academy in Dwarka Delhi",
-    "Kids chess coaching",
+    "Kids chess coaching Delhi",
     "Beginner to advanced chess training",
   ],
 
@@ -29,9 +30,9 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "Chess Classes in Dwarka & Online | Nimzo Academy",
+    title: "Best Chess Classes in Dwarka for Kids | Nimzo Academy",
     description:
-      "Professional chess coaching for children aged 5–16 in Dwarka and online.",
+      "Professional chess classes in Dwarka, New Delhi for kids aged 5–16. Beginner to advanced training available offline and online.",
     url: "https://nimzoacademy.com",
     siteName: "Nimzo Academy",
     locale: "en_IN",
@@ -41,16 +42,16 @@ export const metadata = {
         url: "https://nimzoacademy.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Nimzo Academy Chess Coaching",
+        alt: "Nimzo Academy Chess Coaching in Dwarka",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Chess Classes in Dwarka & Online | Nimzo Academy",
+    title: "Best Chess Classes in Dwarka for Kids | Nimzo Academy",
     description:
-      "Professional chess coaching for children aged 5–16 in Dwarka and online.",
+      "Professional chess classes in Dwarka and online for children aged 5–16.",
     images: ["https://nimzoacademy.com/logo.png"],
   },
 
@@ -68,18 +69,20 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
+        {/* LOCAL BUSINESS + EDUCATIONAL ORGANIZATION SCHEMA */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "EducationalOrganization",
+              "@type": ["EducationalOrganization", "LocalBusiness"],
               name: "Nimzo Academy",
               url: "https://nimzoacademy.com",
               logo: "https://nimzoacademy.com/logo.png",
               image: "https://nimzoacademy.com/logo.png",
               description:
-                "Professional chess coaching academy offering online and offline chess classes in Dwarka, New Delhi.",
+                "Professional chess classes in Dwarka, New Delhi offering beginner to advanced coaching for kids.",
+              priceRange: "₹₹",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "262, Block-A, Sector 8 Dwarka",
@@ -93,6 +96,8 @@ export default function RootLayout({
                 latitude: 28.5921,
                 longitude: 77.0460,
               },
+              hasMap:
+                "https://www.google.com/maps/place/Nimzo+Academy",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+91-9718086186",
@@ -109,6 +114,19 @@ export default function RootLayout({
                 "@type": "Place",
                 name: "Dwarka, New Delhi",
               },
+            }),
+          }}
+        />
+
+        {/* WEBSITE SCHEMA (HELPS SITELINKS) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Nimzo Academy",
+              url: "https://nimzoacademy.com",
             }),
           }}
         />
@@ -131,4 +149,3 @@ export default function RootLayout({
     </html>
   );
 }
- 
