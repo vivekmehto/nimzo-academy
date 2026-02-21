@@ -82,7 +82,7 @@ export default function RootLayout({
               image: "https://nimzoacademy.com/logo.png",
               description:
                 "Professional chess classes in Dwarka, New Delhi offering beginner to advanced coaching for kids.",
-              priceRange: "₹₹",
+              
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "262, Block-A, Sector 8 Dwarka",
