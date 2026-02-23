@@ -196,7 +196,7 @@ export default function ScholarshipsPage() {
             </p>
 
             <ul className="space-y-3">
-              <li>• 10–15% structured support</li>
+              <li>• 10% structured support</li>
               <li>• Limited seats per batch</li>
               <li>• Evaluation required</li>
             </ul>
@@ -228,13 +228,13 @@ export default function ScholarshipsPage() {
       <section className="py-20 md:py-24 bg-white text-center">
         <div className="max-w-2xl mx-auto px-6">
 
-          <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-heading-900)] mb-6">
+          <h2 className="text-3xl md:text-5xl font-semibold text-[var(--color-heading-900)] mb-6">
             Begin the Journey with Nimzo Academy
           </h2>
 
           <p className="mb-10 leading-relaxed">
             Admissions are intentionally limited to maintain focused and
-            performance-driven batches.
+            performance driven batches.
           </p>
 
           <Link
