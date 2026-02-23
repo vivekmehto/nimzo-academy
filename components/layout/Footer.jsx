@@ -46,7 +46,7 @@ export default function Footer() {
 
           {/* RIGHT — Social */}
           <div className="lg:text-right">
-            <p className="text-sm text-center font-semibold text-heading-900 mb-4 tracking-wide">
+            <p className="text-sm md:text-center font-semibold text-heading-900 mb-4 tracking-wide">
               Follow Us
             </p>
 
@@ -199,15 +199,15 @@ export default function Footer() {
             <ul className="footer-list">
               <li>
                 <Link
-                  href="/referral"
+                  href="/scholarships"
                   className="hover:text-primary-600 transition"
                 >
-                  Referral Program
+                  Scholarships
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/careers"
+                  href="/contact"
                   className="hover:text-primary-600 transition"
                 >
                   Career Opportunities
@@ -215,7 +215,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/tournaments"
+                  href="/contact"
                   className="hover:text-primary-600 transition"
                 >
                   Organize a Tournament
@@ -250,7 +250,7 @@ export default function Footer() {
               </li>
 
               <li className="flex items-start gap-3">
-                <HiOutlineLocationMarker className="mt-0.5 h-8 w-8 text-primary-600" />
+                <HiOutlineLocationMarker className="mt-0.5 h-5 w-5 md:h-7 md:w-7 text-primary-600" />
                 <Link
                   href="https://www.google.com/maps/dir/?api=1&destination=28.57375398674804,77.07187627520065"
                   target="_blank"
