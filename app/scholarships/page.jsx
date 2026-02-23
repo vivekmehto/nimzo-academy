@@ -1,63 +1,70 @@
+import Image from "next/image";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Scholarships & Support Programs | Nimzo Academy",
+  description:
+    "Discover structured scholarship initiatives at Nimzo Academy including the Girls Initiative, sibling benefits, and merit-based support for competitive chess training.",
+  openGraph: {
+    title: "Scholarships & Support Programs | Nimzo Academy",
+    description:
+      "Institutional scholarship programs supporting excellence in competitive chess.",
+    url: "https://nimzoacademy.com/scholarships",
+    siteName: "Nimzo Academy",
+    type: "website",
+  },
+};
 
 export default function ScholarshipsPage() {
   return (
     <main className="bg-white text-[var(--color-body-700)]">
+      {/* ================= HERO ================= */}
+      <section className="relative min-h-[60vh] md:min-h-[65vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/gallery/training-23.jpg"
+          alt="Students training in structured chess classroom at Nimzo Academy"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
 
-      {/* ================= HERO SECTION ================= */}
-      <section className="min-h-[80vh] flex items-center bg-[var(--color-light-100)]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 py-24">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20" />
 
-          {/* LEFT: IMAGE */}
-          <div className="relative h-[420px] md:h-[520px] overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/images/academy-hero.jpg')] bg-cover bg-center"></div>
-
-            {/* Subtle blue overlay */}
-            <div className="absolute inset-0 bg-[var(--color-primary-600)] opacity-10"></div>
-          </div>
-
-          {/* RIGHT: CONTENT */}
-          <div className="flex flex-col justify-center animate-fade-up">
-            <p className="text-xs uppercase tracking-[0.14em] text-[var(--color-muted-500)] mb-4">
-              Initiatives & Scholarships
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 md:py-24 text-white w-full">
+          <div className="max-w-xl">
+            <p className="text-[11px] uppercase tracking-[0.18em] text-white/70 mb-3">
+              INITIATIVES & SCHOLARSHIPS
             </p>
 
-            <h1 className="text-4xl md:text-5xl font-semibold text-[var(--color-heading-900)] leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-semibold leading-[1.15] mb-5">
               Scholarships & Institutional Support
             </h1>
 
-            <p className="text-lg leading-relaxed mb-8 max-w-xl">
-              At Nimzo Academy, excellence is supported with structure.
-              Our institutional initiatives are designed to encourage talent
-              while maintaining competitive standards.
+            <div className="w-14 h-[2px] bg-[var(--color-accent-500)] mb-6"></div>
+
+            <p className="text-base md:text-lg text-white/80 leading-relaxed mb-8">
+              At Nimzo Academy, structured excellence is supported with
+              meaningful opportunity.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="px-8 py-3.5 bg-[var(--color-accent-500)] text-white font-semibold rounded-md hover:bg-[var(--color-accent-600)] transition duration-200"
-              >
-                Apply for Admission
-              </Link>
-
-              <Link
-                href="/contact"
-                className="px-8 py-3.5 border border-[var(--color-primary-600)] text-[var(--color-primary-600)] font-semibold rounded-md hover:bg-[color-mix(in_srgb,var(--color-primary-600)_8%,white)] transition duration-200"
-              >
-                Schedule a Consultation
-              </Link>
-            </div>
+            <Link
+              href="/contact"
+              className="inline-block px-9 py-3.5 bg-[var(--color-accent-500)] rounded-md font-semibold hover:bg-[var(--color-accent-600)] transition"
+            >
+              Apply for Admission
+            </Link>
           </div>
         </div>
       </section>
 
-
       {/* ================= GIRLS INITIATIVE ================= */}
-      <section className="py-24">
+      <section className="py-24 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 px-6 items-center">
-
-          {/* TEXT */}
-          <div className="animate-fade-up">
+          <div>
             <p className="text-xs uppercase tracking-[0.14em] text-[var(--color-muted-500)] mb-3">
               Our Commitment
             </p>
@@ -66,59 +73,92 @@ export default function ScholarshipsPage() {
               The Nimzo Girls Initiative
             </h2>
 
-            <p className="leading-relaxed mb-6 max-w-xl">
-              Nimzo Academy is committed to increasing female participation
-              in competitive chess through structured mentorship and equal
-              developmental pathways. This initiative reflects our long-term
-              institutional philosophy: talent must be supported with opportunity.
+            <div className="w-14 h-[2px] bg-[var(--color-primary-600)] mb-6"></div>
+
+            <p className="leading-relaxed mb-6">
+              We are committed to increasing female participation in competitive
+              chess through structured mentorship and equal development
+              pathways.
             </p>
 
             <ul className="space-y-3">
               <li>• 10% structured scholarship support</li>
               <li>• Permanent institutional initiative</li>
-              <li>• Competitive development & tournament guidance</li>
+              <li>• Tournament and performance guidance</li>
             </ul>
           </div>
 
-          {/* IMAGE */}
-          <div className="relative rounded-lg overflow-hidden h-[420px]">
-            <div className="absolute inset-0 bg-[url('/images/girls-training.jpg')] bg-cover bg-center"></div>
+          <div className="relative h-[420px] md:h-[500px] rounded-xl overflow-hidden shadow-xl">
+            <Image
+              src="/girls-training.jpg"
+              alt="Girl student training in chess at Nimzo Academy"
+              fill
+              className="object-cover"
+              sizes="(max-width:768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
 
+      {/* ================= SUPPORTING IMAGE STRIP ================= */}
+      <section className="py-16 bg-[var(--color-light-100)]">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+          {[
+            {
+              src: "/gallery/training-1.jpg",
+              alt: "Chess tournament practice session",
+            },
+            {
+              src: "/gallery/training-2.jpg",
+              alt: "Focused chess classroom environment",
+            },
+            {
+              src: "/gallery/training-3.jpg",
+              alt: "Close-up of chess pieces during training",
+            },
+          ].map((img, index) => (
+            <div
+              key={index}
+              className="relative h-[220px] rounded-lg overflow-hidden shadow-md"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width:768px) 100vw, 33vw"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ================= SIBLING BENEFIT ================= */}
-      <section className="py-24 bg-[var(--color-light-100)]">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="bg-white border border-[var(--color-border-300)] rounded-lg p-10 text-center">
+      <section className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-semibold text-[var(--color-heading-900)] mb-5">
+            Sibling Enrollment Benefit
+          </h2>
 
-            <h2 className="text-3xl font-semibold text-[var(--color-heading-900)] mb-5">
-              Sibling Enrollment Benefit
-            </h2>
+          <div className="w-16 h-[2px] bg-[var(--color-primary-600)] mx-auto mb-6"></div>
 
-            <p className="mb-6 leading-relaxed">
-              Families enrolling more than one student at Nimzo Academy receive
-              structured fee support for the second admission.
-            </p>
+          <p className="mb-6 leading-relaxed">
+            Families enrolling multiple students receive structured support on
+            the second admission.
+          </p>
 
-            <div className="w-20 h-[1px] bg-[var(--color-border-400)] mx-auto mb-6"></div>
-
-            <ul className="space-y-3">
-              <li>• 10% support on second enrollment</li>
-              <li>• Applicable during concurrent participation</li>
-            </ul>
-          </div>
+          <ul className="space-y-3">
+            <li>• 10% support on second enrollment</li>
+            <li>• Valid during concurrent participation</li>
+          </ul>
         </div>
       </section>
 
-
       {/* ================= MERIT SUPPORT ================= */}
-      <section className="py-24">
-        <div className="max-w-2xl mx-auto px-6">
-          <div className="border border-[var(--color-primary-600)] rounded-md p-10">
-
-            <p className="text-xs uppercase tracking-[0.14em] text-[var(--color-primary-600)] mb-4">
+      <section className="py-24 bg-[var(--color-light-100)]">
+        <div className="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-xs uppercase tracking-[0.14em] text-[var(--color-primary-600)] mb-3">
               Limited Allocation
             </p>
 
@@ -126,52 +166,59 @@ export default function ScholarshipsPage() {
               Merit Support Seats
             </h2>
 
+            <div className="w-14 h-[2px] bg-[var(--color-primary-600)] mb-6"></div>
+
             <p className="leading-relaxed mb-6">
               A limited number of seats are reserved each batch for deserving
-              students from government institutions. Allocations are determined
-              following a brief evaluation interaction.
+              students from government institutions, subject to evaluation.
             </p>
 
             <ul className="space-y-3">
               <li>• 10–15% structured support</li>
-              <li>• Limited allocation per batch</li>
+              <li>• Limited seats per batch</li>
               <li>• Evaluation required</li>
             </ul>
+          </div>
+
+          <div className="relative h-[380px] rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/gallery/training-6.jpg"
+              alt="Student analyzing chess position during structured session"
+              fill
+              className="object-cover"
+              sizes="(max-width:768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
 
-
-      {/* ================= POLICY STRIP ================= */}
-      <section className="bg-[var(--color-dark-900)] py-12 text-center">
-        <p className="text-white text-lg">
+      {/* ================= POLICY ================= */}
+      <section className="bg-[var(--color-dark-900)] py-16 text-center">
+        <p className="text-white text-lg md:text-xl tracking-wide px-6">
           Only one scholarship program may be applied per student.
         </p>
       </section>
 
-
       {/* ================= FINAL CTA ================= */}
-      <section className="py-20 bg-white text-center">
+      <section className="py-24 bg-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-
-          <h2 className="text-3xl font-semibold text-[var(--color-heading-900)] mb-5">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-heading-900)] mb-6">
             Begin the Journey with Nimzo Academy
           </h2>
 
-          <p className="mb-8 leading-relaxed">
-            Admissions are intentionally limited to maintain focused,
+          <p className="mb-10 leading-relaxed">
+            Admissions are intentionally limited to maintain focused and
             performance-driven batches.
           </p>
 
           <Link
             href="/contact"
-            className="px-8 py-3.5 bg-[var(--color-accent-500)] text-white font-semibold rounded-md hover:bg-[var(--color-accent-600)] transition duration-200"
+            className="inline-block px-10 py-4 bg-[var(--color-accent-500)] text-white font-semibold rounded-md hover:bg-[var(--color-accent-600)] transition"
           >
             Apply for Admission
           </Link>
         </div>
       </section>
-
     </main>
   );
 }
