@@ -46,5 +46,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://nimzoacademy.com/child-safety-policy",
       lastModified: new Date(),
     },
+     {
+      url: "https://nimzoacademy.com/book-free-chess-demo",
+      lastModified: new Date(),
+    },
+     {
+      url: "https://nimzoacademy.com/school-chess-program",
+      lastModified: new Date(),
+    },
+     {
+      url: "https://nimzoacademy.com/chess-referral-program",
+      lastModified: new Date(),
+    },
+     {
+      url: "https://nimzoacademy.com/scholarships",
+      lastModified: new Date(),
+    },
   ];
 }
