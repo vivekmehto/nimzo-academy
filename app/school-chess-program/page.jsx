@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
+import EducationalImpact from "@/components/school-chess/EducationalImapct";
+import ProgramsSection from "../../components/school-chess/ProgramsSection";
 
 export const metadata = {
   title: "School Chess Program in Dwarka & Delhi | Nimzo Academy",
@@ -72,7 +74,6 @@ export default function SchoolChessProgramPage() {
 
   return (
     <main className="bg-[var(--color-white-100)]">
-
       {/* SCHEMA */}
       <script
         type="application/ld+json"
@@ -84,193 +85,284 @@ export default function SchoolChessProgramPage() {
       />
 
       {/* ================= HERO ================= */}
-      <section className="bg-gradient-to-br from-[var(--color-back-500)] to-white pt-32 pb-28">
+      <section className="bg-gradient-to-br from-[var(--color-back-500)] via-white to-[var(--color-back-500)] pt-28 pb-24">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-
-          <div>
-            <span className="text-sm font-semibold text-[var(--color-primary-600)] uppercase tracking-wide">
-              Institutional Chess Program
-            </span>
-
-            <h1 className="mt-4 text-5xl md:text-6xl font-bold text-[var(--color-heading-900)] leading-tight">
-              School Chess Program in Dwarka & Delhi
+          {/* LEFT */}
+          <div className="max-w-xl">
+            <h1 className="text-5xl md:text-6xl font-bold text-[var(--color-heading-900)] leading-tight">
+              Chess Program
+              <span className="block text-[var(--color-primary-700)]">
+                for Schools in Delhi
+              </span>
             </h1>
 
-            <p className="mt-6 text-lg text-[var(--color-body-700)] max-w-xl">
-              Nimzo Academy provides structured school chess programs in Dwarka
-              and is expanding chess training for schools across Delhi. Designed
-              for seamless integration into academic and after-school schedules.
+            <p className="mt-6 text-lg text-[var(--color-body-700)]">
+              Nimzo Academy partners with schools to implement structured chess
+              education programs that build focus, analytical thinking, and
+              competitive discipline among students.
             </p>
 
-            <p className="mt-4 text-sm text-[var(--color-muted-500)]">
-              Structured implementation. Minimal administrative burden.
+            <p className="mt-3 text-sm text-[var(--color-muted-500)]">
+              Designed for seamless integration into school schedules.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white px-8 py-3 rounded-[var(--radius-md)] font-medium transition w-full sm:w-auto text-center"
+                className="bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white px-8 py-3 rounded-[var(--radius-md)] font-semibold transition"
               >
-                Schedule a 20-Minute Institutional Discussion
+                Request School Program Discussion
               </Link>
 
               <Link
                 href="/about"
-                className="border border-[var(--color-primary-600)] text-[var(--color-primary-600)] px-8 py-3 rounded-[var(--radius-md)] hover:bg-[var(--color-primary-600)] hover:text-white transition w-full sm:w-auto text-center"
+                className="border border-[var(--color-primary-600)] text-[var(--color-primary-600)] px-8 py-3 rounded-[var(--radius-md)] hover:bg-[var(--color-primary-600)] hover:text-white transition"
               >
                 Learn About Nimzo
               </Link>
             </div>
+
+            {/* TRUST POINTS */}
+            <div className="mt-10 flex flex-wrap gap-6 text-sm text-[var(--color-body-700)]">
+              <div className="flex items-center gap-2">
+                <CheckCircle
+                  size={16}
+                  className="text-[var(--color-primary-600)]"
+                />
+                <span>Structured Curriculum</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <CheckCircle
+                  size={16}
+                  className="text-[var(--color-primary-600)]"
+                />
+                <span>Tournament Pathway</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <CheckCircle
+                  size={16}
+                  className="text-[var(--color-primary-600)]"
+                />
+                <span>Institutional Partnership</span>
+              </div>
+            </div>
           </div>
 
-          <div className="relative h-[420px] w-full rounded-[var(--radius-lg)] overflow-hidden shadow-xl">
+          {/* IMAGE */}
+          <div className="relative h-[440px] rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/school-chess.jpg"
-              alt="School chess program in Dwarka conducted by Nimzo Academy"
+              src="/gallery/training-23.jpg"
+              alt="School chess program in Dwarka by Nimzo Academy"
               fill
-              className="object-cover"
               priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover scale-[1.02]"
             />
           </div>
-
         </div>
       </section>
 
-      {/* ================= EDUCATIONAL IMPACT ================= */}
-      <section className="py-28">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-semibold text-[var(--color-heading-900)]">
-            Educational Impact of Chess in Schools
-          </h2>
+      {/* EDUCATIONAL IMPACT */}
+      <EducationalImpact />
 
-          <p className="mt-6 text-lg text-[var(--color-body-700)] max-w-3xl mx-auto">
-            Structured chess education strengthens concentration, analytical
-            thinking, and disciplined decision-making among students.
-          </p>
-
-          <div className="mt-16 grid md:grid-cols-4 gap-8">
-            {impactPoints.map((point) => (
-              <div
-                key={point}
-                className="bg-white p-8 rounded-2xl border border-[var(--color-border-300)] shadow-sm hover:shadow-md transition"
-              >
-                <CheckCircle className="mx-auto text-[var(--color-primary-600)] mb-4" />
-                <p className="text-[var(--color-body-700)] font-medium">
-                  {point}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= PROGRAMS ================= */}
-      <section className="py-28 bg-[var(--color-light-100)]">
-        <div className="max-w-7xl mx-auto px-6 space-y-20">
-
-          {programs.map((program) => (
-            <div
-              key={program.title}
-              className="bg-white p-10 rounded-2xl border border-[var(--color-border-300)] shadow-sm"
-            >
-              <h3 className="text-3xl font-semibold text-[var(--color-heading-900)]">
-                {program.title}
-              </h3>
-
-              <ul className="mt-6 space-y-4 text-[var(--color-body-700)]">
-                {program.points.map((point) => (
-                  <li key={point} className="flex gap-3">
-                    <CheckCircle className="text-[var(--color-primary-600)] mt-1" size={18}/>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-        </div>
-      </section>
+      {/* PROGRAMS */}
+      <ProgramsSection />
 
       {/* ================= INTER-SCHOOL TOURNAMENTS ================= */}
       <section className="py-28">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-
           <div className="relative h-[380px] w-full rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/images/inter-school-chess.jpg"
+              src="/gallery/training-1.jpg"
               alt="Inter school chess tournament organized by Nimzo Academy in Dwarka Delhi"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
-
           <div>
             <h2 className="text-4xl font-semibold text-[var(--color-heading-900)]">
-              Inter-School Chess Tournament Support
+              Inter School Chess Tournament Support
             </h2>
 
-            <p className="mt-6 text-lg text-[var(--color-body-700)]">
-              We support schools in Dwarka and across Delhi with structured
-              inter-school chess tournaments that enhance institutional
-              visibility and competitive culture.
+            <p className="mt-5 text-lg text-[var(--color-body-700)] max-w-lg">
+              Nimzo Academy helps schools organise structured chess competitions
+              that encourage participation, strengthen competitive culture, and
+              build institutional visibility.
             </p>
 
-            <ul className="mt-8 space-y-4 text-[var(--color-body-700)]">
-              <li>Intra-school championship structuring</li>
-              <li>Inter-school league coordination</li>
-              <li>Certificates & ranking systems</li>
-              <li>Event planning and execution support</li>
+            <ul className="mt-8 grid sm:grid-cols-2 gap-y-4 gap-x-6">
+              <li className="flex items-start gap-3">
+                <CheckCircle
+                  size={18}
+                  className="text-[var(--color-primary-600)] mt-1"
+                />
+                <span>Intra school championship structuring</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <CheckCircle
+                  size={18}
+                  className="text-[var(--color-primary-600)] mt-1"
+                />
+                <span>Inter school league coordination</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <CheckCircle
+                  size={18}
+                  className="text-[var(--color-primary-600)] mt-1"
+                />
+                <span>Certificates and ranking systems</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <CheckCircle
+                  size={18}
+                  className="text-[var(--color-primary-600)] mt-1"
+                />
+                <span>Event planning and execution support</span>
+              </li>
             </ul>
           </div>
-
         </div>
       </section>
 
       {/* ================= INSTITUTIONAL BENEFITS ================= */}
       <section className="py-28 bg-[var(--color-back-500)]">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-semibold text-[var(--color-heading-900)]">
             How This Strengthens Your Institution
           </h2>
 
-          <ul className="mt-10 space-y-3 text-[var(--color-body-700)]">
-            <li>Enhances extracurricular profile</li>
-            <li>Builds competitive school representation</li>
-            <li>Promotes intellectual culture</li>
-            <li>Supports holistic development objectives</li>
-          </ul>
+          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-xl border border-[var(--color-border-300)]">
+              Enhances extracurricular profile
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-[var(--color-border-300)]">
+              Builds competitive school representation
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-[var(--color-border-300)]">
+              Promotes intellectual culture
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-[var(--color-border-300)]">
+              Supports holistic development
+            </div>
+          </div>
         </div>
       </section>
-
       {/* ================= PARTNERSHIP MODEL ================= */}
+
       <section className="py-28">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-
-          <div className="bg-[var(--color-back-500)] p-10 rounded-2xl shadow-sm">
-            <h3 className="text-2xl font-semibold text-[var(--color-heading-900)]">
-              Nimzo Academy Handles
-            </h3>
-            <ul className="mt-6 space-y-3 text-[var(--color-body-700)]">
-              <li>Curriculum & planning</li>
-              <li>Instructor deployment</li>
-              <li>Session execution</li>
-              <li>Tournament coordination</li>
-              <li>Performance assessment</li>
-            </ul>
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Section Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-semibold text-[var(--color-heading-900)]">
+              Partnership Model
+            </h2>
+            <p className="mt-4 text-[var(--color-body-700)] max-w-xl mx-auto">
+              Nimzo Academy manages the training structure while schools provide
+              the environment for students to participate and grow.
+            </p>
           </div>
 
-          <div className="bg-white p-10 rounded-2xl border border-[var(--color-border-300)] shadow-sm">
-            <h3 className="text-2xl font-semibold text-[var(--color-heading-900)]">
-              School Provides
-            </h3>
-            <ul className="mt-6 space-y-3 text-[var(--color-body-700)]">
-              <li>Classroom space</li>
-              <li>Student coordination</li>
-              <li>Schedule alignment</li>
-              <li>Internal communication</li>
-            </ul>
-          </div>
+          {/* Two Columns */}
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Nimzo Handles */}
+            <div className="bg-white border border-[var(--color-border-300)] p-10 rounded-xl shadow-sm">
+              <h3 className="text-xl font-semibold text-[var(--color-heading-900)]">
+                Nimzo Academy Handles
+              </h3>
 
+              <ul className="mt-6 space-y-4">
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Curriculum design and planning</span>
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Instructor deployment</span>
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Session execution</span>
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Tournament coordination</span>
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Student performance assessment</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* School Provides */}
+            <div className="bg-white border border-[var(--color-border-300)] p-10 rounded-xl shadow-sm">
+              <h3 className="text-xl font-semibold text-[var(--color-heading-900)]">
+                School Provides
+              </h3>
+
+              <ul className="mt-6 space-y-4">
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Classroom or activity space</span>
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Student participation coordination</span>
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Schedule alignment with school timetable</span>
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircle
+                    size={18}
+                    className="text-[var(--color-primary-600)] mt-1"
+                  />
+                  <span>Internal communication with parents</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -294,35 +386,6 @@ export default function SchoolChessProgramPage() {
           </Link>
         </div>
       </section>
-
     </main>
   );
 }
-
-const impactPoints = [
-  "Improved concentration & discipline",
-  "Enhanced logical reasoning",
-  "Stronger problem-solving skills",
-  "Healthy competitive mindset",
-];
-
-const programs = [
-  {
-    title: "Curriculum-Based In-School Chess Program",
-    points: [
-      "Age-wise structured batches",
-      "Weekly on-campus sessions",
-      "Lesson plans & worksheets",
-      "Periodic performance evaluation",
-    ],
-  },
-  {
-    title: "After-School Chess Enrichment Program",
-    points: [
-      "Limited batch advanced training",
-      "Deeper conceptual development",
-      "Extended practice sessions",
-      "Competitive tournament preparation",
-    ],
-  },
-];

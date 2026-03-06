@@ -45,8 +45,8 @@ export default function Footer() {
           </div>
 
           {/* RIGHT — Social */}
-          <div className="lg:text-right">
-            <p className="text-sm md:text-center font-semibold text-heading-900 mb-4 tracking-wide">
+          <div >
+            <p className="text-sm  font-semibold text-heading-900 mb-4 tracking-wide">
               Follow Us
             </p>
 
@@ -203,6 +203,22 @@ export default function Footer() {
                   className="hover:text-primary-600 transition"
                 >
                   Scholarships
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/chess-referral-program"
+                  className="hover:text-primary-600 transition"
+                >
+                  Referral Program
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/school-chess-program"
+                  className="hover:text-primary-600 transition"
+                >
+                  School Chess Program
                 </Link>
               </li>
               <li>
