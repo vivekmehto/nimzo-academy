@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
     messageMap[pathname] ||
     "Hi, I’m interested in chess classes for my child. Please share details.";
 
-  const phone = "919718086186"; 
+  const phone = "919667275083"; // Nimzo Academy's WhatsApp number
   const encodedMessage = encodeURIComponent(message);
 
   // ---- First-time helper bubble ----

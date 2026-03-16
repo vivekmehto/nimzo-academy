@@ -79,7 +79,7 @@ export default function Footer() {
                 <FaFacebookF className="social-icon text-blue-600" />
               </Link>
               <Link
-                href="https://wa.me/919718086186"
+                href="https://wa.me/919667275083"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat with us on WhatsApp"
@@ -248,10 +248,10 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <HiOutlinePhone className="mt-0.5 h-5 w-5 text-primary-600" />
                 <Link
-                  href="tel:+919718086186"
+                  href="tel:+919667275083"
                   className="hover:text-primary-600 transition"
                 >
-                  +91 97180 86186
+                  +91 96672 75083
                 </Link>
               </li>
 

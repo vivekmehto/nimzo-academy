@@ -92,11 +92,11 @@ export default function ContactPage() {
                     <p>
                       <strong>Phone:</strong>{" "}
                       <a
-                        href="tel:+919718086186"
+                        href="tel:+919667275083"
                         className="hover:text-primary-600 hover:underline underline-offset-4 transition cursor-pointer
  "
                       >
-                        +91 97180 86186
+                        +91 96672 75083
                       </a>
                     </p>
 

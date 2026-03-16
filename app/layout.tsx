@@ -100,7 +100,7 @@ export default function RootLayout({
                 "https://www.google.com/maps/place/Nimzo+Academy",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+91-9718086186",
+                telephone: "+91-9667275083",
                 contactType: "customer support",
                 areaServed: "IN",
                 availableLanguage: ["English", "Hindi"],
