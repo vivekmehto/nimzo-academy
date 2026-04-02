@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function CurriculumPanel({
   stage,
@@ -22,10 +22,10 @@ export default function CurriculumPanel({
   }, []);
 
   // Smooth close with animation
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsVisible(false);
     setTimeout(() => onClose(), 280);
-  };
+  }, [onClose]);
 
   // ESC close
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function CurriculumPanel({
     };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
-  }, []);
+  }, [handleClose]);
 
   // Lock background scroll
   useEffect(() => {
@@ -66,7 +66,9 @@ export default function CurriculumPanel({
         'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])'
       );
 
-    if (focusable.length) focusable[0].focus();
+    if (!focusable.length) return undefined;
+
+    focusable[0].focus();
 
     const trap = (e) => {
       if (e.key !== "Tab") return;
@@ -92,7 +94,7 @@ export default function CurriculumPanel({
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex">
+    <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal="true">
 
       {/* Backdrop */}
       <div

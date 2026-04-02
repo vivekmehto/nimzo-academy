@@ -1,10 +1,11 @@
 "use client";
 
-import { useState,useEffect } from "react";
+import { useState } from "react";
 
 export default function DemoFormContent({ type }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const [formData, setFormData] = useState({
     parentName: "",
@@ -14,44 +15,47 @@ export default function DemoFormContent({ type }) {
     phone: "",
     age: "",
     sourceDetail: "",
-    type: type,
+    website: "",
   });
 
-   useEffect(() => {
-    setFormData((prev) => ({
-      ...prev,
-      type: type,
-    }));
-  }, [type]);
-
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     setLoading(true);
 
-    const res = await fetch("/api/demo", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
-    const result = await res.json();
-    setLoading(false);
-
-    if (result.success) {
-      setSuccess(true);
-      setFormData({
-        parentName: "",
-        email: "",
-        studentName: "",
-        countryCode: "+91",
-        phone: "",
-        age: "",
-        sourceDetail: "",
+    try {
+      const res = await fetch("/api/demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, type }),
       });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSuccess(true);
+        setFormData({
+          parentName: "",
+          email: "",
+          studentName: "",
+          countryCode: "+91",
+          phone: "",
+          age: "",
+          sourceDetail: "",
+          website: "",
+        });
+      } else {
+        setError(result.message || "Something went wrong.");
+      }
+    } catch {
+      setError("Unable to submit right now. Please try again in a moment.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -71,6 +75,17 @@ export default function DemoFormContent({ type }) {
           </p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+            <input
+              type="text"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+              className="hidden"
+              aria-hidden="true"
+            />
+
             {/* Email, Parent, Student */}
             {[
               {
@@ -137,10 +152,10 @@ export default function DemoFormContent({ type }) {
                   const onlyNumbers = e.target.value
                     .replace(/\D/g, "")
                     .slice(0, 15);
-                  setFormData({
-                    ...formData,
+                  setFormData((prev) => ({
+                    ...prev,
                     phone: onlyNumbers,
-                  });
+                  }));
                 }}
                 className="flex-1 px-4 py-2.5 text-sm border bg-white outline-none transition-all duration-200 focus:ring-2 focus:ring-muted-500"
                 style={{
@@ -163,14 +178,13 @@ export default function DemoFormContent({ type }) {
               }}
             >
               <option value="">Select Age</option>
-              {[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map(
+              {[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map(
                 (age) => (
                   <option key={age} value={age}>
                     {age}
                   </option>
                 ),
               )}
-              <option value={19}>18 Above</option>
             </select>
 
             {/* Source */}
@@ -214,6 +228,8 @@ export default function DemoFormContent({ type }) {
               </button>
             </div>
 
+            {error && <p className="text-center text-sm text-red-600">{error}</p>}
+
             <p className="text-center text-xs text-muted-500 pt-3">
               We typically respond within 24 hours.
             </p>
@@ -222,7 +238,7 @@ export default function DemoFormContent({ type }) {
       ) : (
         <div className="text-center py-8 animate-fade-in">
           <h3 className="text-lg font-semibold text-primary-600">
-            🎉 Request Submitted!
+            Request Submitted!
           </h3>
           <p className="mt-2 text-sm text-body-700">
             Thank you. Our team will contact you shortly.

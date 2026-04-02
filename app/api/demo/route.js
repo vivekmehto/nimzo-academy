@@ -1,10 +1,16 @@
 import clientPromise from "@/lib/mongodb";
+import { applyRateLimit, escapeHtml, hasSpamTrap } from "@/lib/lead-utils";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
   try {
+    const rateLimitResponse = applyRateLimit(req, "demo");
+    if (rateLimitResponse) {
+      return rateLimitResponse;
+    }
+
     const body = await req.json();
 
     let {
@@ -16,7 +22,12 @@ export async function POST(req) {
       age,
       sourceDetail,
       type = "demo",
+      website,
     } = body;
+
+    if (hasSpamTrap(website)) {
+      return Response.json({ success: true });
+    }
 
     if (!parentName || !phone || !studentName || !age || !countryCode) {
       return Response.json(
@@ -120,27 +131,27 @@ export async function POST(req) {
 
     await db.collection("demo_requests").insertOne(newLead);
 
-    await resend.emails.send({
-      from: "Nimzo Academy <onboarding@resend.dev>",
-      to: "vivekmehto.chess@gmail.com",
-      subject:
-        type === "demo"
-          ? "New Demo Request Received"
-          : "New Assessment Booking Received",
-
-      html: `
-        <h2>
-  ${type === "demo" ? "New Demo Request" : "New Assessment Booking"}
-</h2>
-
-        <p><strong>Parent Name:</strong> ${cleanedParentName}</p>
-        <p><strong>Phone:</strong> ${fullPhone}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Student Name:</strong> ${cleanedStudentName}</p>
-        <p><strong>Age:</strong> ${age}</p>
-        <p><strong>Heard About Us:</strong> ${sourceDetail || "Not Provided"}</p>
-      `,
-    });
+    try {
+      await resend.emails.send({
+        from: "Nimzo Academy <onboarding@resend.dev>",
+        to: "vivekmehto.chess@gmail.com",
+        subject:
+          type === "demo"
+            ? "New Demo Request Received"
+            : "New Assessment Booking Received",
+        html: `
+          <h2>${type === "demo" ? "New Demo Request" : "New Assessment Booking"}</h2>
+          <p><strong>Parent Name:</strong> ${escapeHtml(cleanedParentName)}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(fullPhone)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email || "Not Provided")}</p>
+          <p><strong>Student Name:</strong> ${escapeHtml(cleanedStudentName)}</p>
+          <p><strong>Age:</strong> ${age}</p>
+          <p><strong>Heard About Us:</strong> ${escapeHtml(sourceDetail?.trim() || "Not Provided")}</p>
+        `,
+      });
+    } catch (emailError) {
+      console.error("Demo email error:", emailError);
+    }
 
     return Response.json({ success: true });
   } catch (error) {

@@ -31,17 +31,21 @@ export default function WhatsAppButton() {
   useEffect(() => {
     const seen = localStorage.getItem("wa-bubble-seen");
     const clicked = localStorage.getItem("wa-clicked");
+    const timers = [];
 
     if (!seen) {
-      setShowBubble(true);
       localStorage.setItem("wa-bubble-seen", "true");
-
-      setTimeout(() => setShowBubble(false), 4000);
+      timers.push(setTimeout(() => setShowBubble(true), 0));
+      timers.push(setTimeout(() => setShowBubble(false), 4000));
     }
 
     if (clicked) {
-      setHasClicked(true);
+      timers.push(setTimeout(() => setHasClicked(true), 0));
     }
+
+    return () => {
+      timers.forEach((timer) => clearTimeout(timer));
+    };
   }, []);
 
   // ---- Click handler ----

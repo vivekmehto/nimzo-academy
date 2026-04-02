@@ -1,13 +1,23 @@
 import clientPromise from "@/lib/mongodb";
+import { applyRateLimit, escapeHtml, hasSpamTrap } from "@/lib/lead-utils";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
   try {
+    const rateLimitResponse = applyRateLimit(req, "contact");
+    if (rateLimitResponse) {
+      return rateLimitResponse;
+    }
+
     const body = await req.json();
 
-    let { name, email, phone, message } = body;
+    let { name, email, phone, message, website } = body;
+
+    if (hasSpamTrap(website)) {
+      return Response.json({ success: true });
+    }
 
     // Required fields check
     if (!name || !email || !message) {
@@ -82,23 +92,25 @@ export async function POST(req) {
 
     await db.collection("contact_messages").insertOne(newMessage);
 
-    // Email notification
-    await resend.emails.send({
-      from: "Nimzo Academy <onboarding@resend.dev>",
-      to: "vivekmehto.chess@gmail.com",
-      subject: "New Contact Message Received",
-      html: `
-        <h2>New Contact Inquiry</h2>
-        <p><strong>Name:</strong> ${cleanedName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    });
+    try {
+      await resend.emails.send({
+        from: "Nimzo Academy <onboarding@resend.dev>",
+        to: "vivekmehto.chess@gmail.com",
+        subject: "New Contact Message Received",
+        html: `
+          <h2>New Contact Inquiry</h2>
+          <p><strong>Name:</strong> ${escapeHtml(cleanedName)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(phone || "Not Provided")}</p>
+          <p><strong>Message:</strong></p>
+          <p>${escapeHtml(message)}</p>
+        `,
+      });
+    } catch (emailError) {
+      console.error("Contact email error:", emailError);
+    }
 
     return Response.json({ success: true });
-
   } catch (error) {
     console.error("Contact API Error:", error);
     return Response.json(

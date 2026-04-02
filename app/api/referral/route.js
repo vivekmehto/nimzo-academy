@@ -1,15 +1,25 @@
 import clientPromise from "@/lib/mongodb";
+import { applyRateLimit, escapeHtml, hasSpamTrap } from "@/lib/lead-utils";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
   try {
+    const rateLimitResponse = applyRateLimit(req, "referral");
+    if (rateLimitResponse) {
+      return rateLimitResponse;
+    }
+
     const body = await req.json();
 
-    let { referrerName, studentName, phone, grade, location } = body;
+    let { referrerName, studentName, countryCode, phone, grade, location, website } = body;
 
-    if (!referrerName || !studentName || !phone) {
+    if (hasSpamTrap(website)) {
+      return Response.json({ success: true });
+    }
+
+    if (!referrerName || !studentName || !phone || !countryCode) {
       return Response.json(
         { success: false, message: "Missing required fields" },
         { status: 400 }
@@ -19,6 +29,7 @@ export async function POST(req) {
     // Trim
     referrerName = referrerName.trim();
     studentName = studentName.trim();
+    countryCode = countryCode.trim();
     grade = grade?.trim() || "";
     location = location?.trim() || "";
 
@@ -40,9 +51,17 @@ export async function POST(req) {
       );
     }
 
-    const cleanedPhone = phone.replace(/\D/g, "");
+    if (!/^\+\d{1,4}$/.test(countryCode)) {
+      return Response.json(
+        { success: false, message: "Invalid country code" },
+        { status: 400 }
+      );
+    }
 
-    if (!/^\d{8,15}$/.test(cleanedPhone)) {
+    const cleanedPhone = phone.replace(/\D/g, "");
+    const fullPhone = `${countryCode}${cleanedPhone}`;
+
+    if (!/^\+\d{8,15}$/.test(fullPhone)) {
       return Response.json(
         { success: false, message: "Invalid phone number" },
         { status: 400 }
@@ -56,27 +75,30 @@ export async function POST(req) {
     await db.collection("referrals").insertOne({
       referrerName: cleanedReferrerName,
       studentName: cleanedStudentName,
-      phone: cleanedPhone,
+      phone: fullPhone,
       grade,
       location,
       status: "new",
       createdAt: new Date(),
     });
 
-    // ✅ Send Email
-    await resend.emails.send({
-      from: "Nimzo Academy <onboarding@resend.dev>",
-      to: "vivekmehto.chess@gmail.com",
-      subject: "New Referral Submission – Nimzo Academy",
-      html: `
-        <h2>New Referral Submission</h2>
-        <p><strong>Referrer:</strong> ${cleanedReferrerName}</p>
-        <p><strong>Student:</strong> ${cleanedStudentName}</p>
-        <p><strong>Phone:</strong> ${cleanedPhone}</p>
-        <p><strong>Grade:</strong> ${grade || "Not Provided"}</p>
-        <p><strong>Location:</strong> ${location || "Not Provided"}</p>
-      `,
-    });
+    try {
+      await resend.emails.send({
+        from: "Nimzo Academy <onboarding@resend.dev>",
+        to: "vivekmehto.chess@gmail.com",
+        subject: "New Referral Submission – Nimzo Academy",
+        html: `
+          <h2>New Referral Submission</h2>
+          <p><strong>Referrer:</strong> ${escapeHtml(cleanedReferrerName)}</p>
+          <p><strong>Student:</strong> ${escapeHtml(cleanedStudentName)}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(fullPhone)}</p>
+          <p><strong>Grade:</strong> ${escapeHtml(grade || "Not Provided")}</p>
+          <p><strong>Location:</strong> ${escapeHtml(location || "Not Provided")}</p>
+        `,
+      });
+    } catch (emailError) {
+      console.error("Referral email error:", emailError);
+    }
 
     return Response.json({ success: true });
 

@@ -3,6 +3,8 @@ import Link from "next/link";
 export default function Button({
   href,
   children,
+  className: customClassName = "",
+  disabled = false,
   onClick,
   type = "button",
   full = false,
@@ -25,26 +27,31 @@ export default function Button({
     lg: "px-7 py-3 text-base",
   };
 
-  const className = `
+  const buttonClassName = `
     ${base}
     ${variants[variant]}
     ${sizes[size]}
     ${full ? "w-full" : ""}
+    ${disabled ? "cursor-not-allowed opacity-70" : ""}
+    ${customClassName}
   `;
 
   if (href) {
     return (
-      <Link href={href} className={className} onClick={onClick}>
+      <Link href={href} className={buttonClassName} onClick={onClick}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={className}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={buttonClassName}
+      disabled={disabled}
+    >
       {children}
     </button>
-
-    
   );
 }

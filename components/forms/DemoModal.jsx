@@ -4,20 +4,34 @@ import { useEffect } from "react";
 import DemoFormContent from "./DemoFormContent";
 
 export default function DemoModal({ isOpen, onClose, type }) {
-
-
   useEffect(() => {
-    if (isOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
-  }, [isOpen]);
+    if (!isOpen) {
+      document.body.style.overflow = "auto";
+      return undefined;
+    }
 
- 
+    document.body.style.overflow = "hidden";
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-
   return (
     <div
+      role="dialog"
+      aria-modal="true"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4"
       onClick={onClose}
     >
@@ -45,11 +59,12 @@ export default function DemoModal({ isOpen, onClose, type }) {
           <button
             onClick={onClose}
             className="absolute right-5 top-4 text-sm text-muted-500 hover:text-(--color-heading-900) transition"
+            aria-label="Close demo booking form"
           >
             ✕
           </button>
 
-           <DemoFormContent type={type} />
+          <DemoFormContent type={type} />
         </div>
       </div>
     </div>

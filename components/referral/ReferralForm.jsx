@@ -10,6 +10,7 @@ export default function ReferralForm() {
     phone: "",
     grade: "",
     location: "",
+    website: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -60,6 +61,7 @@ export default function ReferralForm() {
           phone: "",
           grade: "",
           location: "",
+          website: "",
         });
       } else {
         setError(data.message || "Something went wrong.");
@@ -123,6 +125,16 @@ export default function ReferralForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
 
                 {/* Row 1 */}
                 <div className="grid md:grid-cols-2 gap-5">
@@ -182,7 +194,15 @@ export default function ReferralForm() {
                       type="tel"
                       name="phone"
                       value={formData.phone}
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        const onlyNumbers = e.target.value
+                          .replace(/\D/g, "")
+                          .slice(0, 15);
+                        setFormData((prev) => ({
+                          ...prev,
+                          phone: onlyNumbers,
+                        }));
+                      }}
                       className="flex-1 px-4 py-3 border border-[var(--color-border-300)]
                       rounded-[var(--radius-md)] bg-white
                       focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-600)]

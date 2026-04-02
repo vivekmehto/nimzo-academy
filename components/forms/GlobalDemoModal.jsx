@@ -8,6 +8,7 @@ export default function GlobalDemoModal() {
 
   return (
     <DemoModal
+      key={bookingType}
       isOpen={isOpen}
       onClose={closeModal}
       type={bookingType}

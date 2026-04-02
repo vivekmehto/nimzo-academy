@@ -13,12 +13,14 @@ export default function ContactForm() {
     email: "",
     phone: "",
     message: "",
+    website: "",
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -33,27 +35,38 @@ export default function ContactForm() {
 
     setLoading(true);
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    const result = await res.json();
-    setLoading(false);
+      const result = await res.json();
 
-    if (result.success) {
-      setSuccess(true);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    } else {
-      setError(result.message || "Something went wrong.");
+      if (result.success) {
+        setSuccess(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          website: "",
+        });
+      } else {
+        setError(result.message || "Something went wrong.");
+      }
+    } catch {
+      setError("Unable to send your message right now. Please try again shortly.");
+    } finally {
+      setLoading(false);
     }
   };
 
   if (success) {
     return (
       <div className="mt-6 rounded-(--radius-md) bg-back-500 p-6 text-center">
-        <h3 className="text-lg font-semibold text-[primary-600">
+        <h3 className="text-lg font-semibold text-primary-600">
           Thank you for reaching out!
         </h3>
         <p className="mt-2 text-sm text-body-700">
@@ -65,6 +78,16 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+      <input
+        name="website"
+        type="text"
+        value={formData.website}
+        onChange={handleChange}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
 
       {/* Name */}
       <div>
@@ -168,7 +191,7 @@ export default function ContactForm() {
       )}
 
       {/* Submit */}
-      <Button className="w-full" disabled={loading}>
+      <Button type="submit" className="w-full" disabled={loading}>
         {loading ? "Sending..." : "Send Message"}
       </Button>
     </form>
