@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import CurriculumPanel from "@/components/programs/CurriculumPanel";
+import { useDemoModal } from "@/context/DemoModalContext";
 
 import {
   beginnerCurriculum,
@@ -11,6 +12,7 @@ import {
 } from "@/data/curriculum";
 
 import ProgramHero from "@/components/programs/ProgramHero";
+import ProgramDecisionGuide from "@/components/programs/ProgramDecisionGuide";
 import ProgramsCTA from "@/components/programs/ProgramsCTA";
 import BeginnerSection from "@/components/programs/BeginnerSection";
 import IntermediateSection from "@/components/programs/IntermediateSection";
@@ -24,6 +26,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 export default function ProgramsClient() {
   const [activeCurriculum, setActiveCurriculum] = useState(null);
+  const { openModal } = useDemoModal();
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -62,8 +65,9 @@ export default function ProgramsClient() {
       <PageProgressBar />
 
       <ProgramHero />
-      <ProgramPhilosophy />
+      <ProgramDecisionGuide />
       <ProgramTimeline />
+      <ProgramPhilosophy />
 
       <BeginnerSection setActiveCurriculum={setActiveCurriculum} />
       <IntermediateSection setActiveCurriculum={setActiveCurriculum} />
@@ -77,6 +81,7 @@ export default function ProgramsClient() {
           stage={curriculumMap[activeCurriculum].stage}
           title={curriculumMap[activeCurriculum].title}
           content={curriculumMap[activeCurriculum]}
+          openModal={openModal}
           onClose={() => setActiveCurriculum(null)}
         />
       )}

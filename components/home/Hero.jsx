@@ -2,11 +2,29 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Globe2, House, MapPinned } from "lucide-react";
 import { useDemoModal } from "@/context/DemoModalContext";
 
 export default function Hero() {
 
   const {openModal } = useDemoModal();
+  const coverageItems = [
+    {
+      icon: MapPinned,
+      title: "Delhi Centre Classes",
+      text: "Structured in-person learning for families who want classroom rhythm and coach-led guidance.",
+    },
+    {
+      icon: House,
+      title: "Home Coaching",
+      text: "Personalised chess coaching in select Delhi areas for families who prefer learning at home.",
+    },
+    {
+      icon: Globe2,
+      title: "Online Worldwide",
+      text: "Live online coaching for families in India and abroad.",
+    },
+  ];
   return (
    <section
   className="
@@ -38,11 +56,9 @@ export default function Hero() {
                 text-heading-900
               "
             >
-              Chess Classes for kids
-              <br  />
-              <span className="text-2xl lg:text-3xl text-primary-600">
-                Structured, Calm & Effective
-              </span>
+              Chess Classes in Delhi
+              <br />
+              <span className="text-primary-600">and Online Worldwide</span>
             </h1>
 
             <p
@@ -54,8 +70,8 @@ export default function Hero() {
                 max-w-xl mx-auto lg:mx-0
               "
             >
-              Chess learning program that helps kids build focus, confidence,
-              and strong thinking habits.
+              Centre classes in Delhi, home coaching in select areas, and live
+              online coaching for children worldwide.
             </p>
 
             <p
@@ -68,10 +84,9 @@ export default function Hero() {
                 text-muted-500
               "
             >
-              At Nimzo Academy, children learn chess through a clear step by
-              step process guided by experienced, child focused coaches. Our approach emphasizes
-              discipline, logical thinking, and steady progress without
-              pressure.
+              Nimzo Academy helps children build focus, confidence, and strong
+              thinking habits through coach-led training that matches the
+              family&apos;s location, schedule, and learning preference.
             </p>
 
             {/* CTA */}
@@ -115,44 +130,66 @@ export default function Hero() {
                   cursor-pointer
                 "
               >
-                View Learning Programs
+                Compare Programs
               </Link>
             </div>
 
-            {/* Trust Points */}
-            <div
-              className="
-                mt-12
-                grid gap-4
-                sm:grid-cols-3
-                text-sm
-                text-body-700
-              "
-            >
-              <p>Age-appropriate learning</p>
-              <p>Experienced chess coaches</p>
-              <p>Regular parent feedback</p>
+            <p className="mt-5 text-sm text-muted-500">
+              Centre classes in Delhi • Home coaching • Online worldwide
+            </p>
+
+            <div className="mt-12 grid gap-4 sm:grid-cols-3">
+              {coverageItems.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.title}
+                    className="rounded-[calc(var(--radius-lg)+0.05rem)] border border-white/70 bg-white/80 px-4 py-4 text-left shadow-sm"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-600/10 text-primary-600">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <p className="mt-3 text-sm font-semibold text-heading-900">
+                      {item.title}
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-body-700">
+                      {item.text}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* RIGHT — IMAGE */}
           <div className="relative">
-            {/* Soft overlay for premium feel */}
-            <div className="absolute inset-0 rounded-xl bg-white/10 pointer-events-none" />
+            <div className="absolute right-0 top-6 hidden h-[85%] w-[88%] rounded-[2.5rem] bg-primary-600 lg:block" />
 
-            <div className="overflow-hidden rounded-xl">
-              <Image
-                src="/hero-chess.jpg"
-                alt="Children learning chess in a calm and structured environment at Nimzo Academy"
-                width={640}
-                height={520}
-                priority
-                className="
-        w-full h-auto object-cover
-        contrast-[1.08]
-        saturate-[0.95]
-      "
-              />
+            <div className="relative lg:pr-8 lg:pt-8">
+              <div className="overflow-hidden rounded-[2.2rem] border border-white/80 bg-white p-4 shadow-[0_28px_70px_rgba(15,23,42,0.12)] sm:p-5">
+                <div className="overflow-hidden rounded-[1.8rem]">
+                  <Image
+                    src="/hero-chess.jpg"
+                    alt="Children learning chess in a calm and structured environment at Nimzo Academy"
+                    width={720}
+                    height={760}
+                    priority
+                    className="h-[420px] w-full object-cover sm:h-[540px]"
+                  />
+                </div>
+              </div>
+
+              <div className="absolute -left-4 bottom-8 hidden rounded-[1.4rem] bg-white px-4 py-4 shadow-[0_18px_40px_rgba(15,23,42,0.10)] lg:block">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-600">
+                  Nimzo Academy
+                </p>
+                <p className="mt-2 text-sm font-medium leading-relaxed text-heading-900">
+                  Calm classes.
+                  <br />
+                  Real progress.
+                </p>
+              </div>
             </div>
           </div>
         </div>

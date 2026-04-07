@@ -31,13 +31,14 @@ export default function GalleryClient() {
        {/* Header */}
        <div className="mx-auto max-w-7xl px-4 py-14">
          <h1 className="text-3xl md:text-4xl font-bold text-(--color-heading-900)">
-           Inside Our Chess Academy
+           Chess Classes, Tournaments & School Program Gallery
          </h1>
  
          <p className="mt-2 max-w-2xl text-gray-600">
-           Explore structured training sessions, competitive tournaments, and
-           classroom learning moments that help students build focus, confidence,
-           and strategic thinking.
+           Explore chess training moments from Nimzo Academy across classroom
+           sessions, tournaments, school programs, and student learning
+           environments connected to our main Dwarka centre, classes across
+           Delhi, and our broader academy journey.
          </p>
        </div>
  

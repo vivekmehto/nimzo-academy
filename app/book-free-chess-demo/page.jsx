@@ -1,11 +1,13 @@
 import Image from "next/image";
 import DemoFormContent from "@/components/forms/DemoFormContent";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Book Free Chess Demo Class in Dwarka | Nimzo Academy",
+export const metadata = buildMetadata({
+  title: "Book a Free Chess Demo Class in Delhi and Online",
   description:
-    "Book a free chess demo class for your child at Nimzo Academy in Dwarka. Structured chess coaching focused on discipline, logic and tournament preparation.",
-};
+    "Book a free chess demo class with Nimzo Academy for chess classes across Delhi, home coaching in select areas, or live online training from anywhere.",
+  path: "/book-free-chess-demo",
+});
 
 export default function BookFreeDemo() {
   return (

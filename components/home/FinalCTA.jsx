@@ -12,7 +12,7 @@ export default function FinalCTA() {
         relative overflow-hidden
         bg-linear-to-br
         from-white
-        via-back-500)]
+        via-back-500
         to-white
         py-24 sm:py-32
       "
@@ -27,8 +27,9 @@ export default function FinalCTA() {
             text-heading-900
           "
         >
-          Help your child build a{" "}
-          <span className="text-primary-600">strong foundation</span> in chess
+          Help your child find the right
+          <span className="text-primary-600"> chess format </span>
+          and learning path
         </h2>
 
         {/* Subheading */}
@@ -42,9 +43,9 @@ export default function FinalCTA() {
             text-body-700
           "
         >
-          Our structured online chess classes for kids focus on developing
-          concentration, confidence, and strategic thinking — essential skills
-          that support academic performance and personal growth.
+          Whether you are looking for centre classes in Delhi, home coaching,
+          or live online learning from anywhere in the world, we can guide you
+          toward the right starting point.
         </p>
 
         {/* CTA Buttons */}
@@ -92,7 +93,7 @@ export default function FinalCTA() {
             hover:bg-primary-600/5
             "
           >
-            Explore Chess Programs
+            Compare Programs
           </Link>
         </div>
 
@@ -104,7 +105,7 @@ export default function FinalCTA() {
             text-muted-500
           "
         >
-          No commitment required · Small batch sizes · Regular parent feedback
+          No commitment required · Honest guidance · Online and offline options
         </p>
       </div>
     </Section>

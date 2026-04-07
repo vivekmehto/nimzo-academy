@@ -1,10 +1,13 @@
 import Link from "next/link"; 
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Disclaimer",
   description:
-    "Read the disclaimer of Nimzo Academy regarding website content, educational materials and coaching services.",
-};
+    "Read Nimzo Academy’s disclaimer regarding website content, educational materials, and coaching services.",
+  path: "/disclaimer",
+  noindex: true,
+});
 
 
 export default function Disclaimer() {

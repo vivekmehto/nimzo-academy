@@ -6,10 +6,19 @@ export default function TrustIndicators() {
     <Section
       className="
         relative
+        bg-[linear-gradient(135deg,var(--color-primary-700)_0%,var(--color-primary-600)_55%,var(--color-primary-500)_100%)]
         py-16 sm:py-24
-      bg-[#4760D0]
         "
     >
+      <div className="mx-auto mb-12 max-w-3xl text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">
+          Why Families Choose Nimzo
+        </p>
+        <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+          Clear formats, clear guidance, and a clear learning path
+        </h2>
+      </div>
+
       <div
         className="
           grid grid-cols-2 gap-10
@@ -21,11 +30,14 @@ export default function TrustIndicators() {
           const Icon = item.icon;
 
           return (
-            <div key={idx}>
+            <div
+              key={idx}
+              className="rounded-[calc(var(--radius-lg)+0.05rem)] border border-white/12 bg-white/8 px-4 py-6 backdrop-blur-sm"
+            >
               <Icon
                 className="
                   mx-auto
-                  h-14 w-14 lg:h-16 lg:w-16
+                  h-12 w-12 lg:h-14 lg:w-14
                   text-white
                 "
                 strokeWidth={1.6}
@@ -35,16 +47,16 @@ export default function TrustIndicators() {
                 {item.title}
               </h3>
 
-              {/* <p
+              <p
                 className="
                   mt-3
-                  text-sm lg:text-base
+                  text-sm lg:text-[0.95rem]
                   text-white/90
                   max-w-xs mx-auto
                 "
               >
                 {item.desc}
-              </p> */}
+              </p>
             </div>
           );
         })}

@@ -41,9 +41,9 @@ export default function ContactPage() {
 
           {/* Supporting text */}
           <p className="mt-4 text-base leading-relaxed text-white/90">
-            Have questions about chess classes, structured training programs, or
-            admissions? We’re happy to guide parents and students every step of
-            the way.
+            Have questions about our chess classes across Delhi, home coaching
+            in select areas, school tie-ups, or online coaching? We’re happy
+            to guide parents and students every step of the way.
           </p>
         </div>
       </section>
@@ -125,6 +125,13 @@ export default function ContactPage() {
                     </p>
 
                     <p>
+                      <strong>Other Coverage:</strong> Classes across Delhi,
+                      including Rohini, home coaching in Janakpuri, Kirti Nagar
+                      and Delhi Cantt, school tie-ups, and online coaching
+                      worldwide
+                    </p>
+
+                    <p>
                       <strong>Office Hours:</strong> Mon – Sat, 10:00 AM – 7:00
                       PM
                     </p>
@@ -143,6 +150,28 @@ export default function ContactPage() {
                     ♟️ Structured chess training with personal attention.
                     Parents receive regular progress updates. We usually respond
                     within 24 hours.
+                  </p>
+                  <p className="mt-4 text-sm text-body-700">
+                    Explore location pages:{" "}
+                    <a href="/chess-classes-in-dwarka" className="hover:text-primary-600 hover:underline">
+                      Dwarka
+                    </a>
+                    {" · "}
+                    <a href="/chess-classes-in-rohini" className="hover:text-primary-600 hover:underline">
+                      Rohini
+                    </a>
+                    {" · "}
+                    <a href="/chess-classes-in-janakpuri" className="hover:text-primary-600 hover:underline">
+                      Janakpuri home coaching
+                    </a>
+                    {" · "}
+                    <a href="/chess-classes-in-kirti-nagar" className="hover:text-primary-600 hover:underline">
+                      Kirti Nagar home coaching
+                    </a>
+                    {" · "}
+                    <a href="/home-chess-coaching-in-delhi-cantt" className="hover:text-primary-600 hover:underline">
+                      Delhi Cantt home coaching
+                    </a>
                   </p>
                 </div>
               </div>

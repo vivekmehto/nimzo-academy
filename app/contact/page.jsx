@@ -1,19 +1,13 @@
 import ContactClient from "./ContactClient";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Contact Nimzo Academy | Chess Classes in Dwarka",
+export const metadata = buildMetadata({
+  title: "Contact Nimzo Academy for Chess Classes in Delhi & Online",
   description:
-    "Get in touch with Nimzo Academy for professional chess coaching in Dwarka. Call, WhatsApp or book a free demo class for children aged 5–16.",
-  alternates: {
-    canonical: "https://nimzoacademy.com/contact",
-  },
-  openGraph: {
-    url: "https://nimzoacademy.com/contact",
-  },
-};
+    "Contact Nimzo Academy for chess classes across Delhi, home coaching in select areas, school chess partnerships, or live online coaching support.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return <ContactClient />;
 }
-
-

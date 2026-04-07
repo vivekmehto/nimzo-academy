@@ -210,7 +210,7 @@ export default function DemoFormContent({ type }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="px-12 py-2.5 text-lg cursor-pointer font-semibold text-white transition-all duration-200 disabled:opacity-60"
+                className="px-12 py-2.5 text-lg cursor-pointer font-semibold text-[var(--color-heading-900)] transition-all duration-200 disabled:opacity-60"
                 style={{
                   backgroundColor: "var(--color-accent-600)",
                   borderRadius: "9999px",

@@ -23,7 +23,7 @@ export default function ProgramHero() {
               text-white
             "
           >
-            Structured • Age-Appropriate • Coach-Guided
+            Format Guidance • Level Guidance • Coach-Guided
           </span>
 
           {/* Heading */}
@@ -38,7 +38,8 @@ export default function ProgramHero() {
               text-[var(--color-heading-900)]
             "
           >
-            Our Chess Programs
+            Choose the right program
+            <span className="block text-primary-600">for your child&apos;s stage and routine</span>
           </h1>
 
           {/* Subheading */}
@@ -52,14 +53,20 @@ export default function ProgramHero() {
               text-[var(--color-body-700)]
             "
           >
-            A thoughtfully designed chess curriculum that guides children from
-            their first move to confident, competitive play — step by step.
+            This page helps you understand two things clearly: the right
+            learning level for your child, and the right format for your
+            family&apos;s weekly routine.
+          </p>
+
+          <p className="mt-3 text-sm text-[var(--color-muted-500)] sm:text-base">
+            Beginner to advanced stages • centre, home, and online formats •
+            guidance before enrollment
           </p>
 
           {/* CTA */}
           <div className="mt-6 sm:mt-8 flex justify-center">
             <Button href="#learning-path">
-              Understand the Learning Path
+              Compare Learning Stages
             </Button>
           </div>
 

@@ -1,7 +1,6 @@
 import Hero from "@/components/home/Hero";
-import TrustIndicators from "@/components/home/TrustIndicators";
 import Programs from "@/components/home/Programs";
-import WhyChessHelps from "@/components/home/WhyChessHelps";
+import TrustIndicators from "@/components/home/TrustIndicators";
 import ChessLearningPath from "@/components/home/ChessLearningPath";
 import WhyParentsTrust from "@/components/home/WhyParentsTrust";
 import Testimonials from "@/components/home/Testimonials";
@@ -9,23 +8,14 @@ import CoachSection from "@/components/home/CoachSection";
 import FAQ from "@/components/home/FAQ";
 import TeachingProcess from "@/components/home/TeachingProcess";
 import FinalCTA from "@/components/home/FinalCTA";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Chess Classes in Dwarka & Online for Kids",
+export const metadata = buildMetadata({
+  title: "Chess Classes in Delhi and Online Worldwide",
   description:
-    "Professional chess coaching for children aged 5–16 in Dwarka. Structured beginner to advanced training available in online, offline and hybrid formats. Book a free demo class.",
-
-  alternates: {
-    canonical: "https://nimzoacademy.com/",
-  },
-
-  openGraph: {
-    title: "Chess Classes in Dwarka & Online | Nimzo Academy",
-    description:
-      "Structured chess coaching for children aged 5–16 in Dwarka and online.",
-    url: "https://nimzoacademy.com/",
-  },
-};
+    "Nimzo Academy offers chess classes across Delhi, home coaching in select areas, school tie-ups, and live online learning for children worldwide.",
+  path: "/",
+});
 
 
 
@@ -33,15 +23,14 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrustIndicators />
       <Programs />
-      <WhyChessHelps />
-      <ChessLearningPath />
-      <WhyParentsTrust />
+      <TrustIndicators />
       <Testimonials />
+      <TeachingProcess />
+      <WhyParentsTrust />
+      <ChessLearningPath />
       <CoachSection />
       <FAQ />
-      <TeachingProcess />
       <FinalCTA />
     </>
   );

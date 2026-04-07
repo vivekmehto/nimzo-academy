@@ -43,11 +43,12 @@ export default function CoachSection() {
 
             <p className="mt-5 text-body-700 leading-relaxed">
               Nimzo Academy is founded and led by an experienced chess coach who
-              works directly with children across different age groups and skill
-              levels. The coaching approach focuses on structured chess training
-              that helps children build strong fundamentals, disciplined
-              thinking, and confidence through guided practice not just
-              winning games.
+              works directly with children across different age groups, skill
+              levels, and learning formats. Through Delhi centre classes,
+              select home coaching, and live online sessions, the teaching
+              approach focuses on structured chess training that helps children
+              build strong fundamentals, disciplined thinking, and confidence
+              through guided practice, not just winning games.
             </p>
 
             <p className="mt-4 text-body-700 leading-relaxed">

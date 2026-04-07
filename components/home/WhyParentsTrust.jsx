@@ -13,7 +13,8 @@ export default function WhyParentsTrust() {
             Why Parents Trust Nimzo Academy
           </h2>
           <p className="mt-4 text-body-700">
-            A disciplined, structured, and child-focused approach to chess education.
+            Families stay with Nimzo Academy because the coaching is thoughtful,
+            communication is clear, and progress feels steady rather than rushed.
           </p>
         </div>
 

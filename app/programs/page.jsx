@@ -1,22 +1,13 @@
 import { Suspense } from "react";
 import ProgramsClient from "./ProgramsClient";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Chess Training Programs in Dwarka for Kids",
+export const metadata = buildMetadata({
+  title: "Chess Coaching Programs in Delhi and Online",
   description:
-    "Structured beginner to advanced chess programs for children aged 5–16 in Dwarka. Available in online, offline and hybrid formats with professional coaching.",
-
-  alternates: {
-    canonical: "https://nimzoacademy.com/programs",
-  },
-
-  openGraph: {
-    title: "Chess Training Programs in Dwarka | Nimzo Academy",
-    description:
-      "Beginner to advanced structured chess training for children aged 5–16.",
-    url: "https://nimzoacademy.com/programs",
-  },
-};
+    "Explore beginner to advanced chess coaching programs at Nimzo Academy, including classes across Delhi, home coaching in select areas, and online learning options worldwide.",
+  path: "/programs",
+});
 
 
 

@@ -8,11 +8,11 @@ export default function TeachingProcess() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-heading-900">
-            How Our Chess Teaching Process Works
+            What happens after you enquire
           </h2>
           <p className="mt-4 text-sm sm:text-base text-body-700 leading-relaxed">
-            A clear, supportive, and structured learning journey designed to help
-            children grow confidently — while keeping parents informed at every step.
+            A simple process that helps us understand your child, recommend the
+            right format, and begin with clarity.
           </p>
         </div>
 
@@ -95,8 +95,7 @@ export default function TeachingProcess() {
 
         {/* Reassurance line */}
         <div className="mt-10 sm:mt-14 text-center text-xs sm:text-sm text-primary-600 font-medium">
-          ✓ No pressure after demo &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Flexible class timings
-          &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Regular parent updates
+          No pressure after demo • Flexible format guidance • Regular parent updates
         </div>
       </div>
     </Section>

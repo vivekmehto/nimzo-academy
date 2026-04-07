@@ -11,11 +11,10 @@ export default function Testimonials() {
             id="testimonials-heading"
             className="text-3xl sm:text-4xl font-bold text-heading-900"
           >
-            What Parents Say About Nimzo Academy
+            What Nimzo Parents Say
           </h2>
           <p className="mt-4 text-body-700">
-            Real experiences from parents whose children are learning chess with
-            us.
+            A few of the reasons families continue learning with Nimzo Academy.
           </p>
         </div>
 

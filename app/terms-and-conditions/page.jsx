@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Terms & Conditions",
   description:
-    "Review the Terms and Conditions governing the use of Nimzo Academy’s website, online services and offline chess coaching programs.",
-};
+    "Review the terms and conditions governing the use of Nimzo Academy’s website, online services, and offline chess coaching programs.",
+  path: "/terms-and-conditions",
+  noindex: true,
+});
 
 
 export default function TermsAndConditions() {

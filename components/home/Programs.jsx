@@ -13,13 +13,13 @@ export default function Programs() {
       {/* Header */}
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <h2 className="text-2xl font-semibold tracking-tight text-heading-900 sm:text-3xl lg:text-4xl">
-          Flexible Chess Training Programs
+          Choose the class format that fits your child best
         </h2>
 
         <p className="mt-4 text-sm leading-relaxed text-body-700 sm:text-base">
-          Professional chess programs designed to match every child’s learning
-          style — guided by experienced coaches and supported by a structured
-          curriculum focused on measurable growth.
+          Some children do best in regular centre classes, some need the
+          convenience of home coaching, and some learn best online. We help
+          families choose the right starting point.
         </p>
       </div>
 
@@ -42,12 +42,11 @@ export default function Programs() {
       {/* Trust Line */}
       <div className="mt-12 sm:mt-16 text-center px-4">
         <p className="text-xs sm:text-sm text-muted-500">
-          Trusted by 500+ students • Structured curriculum • Personalised
-          progress tracking
+          Delhi centre classes • home coaching • online worldwide
         </p>
 
         <p className="mt-3 text-xs text-muted-500">
-          Get personalised guidance from our coach.
+          Not sure which format to choose? Start with a demo and we will guide you honestly.
         </p>
       </div>
     </Section>

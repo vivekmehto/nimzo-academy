@@ -2,41 +2,14 @@ import FeaturedProduct from "@/components/recommended/FeaturedProduct";
 import SecondaryProduct from "@/components/recommended/SecondaryProduct";
 import Link from "next/link";
 import GearFAQ from "@/components/recommended/GearFAQ";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Best Chess Equipment for Beginners | Coach Recommended",
+export const metadata = buildMetadata({
+  title: "Best Chess Equipment for Beginners",
   description:
-    "Discover coach-recommended chess boards, digital clocks and books for beginners and students. Carefully selected for structured improvement and tournament preparation.",
-
-  alternates: {
-    canonical: "https://nimzoacademy.com/recommended-chess-gear",
-  },
-
-  openGraph: {
-    title: "Best Chess Equipment for Beginners | Nimzo Academy",
-    description:
-      "Explore coach-recommended chess boards, clocks and books designed for structured improvement.",
-    url: "https://nimzoacademy.com/recommended-chess-gear",
-    siteName: "Nimzo Academy",
-    type: "website",
-    images: [
-      {
-        url: "https://nimzoacademy.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Nimzo Academy Recommended Chess Equipment",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Best Chess Equipment for Beginners | Nimzo Academy",
-    description:
-      "Coach-recommended chess boards, clocks and books for structured improvement.",
-    images: ["https://nimzoacademy.com/logo.png"],
-  },
-};
+    "Discover coach-recommended chess boards, digital clocks, and books for beginners and improving students, curated by Nimzo Academy.",
+  path: "/recommended-chess-gear",
+});
 
 
 export default function RecommendedGearPage() {

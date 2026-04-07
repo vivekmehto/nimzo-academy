@@ -72,7 +72,7 @@ export default function AboutCTA() {
               border border-border-400
               px-8 py-4
               text-sm font-bold
-              text-primar-600
+              text-primary-600
               transition
               hover:border-primary-600
               hover:text-primary-600
