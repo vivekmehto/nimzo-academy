@@ -41,6 +41,17 @@ export default function Footer() {
               Chess coaching across Delhi through centre classes, home coaching
               in select areas, and live online learning for families worldwide.
             </p>
+            <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium text-muted-500">
+              <span className="rounded-full border border-border-300 bg-white px-3 py-1.5">
+                Delhi centres
+              </span>
+              <span className="rounded-full border border-border-300 bg-white px-3 py-1.5">
+                Home coaching
+              </span>
+              <span className="rounded-full border border-border-300 bg-white px-3 py-1.5">
+                Online worldwide
+              </span>
+            </div>
           </div>
 
           {/* RIGHT — Social */}
@@ -199,8 +210,16 @@ export default function Footer() {
 
           {/* Community */}
           <div>
-            <h4 className="footer-title">Community</h4>
+            <h4 className="footer-title">Explore More</h4>
             <ul className="footer-list">
+              <li>
+                <Link
+                  href="/book-free-chess-demo"
+                  className="hover:text-primary-600 transition"
+                >
+                  Book Free Demo
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/scholarships"
@@ -235,10 +254,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/recommended-chess-gear"
                   className="hover:text-primary-600 transition"
                 >
-                  Career Opportunities
+                  Recommended Chess Gear
                 </Link>
               </li>
               <li>
@@ -246,7 +265,7 @@ export default function Footer() {
                   href="/contact"
                   className="hover:text-primary-600 transition"
                 >
-                  Organize a Tournament
+                  Contact Nimzo Academy
                 </Link>
               </li>
             </ul>

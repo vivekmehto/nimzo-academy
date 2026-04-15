@@ -1,14 +1,10 @@
 import LocationPage from "@/components/location/LocationPage";
-import { locationPages } from "@/data/locations";
-import { buildMetadata } from "@/lib/seo";
+import { getLocationBySlug } from "@/data/locations";
+import { buildLocationMetadata } from "@/lib/seo";
 
-const location = locationPages.find((item) => item.slug === "chess-classes-in-rohini");
+const location = getLocationBySlug("chess-classes-in-rohini");
 
-export const metadata = buildMetadata({
-  title: location.title,
-  description: location.description,
-  path: `/${location.slug}`,
-});
+export const metadata = buildLocationMetadata(location);
 
 export default function ChessClassesInRohiniPage() {
   return <LocationPage location={location} />;

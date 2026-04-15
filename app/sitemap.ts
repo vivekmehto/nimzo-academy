@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
+import { locationPages } from "@/data/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const basePages: MetadataRoute.Sitemap = [
     {
       url: "https://nimzoacademy.com/",
       lastModified: new Date("2026-04-02"),
@@ -22,45 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://nimzoacademy.com/locations/",
-      lastModified: new Date("2026-04-02"),
+      lastModified: new Date("2026-04-15"),
       changeFrequency: "weekly",
       priority: 0.9,
-    },
-    {
-      url: "https://nimzoacademy.com/chess-coaching-in-delhi/",
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: "https://nimzoacademy.com/chess-classes-in-dwarka/",
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: "https://nimzoacademy.com/chess-classes-in-rohini/",
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: "https://nimzoacademy.com/chess-classes-in-janakpuri/",
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: "https://nimzoacademy.com/chess-classes-in-kirti-nagar/",
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: "https://nimzoacademy.com/home-chess-coaching-in-delhi-cantt/",
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "weekly",
-      priority: 0.8,
     },
     {
       url: "https://nimzoacademy.com/school-chess-program/",
@@ -105,4 +70,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
   ];
+
+  const locationEntries: MetadataRoute.Sitemap = locationPages.map((location) => ({
+    url: `https://nimzoacademy.com/${location.slug}/`,
+    lastModified: new Date("2026-04-15"),
+    changeFrequency: "weekly",
+    priority:
+      location.type === "Headquarters" || location.type === "City Overview"
+        ? 0.9
+        : 0.8,
+  }));
+
+  return [...basePages, ...locationEntries];
 }

@@ -3,6 +3,7 @@ import { applyRateLimit, escapeHtml, hasSpamTrap } from "@/lib/lead-utils";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const namePattern = /^[a-zA-Z][a-zA-Z\s.'-]{1,49}$/;
 
 export async function POST(req) {
   try {
@@ -35,9 +36,9 @@ export async function POST(req) {
   
 
     // Clean name
-    const cleanedName = name.replace(/[^a-zA-Z\s]/g, "");
+    const cleanedName = name.replace(/\s+/g, " ");
 
-    if (!/^[a-zA-Z\s]{2,50}$/.test(cleanedName)) {
+    if (!namePattern.test(cleanedName)) {
       return Response.json(
         { success: false, message: "Invalid name" },
         { status: 400 }

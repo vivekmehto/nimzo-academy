@@ -420,3 +420,19 @@ export const locationPages = [
     ],
   },
 ];
+
+export const centreLocations = locationPages.filter((item) =>
+  ["Headquarters", "Offline Branch"].includes(item.type),
+);
+
+export const homeLocations = locationPages.filter(
+  (item) => item.type === "Home Coaching Service Area",
+);
+
+export const cityOverviewLocation = locationPages.find(
+  (item) => item.slug === "chess-coaching-in-delhi",
+);
+
+export function getLocationBySlug(slug) {
+  return locationPages.find((item) => item.slug === slug);
+}

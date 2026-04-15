@@ -3,6 +3,7 @@ import { applyRateLimit, escapeHtml, hasSpamTrap } from "@/lib/lead-utils";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const namePattern = /^[a-zA-Z][a-zA-Z\s.'-]{1,49}$/;
 
 export async function POST(req) {
   try {
@@ -52,17 +53,17 @@ export async function POST(req) {
     }
 
     // Clean names
-    const cleanedParentName = parentName.replace(/[^a-zA-Z\s]/g, "");
-    const cleanedStudentName = studentName.replace(/[^a-zA-Z\s]/g, "");
+    const cleanedParentName = parentName.replace(/\s+/g, " ");
+    const cleanedStudentName = studentName.replace(/\s+/g, " ");
 
-    if (!/^[a-zA-Z\s]{2,50}$/.test(cleanedParentName)) {
+    if (!namePattern.test(cleanedParentName)) {
       return Response.json(
         { success: false, message: "Invalid parent name" },
         { status: 400 },
       );
     }
 
-    if (!/^[a-zA-Z\s]{2,50}$/.test(cleanedStudentName)) {
+    if (!namePattern.test(cleanedStudentName)) {
       return Response.json(
         { success: false, message: "Invalid student name" },
         { status: 400 },
