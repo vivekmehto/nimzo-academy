@@ -12,7 +12,7 @@ export default function Hero() {
     {
       icon: MapPinned,
       title: "Delhi Centre Classes",
-      text: "Structured in-person learning for families who want classroom rhythm and coach-led guidance.",
+      text: "Structured in person learning for families who want classroom rhythm and coach led guidance.",
     },
     {
       icon: House,
@@ -57,8 +57,8 @@ export default function Hero() {
               "
             >
               Chess Classes in Delhi
-              <br />
-              <span className="text-primary-600">and Online Worldwide</span>
+       
+              <span className="text-primary-600"> and Online Worldwide</span>
             </h1>
 
             <p
@@ -70,7 +70,7 @@ export default function Hero() {
                 max-w-xl mx-auto lg:mx-0
               "
             >
-              Centre classes in Delhi, home coaching in select areas, and live
+              Centre classes in Delhi, home coaching in select areas and live
               online coaching for children worldwide.
             </p>
 
@@ -85,8 +85,8 @@ export default function Hero() {
               "
             >
               Nimzo Academy helps children build focus, confidence, and strong
-              thinking habits through coach-led training that matches the
-              family&apos;s location, schedule, and learning preference.
+              thinking habits through coach led training that matches the
+              family&apos;s location, schedule and learning preference.
             </p>
 
             {/* CTA */}

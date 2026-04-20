@@ -8,11 +8,10 @@ export default function CoachSection() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-heading-900">
-            Meet Your Chess Coach
+            Meet Your Child’s Chess Coach
           </h2>
           <p className="mt-4 text-body-700">
-            Led by an experienced chess coach and supported by a dedicated
-            teaching team for children.
+            I personally work with every student and stay involved in their learning journey.
           </p>
         </div>
 
@@ -22,14 +21,10 @@ export default function CoachSection() {
           <div className="flex justify-center md:justify-start">
             <Image
               src="/nimzo-academy-coach.png"
-              alt="Vivek Mehto, lead chess coach teaching children at Nimzo Academy"
+              alt="Vivek Mehto, founder and chess coach at Nimzo Academy teaching children"
               width={520}
               height={640}
-              className="
-                rounded-lg
-                object-cover
-                border border-border-300
-              "
+              className="rounded-lg object-cover border border-border-300"
               priority
             />
           </div>
@@ -37,49 +32,47 @@ export default function CoachSection() {
           {/* Coach Content */}
           <div className="max-w-xl">
             <h3 className="text-2xl font-semibold text-heading-900">
-              Lead Chess Coach & Mentor
+              Founder & Chess Coach
             </h3>
             <p className="mt-1 text-sm text-muted-500">Vivek Mehto</p>
 
             <p className="mt-5 text-body-700 leading-relaxed">
-              Nimzo Academy is founded and led by an experienced chess coach who
-              works directly with children across different age groups, skill
-              levels, and learning formats. Through Delhi centre classes,
-              select home coaching, and live online sessions, the teaching
-              approach focuses on structured chess training that helps children
-              build strong fundamentals, disciplined thinking, and confidence
-              through guided practice, not just winning games.
+              Hi, I’m Vivek.
             </p>
 
             <p className="mt-4 text-body-700 leading-relaxed">
-              Alongside one-on-one and group chess classes for kids, sessions
-              are supported by a trained teaching team that follows the same
-              child focused curriculum and learning philosophy. This ensures
-              consistency, personal attention, and clear progress tracking for
-              every student.
+              I’ve been teaching chess to kids for a few years now and what I’ve seen is that every child learns differently. Some pick things up quickly, some take time, but with the right guidance, all of them improve.
             </p>
 
-            {/* Key Teaching Principles */}
+            <p className="mt-4 text-body-700 leading-relaxed">
+              In my classes, I focus on making sure the child understands what they are doing. Not just moves, but why those moves make sense. This helps them stay confident and not get confused during games.
+            </p>
+
+            <p className="mt-4 text-body-700 leading-relaxed">
+              I am personally involved in the training, whether it’s offline classes, online sessions or guiding the team. We follow a clear structure, but I also make sure every student gets attention based on their level.
+            </p>
+
+            <p className="mt-4 text-body-700 leading-relaxed">
+              You will also get regular updates, so you can clearly see how your child is progressing.
+            </p>
+
+            {/* Key Points */}
             <ul className="mt-7 space-y-3 text-body-700">
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-600 shrink-0" />
-                <span>Patient and child-focused chess coaching approach</span>
+                <span>Focus on understanding, not just winning</span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-600 shrink-0" />
-                <span>Structured, step-by-step chess learning methodology</span>
+                <span>Patient and simple teaching style for kids</span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-600 shrink-0" />
-                <span>
-                  Strong emphasis on discipline, focus, and decision-making
-                </span>
+                <span>Clear step by step learning</span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-600 shrink-0" />
-                <span>
-                  Regular progress feedback shared clearly with parents
-                </span>
+                <span>Regular updates for parents</span>
               </li>
             </ul>
           </div>

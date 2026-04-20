@@ -255,7 +255,7 @@ export default function ContactPage() {
               <Button href="/book-free-chess-demo" size="md">
                 Book Free Demo
               </Button>
-              <Button href="/programs" variant="secondary" size="md" className="border-white bg-transparent text-white hover:bg-white/10">
+              <Button href="/programs" variant="secondary" size="md" className="border-white bg-transparent hover:text-white hover:bg-white/10">
                 Compare Programs
               </Button>
             </div>
