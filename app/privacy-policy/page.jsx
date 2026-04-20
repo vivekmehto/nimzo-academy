@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "Read the privacy policy of Nimzo Academy to understand how we collect, use and protect personal information when you use our website or enroll in our chess programs.",
-};
+    "Read the privacy policy of Nimzo Academy to understand how we collect, use, and protect personal information on our website and in our chess programs.",
+  path: "/privacy-policy",
+  noindex: true,
+});
 
 
 export default function PrivacyPolicy() {

@@ -38,10 +38,20 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-body-700 leading-relaxed">
-              Professional chess coaching in Dwarka, New Delhi focused on
-              structured learning, confidence building and long term strategic
-              thinking.
+              Chess coaching across Delhi through centre classes, home coaching
+              in select areas, and live online learning for families worldwide.
             </p>
+            <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium text-muted-500">
+              <span className="rounded-full border border-border-300 bg-white px-3 py-1.5">
+                Delhi centres
+              </span>
+              <span className="rounded-full border border-border-300 bg-white px-3 py-1.5">
+                Home coaching
+              </span>
+              <span className="rounded-full border border-border-300 bg-white px-3 py-1.5">
+                Online worldwide
+              </span>
+            </div>
           </div>
 
           {/* RIGHT — Social */}
@@ -102,6 +112,11 @@ export default function Footer() {
               <li>
                 <Link href="/" className="hover:text-primary-600 transition">
                   Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations" className="hover:text-primary-600 transition">
+                  Locations
                 </Link>
               </li>
               <li>
@@ -195,8 +210,16 @@ export default function Footer() {
 
           {/* Community */}
           <div>
-            <h4 className="footer-title">Community</h4>
+            <h4 className="footer-title">Explore More</h4>
             <ul className="footer-list">
+              <li>
+                <Link
+                  href="/book-free-chess-demo"
+                  className="hover:text-primary-600 transition"
+                >
+                  Book Free Demo
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/scholarships"
@@ -215,6 +238,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/locations"
+                  className="hover:text-primary-600 transition"
+                >
+                  Delhi Coverage
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/school-chess-program"
                   className="hover:text-primary-600 transition"
                 >
@@ -223,10 +254,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/recommended-chess-gear"
                   className="hover:text-primary-600 transition"
                 >
-                  Career Opportunities
+                  Recommended Chess Gear
                 </Link>
               </li>
               <li>
@@ -234,7 +265,7 @@ export default function Footer() {
                   href="/contact"
                   className="hover:text-primary-600 transition"
                 >
-                  Organize a Tournament
+                  Contact Nimzo Academy
                 </Link>
               </li>
             </ul>
@@ -268,7 +299,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <HiOutlineLocationMarker className="mt-0.5 h-5 w-5 md:h-7 md:w-7 text-primary-600" />
                 <Link
-                  href="https://www.google.com/maps/dir/?api=1&destination=28.57375398674804,77.07187627520065"
+                  href="https://maps.app.goo.gl/fygnZdqZiGkDvz538"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary-600 transition leading-relaxed"
@@ -277,6 +308,33 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+
+            <div className="mt-6">
+              <p className="footer-subtitle">Explore Locations</p>
+              <div className="mt-3 flex flex-col gap-2 text-sm text-body-700">
+                <Link href="/locations" className="hover:text-primary-600 transition">
+                  All Locations & Formats
+                </Link>
+                <Link href="/chess-classes-in-dwarka" className="hover:text-primary-600 transition">
+                  Chess Classes in Dwarka
+                </Link>
+                <Link href="/chess-classes-in-rohini" className="hover:text-primary-600 transition">
+                  Chess Classes in Rohini
+                </Link>
+                <Link href="/chess-classes-in-janakpuri" className="hover:text-primary-600 transition">
+                  Home Chess Coaching in Janakpuri
+                </Link>
+                <Link href="/chess-classes-in-kirti-nagar" className="hover:text-primary-600 transition">
+                  Home Chess Coaching in Kirti Nagar
+                </Link>
+                <Link href="/home-chess-coaching-in-delhi-cantt" className="hover:text-primary-600 transition">
+                  Home Chess Coaching in Delhi Cantt
+                </Link>
+                <Link href="/chess-coaching-in-delhi" className="hover:text-primary-600 transition">
+                  Chess Coaching in Delhi
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 

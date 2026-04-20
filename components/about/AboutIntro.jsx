@@ -45,9 +45,10 @@ export default function AboutIntro() {
             "
           >
             Nimzo Academy was created with one simple belief: chess should help
-            children think better, not feel pressured. We focus on beginners and
-            growing learners who need clarity, patience, and structured
-            guidance—especially in their early stages.
+            children think better, not feel pressured. Today, the academy
+            supports learners through classes across Delhi, home coaching in
+            select areas, school partnerships, and live online coaching for
+            families in India and abroad.
           </p>
 
           {/* Quote — softened on mobile */}
@@ -78,7 +79,7 @@ export default function AboutIntro() {
           >
             <li>Designed for children & beginners</li>
             <li>Strong focus on thinking skills</li>
-            <li>Structured learning path</li>
+            <li>Delhi, home, and online formats</li>
             <li>Online & offline coaching</li>
           </ul>
         </div>

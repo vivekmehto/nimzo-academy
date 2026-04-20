@@ -13,38 +13,61 @@ export async function POST(req) {
 
     const body = await req.json();
 
-    let { referrerName, studentName, countryCode, phone, grade, location, website } = body;
+    let {
+      referrerName,
+      currentStudentName,
+      studentName,
+      countryCode,
+      phone,
+      parentEmail,
+      grade,
+      location,
+      relationship,
+      website,
+    } = body;
 
     if (hasSpamTrap(website)) {
       return Response.json({ success: true });
     }
 
-    if (!referrerName || !studentName || !phone || !countryCode) {
+    if (!referrerName || !currentStudentName || !studentName || !phone || !countryCode) {
       return Response.json(
         { success: false, message: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    // Trim
     referrerName = referrerName.trim();
+    currentStudentName = currentStudentName.trim();
     studentName = studentName.trim();
     countryCode = countryCode.trim();
+    parentEmail = parentEmail?.trim() || "";
     grade = grade?.trim() || "";
     location = location?.trim() || "";
+    relationship = relationship?.trim() || "";
 
-    // Clean Names
-    const cleanedReferrerName = referrerName.replace(/[^a-zA-Z\s]/g, "");
-    const cleanedStudentName = studentName.replace(/[^a-zA-Z\s]/g, "");
+    const normalizeName = (value) => value.replace(/\s+/g, " ").trim();
+    const namePattern = /^[A-Za-z][A-Za-z\s'.-]{1,59}$/;
 
-    if (!/^[a-zA-Z\s]{2,50}$/.test(cleanedReferrerName)) {
+    const cleanedReferrerName = normalizeName(referrerName);
+    const cleanedCurrentStudentName = normalizeName(currentStudentName);
+    const cleanedStudentName = normalizeName(studentName);
+
+    if (!namePattern.test(cleanedReferrerName)) {
       return Response.json(
         { success: false, message: "Invalid referrer name" },
         { status: 400 }
       );
     }
 
-    if (!/^[a-zA-Z\s]{2,50}$/.test(cleanedStudentName)) {
+    if (!namePattern.test(cleanedCurrentStudentName)) {
+      return Response.json(
+        { success: false, message: "Invalid current student name" },
+        { status: 400 }
+      );
+    }
+
+    if (!namePattern.test(cleanedStudentName)) {
       return Response.json(
         { success: false, message: "Invalid student name" },
         { status: 400 }
@@ -54,6 +77,13 @@ export async function POST(req) {
     if (!/^\+\d{1,4}$/.test(countryCode)) {
       return Response.json(
         { success: false, message: "Invalid country code" },
+        { status: 400 }
+      );
+    }
+
+    if (parentEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(parentEmail)) {
+      return Response.json(
+        { success: false, message: "Invalid parent email" },
         { status: 400 }
       );
     }
@@ -74,10 +104,13 @@ export async function POST(req) {
 
     await db.collection("referrals").insertOne({
       referrerName: cleanedReferrerName,
+      currentStudentName: cleanedCurrentStudentName,
       studentName: cleanedStudentName,
       phone: fullPhone,
+      parentEmail,
       grade,
       location,
+      relationship,
       status: "new",
       createdAt: new Date(),
     });
@@ -90,10 +123,13 @@ export async function POST(req) {
         html: `
           <h2>New Referral Submission</h2>
           <p><strong>Referrer:</strong> ${escapeHtml(cleanedReferrerName)}</p>
+          <p><strong>Current Nimzo Student:</strong> ${escapeHtml(cleanedCurrentStudentName)}</p>
           <p><strong>Student:</strong> ${escapeHtml(cleanedStudentName)}</p>
           <p><strong>Phone:</strong> ${escapeHtml(fullPhone)}</p>
+          <p><strong>Parent Email:</strong> ${escapeHtml(parentEmail || "Not Provided")}</p>
           <p><strong>Grade:</strong> ${escapeHtml(grade || "Not Provided")}</p>
           <p><strong>Location:</strong> ${escapeHtml(location || "Not Provided")}</p>
+          <p><strong>Relationship:</strong> ${escapeHtml(relationship || "Not Provided")}</p>
         `,
       });
     } catch (emailError) {

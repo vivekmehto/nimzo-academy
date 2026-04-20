@@ -1,6 +1,45 @@
 "use client";
 
 import { useState } from "react";
+import Button from "@/components/ui/Button";
+
+const countryOptions = [
+  { value: "+91", label: "India (+91)" },
+  { value: "+1", label: "USA / Canada (+1)" },
+  { value: "+44", label: "UK (+44)" },
+  { value: "+61", label: "Australia (+61)" },
+  { value: "+64", label: "New Zealand (+64)" },
+  { value: "+65", label: "Singapore (+65)" },
+  { value: "+971", label: "UAE (+971)" },
+  { value: "+966", label: "Saudi Arabia (+966)" },
+  { value: "+974", label: "Qatar (+974)" },
+  { value: "+965", label: "Kuwait (+965)" },
+  { value: "+973", label: "Bahrain (+973)" },
+  { value: "+968", label: "Oman (+968)" },
+  { value: "+60", label: "Malaysia (+60)" },
+  { value: "+27", label: "South Africa (+27)" },
+];
+
+const sourceOptions = [
+  "Google",
+  "Instagram",
+  "Facebook",
+  "Referral",
+  "School",
+  "Other",
+];
+
+function inputClassName() {
+  return `
+    mt-1.5 w-full rounded-[var(--radius-md)]
+    border border-[var(--color-border-300)]
+    bg-white px-4 py-3 text-sm text-[var(--color-heading-900)]
+    outline-none transition
+    placeholder:text-[var(--color-muted-500)]
+    focus:border-[var(--color-primary-600)]
+    focus:ring-2 focus:ring-[var(--color-primary-600)]/10
+  `;
+}
 
 export default function DemoFormContent({ type }) {
   const [loading, setLoading] = useState(false);
@@ -18,9 +57,21 @@ export default function DemoFormContent({ type }) {
     website: "",
   });
 
+  const title =
+    type === "assessment" ? "Book Chess Skill Assessment" : "Book a Free Demo Class";
+  const subtitle =
+    type === "assessment"
+      ? "We will assess the student’s current level and suggest the right starting point."
+      : "Tell us a little about the student and we will help you choose the right format.";
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handlePhoneChange = (e) => {
+    const onlyNumbers = e.target.value.replace(/\D/g, "").slice(0, 15);
+    setFormData((prev) => ({ ...prev, phone: onlyNumbers }));
   };
 
   const handleSubmit = async (e) => {
@@ -59,192 +110,193 @@ export default function DemoFormContent({ type }) {
     }
   };
 
+  if (success) {
+    return (
+      <div className="rounded-[calc(var(--radius-lg)+0.05rem)] border border-[var(--color-border-300)] bg-[var(--color-back-500)] p-8 text-center animate-fade-in">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary-600)]/10 text-[var(--color-primary-600)]">
+          <span className="text-xl">✓</span>
+        </div>
+        <h3 className="mt-4 text-xl font-semibold text-[var(--color-heading-900)]">
+          Request submitted
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--color-body-700)]">
+          Thank you. Our team will review the details and contact you shortly.
+        </p>
+        <p className="mt-2 text-xs text-[var(--color-muted-500)]">
+          Typical response time: within 24 hours
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <>
-      {!success ? (
-        <>
-          {/* Heading */}
-          <h2 className="text-xl sm:text-2xl font-semibold text-center text-(--color-heading-900)">
-            {type === "demo"
-              ? "Book A Free Demo Today"
-              : "Book Chess Skill Assessment"}
-          </h2>
+    <div>
+      <div className="border-b border-[var(--color-border-300)] pb-5">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-primary-600)]">
+          {type === "assessment" ? "Assessment Request" : "Free Demo Request"}
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold text-[var(--color-heading-900)]">
+          {title}
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--color-body-700)]">
+          {subtitle}
+        </p>
+      </div>
 
-          <p className="mt-2 text-center text-sm text-muted-500">
-            Be a part of our growing global chess community.
-          </p>
+      <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+        <input
+          type="text"
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          aria-hidden="true"
+        />
 
-          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="parentName" className="block text-sm font-medium text-[var(--color-heading-900)]">
+              Parent Name
+            </label>
             <input
+              id="parentName"
+              name="parentName"
               type="text"
-              name="website"
-              value={formData.website}
+              required
+              value={formData.parentName}
               onChange={handleChange}
-              tabIndex={-1}
-              autoComplete="off"
-              className="hidden"
-              aria-hidden="true"
+              placeholder="Parent's full name"
+              className={inputClassName()}
             />
+          </div>
 
-            {/* Email, Parent, Student */}
-            {[
-              {
-                name: "email",
-                placeholder: "Parent’s Email ID",
-                type: "email",
-              },
-              { name: "parentName", placeholder: "Parent’s Full Name" },
-              { name: "studentName", placeholder: "Child’s Name" },
-            ].map((field) => (
-              <input
-                key={field.name}
-                name={field.name}
-                type={field.type || "text"}
-                placeholder={field.placeholder}
-                required
-                value={formData[field.name]}
-                onChange={handleChange}
-                className="w-full px-4 py-2.5 text-sm border bg-white outline-none transition-all duration-200 focus:ring-2 focus:ring-back-500"
-                style={{
-                  borderColor: "var(--color-border-300)",
-                  borderRadius: "var(--radius-md)",
-                }}
-              />
-            ))}
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-[var(--color-heading-900)]">
+              Parent Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="name@example.com"
+              className={inputClassName()}
+            />
+          </div>
 
-            {/* Phone Row */}
-            <div className="flex flex-col sm:flex-row gap-2">
-              <select
-                name="countryCode"
-                value={formData.countryCode}
-                onChange={handleChange}
-                className="sm:w-36 w-full px-3 py-2.5 text-sm border bg-white outline-none"
-                style={{
-                  borderColor: "var(--color-border-300)",
-                  borderRadius: "var(--radius-md)",
-                }}
-              >
-                <option value="+91">🇮🇳 +91 (India)</option>
-                <option value="+1">🇺🇸 +1 (USA)</option>
-                <option value="+1">🇨🇦 +1 (Canada)</option>
-                <option value="+44">🇬🇧 +44 (UK)</option>
-                <option value="+61">🇦🇺 +61 (Australia)</option>
-                <option value="+64">🇳🇿 +64 (New Zealand)</option>
-                <option value="+65">🇸🇬 +65 (Singapore)</option>
-                <option value="+971">🇦🇪 +971 (UAE)</option>
-                <option value="+966">🇸🇦 +966 (Saudi Arabia)</option>
-                <option value="+974">🇶🇦 +974 (Qatar)</option>
-                <option value="+965">🇰🇼 +965 (Kuwait)</option>
-                <option value="+973">🇧🇭 +973 (Bahrain)</option>
-                <option value="+968">🇴🇲 +968 (Oman)</option>
-                <option value="+60">🇲🇾 +60 (Malaysia)</option>
-                <option value="+27">🇿🇦 +27 (South Africa)</option>
-              </select>
+          <div>
+            <label htmlFor="studentName" className="block text-sm font-medium text-[var(--color-heading-900)]">
+              Student Name
+            </label>
+            <input
+              id="studentName"
+              name="studentName"
+              type="text"
+              required
+              value={formData.studentName}
+              onChange={handleChange}
+              placeholder="Child's full name"
+              className={inputClassName()}
+            />
+          </div>
 
-              <input
-                name="phone"
-                placeholder="Mobile Number (Preferably WhatsApp)"
-                inputMode="numeric"
-                maxLength={15}
-                required
-                value={formData.phone}
-                onChange={(e) => {
-                  const onlyNumbers = e.target.value
-                    .replace(/\D/g, "")
-                    .slice(0, 15);
-                  setFormData((prev) => ({
-                    ...prev,
-                    phone: onlyNumbers,
-                  }));
-                }}
-                className="flex-1 px-4 py-2.5 text-sm border bg-white outline-none transition-all duration-200 focus:ring-2 focus:ring-muted-500"
-                style={{
-                  borderColor: "var(--color-border-300)",
-                  borderRadius: "var(--radius-md)",
-                }}
-              />
-            </div>
-
-            {/* Age */}
+          <div>
+            <label htmlFor="age" className="block text-sm font-medium text-[var(--color-heading-900)]">
+              Student Age
+            </label>
             <select
+              id="age"
               name="age"
               required
               value={formData.age}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 text-sm border bg-white outline-none transition"
-              style={{
-                borderColor: "var(--color-border-300)",
-                borderRadius: "var(--radius-md)",
-              }}
+              className={inputClassName()}
             >
-              <option value="">Select Age</option>
-              {[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map(
-                (age) => (
-                  <option key={age} value={age}>
-                    {age}
-                  </option>
-                ),
-              )}
+              <option value="">Select age</option>
+              {[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((age) => (
+                <option key={age} value={age}>
+                  {age}
+                </option>
+              ))}
             </select>
+          </div>
+        </div>
 
-            {/* Source */}
+        <div>
+          <label className="block text-sm font-medium text-[var(--color-heading-900)]">
+            WhatsApp Number
+          </label>
+          <div className="mt-1.5 grid gap-3 sm:grid-cols-[170px_minmax(0,1fr)]">
             <select
-              name="sourceDetail"
-              value={formData.sourceDetail}
+              name="countryCode"
+              value={formData.countryCode}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 text-sm border bg-white outline-none transition"
-              style={{
-                borderColor: "var(--color-border-300)",
-                borderRadius: "var(--radius-md)",
-              }}
+              className={inputClassName()}
             >
-              <option value="">How Did You Hear About Us</option>
-              <option value="Instagram">Instagram</option>
-              <option value="Facebook">Facebook</option>
-              <option value="Google">Google</option>
-              <option value="Referral">Referral</option>
+              {countryOptions.map((option) => (
+                <option key={option.value + option.label} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
             </select>
 
-            {/* Submit Button */}
-            <div className="flex justify-center pt-4">
-              <button
-                type="submit"
-                disabled={loading}
-                className="px-12 py-2.5 text-lg cursor-pointer font-semibold text-white transition-all duration-200 disabled:opacity-60"
-                style={{
-                  backgroundColor: "var(--color-accent-600)",
-                  borderRadius: "9999px",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "var(--color-accent-500)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "var(--color-accent-600)")
-                }
-              >
-                {loading ? "Submitting..." : "Submit"}
-              </button>
-            </div>
-
-            {error && <p className="text-center text-sm text-red-600">{error}</p>}
-
-            <p className="text-center text-xs text-muted-500 pt-3">
-              We typically respond within 24 hours.
-            </p>
-          </form>
-        </>
-      ) : (
-        <div className="text-center py-8 animate-fade-in">
-          <h3 className="text-lg font-semibold text-primary-600">
-            Request Submitted!
-          </h3>
-          <p className="mt-2 text-sm text-body-700">
-            Thank you. Our team will contact you shortly.
+            <input
+              id="phone"
+              name="phone"
+              required
+              inputMode="numeric"
+              value={formData.phone}
+              onChange={handlePhoneChange}
+              placeholder="Preferably WhatsApp number"
+              className={inputClassName()}
+            />
+          </div>
+          <p className="mt-2 text-xs text-[var(--color-muted-500)]">
+            We use this mainly to coordinate the demo or assessment timing.
           </p>
         </div>
-      )}
-    </>
+
+        <div>
+          <label htmlFor="sourceDetail" className="block text-sm font-medium text-[var(--color-heading-900)]">
+            How did you hear about us?
+          </label>
+          <select
+            id="sourceDetail"
+            name="sourceDetail"
+            value={formData.sourceDetail}
+            onChange={handleChange}
+            className={inputClassName()}
+          >
+            <option value="">Select an option</option>
+            {sourceOptions.map((source) => (
+              <option key={source} value={source}>
+                {source}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {error && (
+          <div className="rounded-[var(--radius-md)] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {error}
+          </div>
+        )}
+
+        <div className="rounded-[var(--radius-md)] border border-[var(--color-border-300)] bg-[var(--color-light-100)] px-4 py-3 text-xs leading-relaxed text-[var(--color-muted-500)]">
+          Required details help us recommend the right class format and student stage more accurately.
+        </div>
+
+        <Button type="submit" full size="lg" disabled={loading} className="min-h-[52px]">
+          {loading ? "Submitting..." : type === "assessment" ? "Book Assessment" : "Book Free Demo"}
+        </Button>
+
+        <p className="text-center text-xs text-[var(--color-muted-500)]">
+          No commitment required. We typically respond within 24 hours.
+        </p>
+      </form>
+    </div>
   );
 }

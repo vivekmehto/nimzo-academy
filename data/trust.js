@@ -8,22 +8,22 @@ import {
 export const items = [
   {
     icon: GraduationCap,
-    title: "Experienced Chess Coaches for Children",
-    desc: "Patient and knowledgeable coaches focused on strong fundamentals and clear thinking.",
+    title: "Delhi Centre Classes",
+    desc: "Structured in-person classes for children who learn best with classroom rhythm and direct guidance.",
   },
   {
     icon: BookOpen,
-    title: "Structured, Age-Appropriate Learning Path",
-    desc: "Step-by-step curriculum designed for school-age children and beginners.",
+    title: "Home Coaching Options",
+    desc: "Personalised coaching in select Delhi areas for families who prefer more convenience and one-to-one attention.",
   },
   {
     icon: TrendingUp,
-    title: "Visible Improvement in Focus and Confidence",
-    desc: "Parents notice positive changes in attention, discipline, and decision-making.",
+    title: "Online Learning Worldwide",
+    desc: "Live online coaching for students in India and internationally with the same Nimzo philosophy.",
   },
   {
     icon: ShieldCheck,
-    title: "Safe and Parent-Trusted Learning Environment",
-    desc: "A disciplined, supportive, and child-friendly approach to chess education.",
+    title: "Clear Path from Beginner to Advanced",
+    desc: "A structured learning path that supports first-time learners and serious improvers alike.",
   },
 ];

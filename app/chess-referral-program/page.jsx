@@ -1,27 +1,31 @@
 import ReferralHero from "@/components/referral/ReferralHero";
-import ReferralWhy from "@/components/referral/ReferralWhy";
-import ReferralHow from "@/components/referral/ReferralHow";
-import ReferralRewards from "@/components/referral/ReferralRewards";
-import ReferralTerms from "@/components/referral/ReferralTerms";
-import ReferralCTA from "@/components/referral/ReferralCTA";
+import ReferralSnapshot from "@/components/referral/ReferralSnapshot";
 import ReferralForm from "@/components/referral/ReferralForm";
+import ReferralRewards from "@/components/referral/ReferralRewards";
+import ReferralHow from "@/components/referral/ReferralHow";
+import ReferralTestimonials from "@/components/referral/ReferralTestimonials";
+import ReferralFAQ from "@/components/referral/ReferralFAQ";
+import ReferralTerms from "@/components/referral/ReferralTerms";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Chess Referral Program in Dwarka | Nimzo Academy",
+export const metadata = buildMetadata({
+  title: "Chess Referral Program at Nimzo Academy",
   description:
-    "Join Nimzo Academy’s Chess Referral Program in Dwarka, Delhi. Earn scholarship credits and help grow a structured chess community.",
-};
+    "Refer a student to Nimzo Academy and earn coaching fee credits when the referral completes enrollment and 30 days of active training.",
+  path: "/chess-referral-program",
+});
 
 export default function Page() {
   return (
     <>
       <ReferralHero />
-      <ReferralWhy />
-      <ReferralHow />
-      <ReferralRewards />
-      <ReferralTerms />
-      <ReferralCTA />
+      <ReferralSnapshot />
       <ReferralForm />
+      <ReferralRewards />
+      <ReferralHow />
+      <ReferralTestimonials />
+      <ReferralFAQ />
+      <ReferralTerms />
     </>
   );
 }

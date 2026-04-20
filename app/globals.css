@@ -5,16 +5,16 @@
 ===================================================== */
 @theme {
   /* 🔵 Primary Blue (Trust / Authority) */
-  --color-primary-500: #3b6cf6;
-  --color-primary-600: #2f5bea; /* MAIN brand blue */
-  --color-primary-700: #1e3fae;
+  --color-primary-500: #556fe9;
+  --color-primary-600: #314bc8; /* MAIN brand blue */
+  --color-primary-700: #1f2f93;
 
   /* Soft blue for backgrounds (hero / sections) */
-  --color-back-500: #eef2ff;
+  --color-back-500: #eef1ff;
 
   /* 🟡 Accent Yellow (Actions only) */
-  --color-accent-500: #fbbf24; /* CTA */
-  --color-accent-600: #f59e0b; /* CTA hover */
+  --color-accent-500: #f2be1a; /* CTA */
+  --color-accent-600: #dfa507; /* CTA hover */
 
   /* Softened primary blue for trust sections */
   --color-primary-100: color-mix(in srgb, var(--color-primary-600) 88%, white);
@@ -23,24 +23,24 @@
        TEXT COLORS
        ========================= */
 
-  --color-heading-900: #0f172a; /* Headings */
-  --color-body-700: #334155; /* Paragraphs */
-  --color-muted-500: #64748b; /* Helper / muted */
+  --color-heading-900: #162459; /* Headings */
+  --color-body-700: #3a4872; /* Paragraphs */
+  --color-muted-500: #6a7698; /* Helper / muted */
 
   /* =========================
        BACKGROUNDS
        ========================= */
 
   --color-white-100: #ffffff; /* Cards / surfaces */
-  --color-light-100: #f8fafc; /* Page background */
-  --color-dark-900: #0f172a; /* Dark sections (rare) */
+  --color-light-100: #f7f8fd; /* Page background */
+  --color-dark-900: #111a4d; /* Dark sections (rare) */
 
   /* =========================
        BORDERS
        ========================= */
 
-  --color-border-300: #e5e7eb;
-  --color-border-400: #cbd5e1;
+  --color-border-300: #d9def2;
+  --color-border-400: #bec8e7;
 
   /* =========================
        RADIUS

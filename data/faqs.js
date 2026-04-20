@@ -15,6 +15,16 @@ export const faqs = [
       "Online classes focus on interactive learning and individual attention, while offline classes emphasize real-board practice and discipline. Both follow the same learning path and teaching philosophy.",
   },
   {
+    question: "Do you offer chess classes only in Dwarka?",
+    answer:
+      "No. Nimzo Academy supports learners through chess classes across Delhi, home coaching in select areas, school tie-ups, and live online classes for families in India and abroad.",
+  },
+  {
+    question: "Can students join online from outside Delhi or India?",
+    answer:
+      "Yes. We teach students online across India and also work with families in locations such as the USA, London, Doha, and Dubai.",
+  },
+  {
     question: "How often are classes conducted?",
     answer:
       "Classes are typically conducted one to two times per week, depending on the program chosen. Practice sessions and guidance are adjusted based on the child’s level and progress.",

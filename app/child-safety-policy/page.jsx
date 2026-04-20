@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Child Safety Policy",
   description:
-    "Read Nimzo Academy’s Child Safety Policy outlining our commitment to creating a safe, respectful and supportive learning environment for all students.",
-};
+    "Read Nimzo Academy’s child safety policy outlining our commitment to creating a safe, respectful, and supportive learning environment for all students.",
+  path: "/child-safety-policy",
+  noindex: true,
+});
 
 
 export default function ChildSafetyPolicy() {

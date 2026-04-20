@@ -1,19 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Scholarships & Support Programs | Nimzo Academy",
+export const metadata = buildMetadata({
+  title: "Chess Scholarships & Support Programs",
   description:
-    "Discover structured scholarship initiatives at Nimzo Academy including the Girls Initiative, sibling benefits, and merit-based support for competitive chess training.",
-  openGraph: {
-    title: "Scholarships & Support Programs | Nimzo Academy",
-    description:
-      "Institutional scholarship programs supporting excellence in competitive chess.",
-    url: "https://nimzoacademy.com/scholarships",
-    siteName: "Nimzo Academy",
-    type: "website",
-  },
-};
+    "Discover Nimzo Academy’s chess scholarship and support programs, including girls initiative, sibling benefits, and merit-based opportunities.",
+  path: "/scholarships",
+});
 
 export default function ScholarshipsPage() {
   return (
@@ -51,7 +45,7 @@ export default function ScholarshipsPage() {
 
             <Link
               href="/contact"
-              className="inline-block px-9 py-3.5 bg-[var(--color-accent-500)] rounded-md font-semibold hover:bg-[var(--color-accent-600)] transition"
+              className="inline-block px-9 py-3.5 bg-[var(--color-accent-500)] text-[var(--color-heading-900)] rounded-md font-semibold hover:bg-[var(--color-accent-600)] transition"
             >
               Apply for Admission
             </Link>
@@ -239,7 +233,7 @@ export default function ScholarshipsPage() {
 
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 bg-[var(--color-accent-500)] text-white font-semibold rounded-md hover:bg-[var(--color-accent-600)] transition"
+            className="inline-block px-10 py-4 bg-[var(--color-accent-500)] text-[var(--color-heading-900)] font-semibold rounded-md hover:bg-[var(--color-accent-600)] transition"
           >
             Apply for Admission
           </Link>

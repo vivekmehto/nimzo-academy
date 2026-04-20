@@ -1,16 +1,12 @@
 import GalleryClient from "./GalleryClient";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Chess Classes Gallery in Dwarka",
+export const metadata = buildMetadata({
+  title: "Nimzo Academy Gallery: Classes, Tournaments & School Programs",
   description:
-    "Explore photos of our chess classes, tournaments and student activities at Nimzo Academy in Dwarka.",
-  alternates: {
-    canonical: "https://nimzoacademy.com/gallery",
-  },
-  openGraph: {
-    url: "https://nimzoacademy.com/gallery",
-  },
-};
+    "Explore Nimzo Academy’s gallery of chess classes, tournaments, school programs, and student training moments from across Delhi and the broader academy journey.",
+  path: "/gallery",
+});
 
 export default function GalleryPage() {
   return <GalleryClient />;

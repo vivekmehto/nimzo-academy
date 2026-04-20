@@ -1,25 +1,46 @@
-import { Layers, Laptop, Users } from "lucide-react";
+import { Home, Laptop, MapPinned } from "lucide-react";
 
 export const programs = [
   {
-    id: "hybrid",
+    id: "centres",
     featured: true,
-    icon: Layers,
-    title: "Hybrid Chess Program",
+    icon: MapPinned,
+    title: "Centre Chess Classes",
     description:
-      "A structured blend of online coaching and offline practice designed for consistent improvement and long-term competitive growth.",
+      "Join regular in-person classes through Nimzo Academy’s Delhi class network for children who learn best with classroom rhythm and face-to-face coaching.",
 
     idealFor: [
-      "Students balancing academics and activities",
-      "Learners seeking flexible yet structured training",
-      "Serious long-term development",
+      "Families near Dwarka or Rohini",
+      "Children who benefit from in-person routine",
+      "Students building consistency through class rhythm",
     ],
 
-    outcome: "Consistent performance growth and tournament readiness",
+    outcome: "A dependable academy environment with coach-led structure",
 
     includes: [
-      "Weekly Live Online Coaching",
-      "Structured Offline Practice Sessions",
+      "Offline classes at Nimzo centres",
+      "Clear level guidance and parent communication",
+    ],
+  },
+
+  {
+    id: "home",
+    icon: Home,
+    title: "Home Chess Coaching",
+    description:
+      "Coach-led home classes across select Delhi areas for families who prefer personal attention, less travel, and a calmer one-to-one or small-group setup.",
+
+    idealFor: [
+      "Busy Delhi families",
+      "Children who focus better in a private setting",
+      "Learners who need more personalised pacing",
+    ],
+
+    outcome: "More personal support without giving up structure",
+
+    includes: [
+      "Home coaching in select Delhi areas",
+      "Flexible continuity with online support when needed",
     ],
   },
 
@@ -28,40 +49,19 @@ export const programs = [
     icon: Laptop,
     title: "Online Chess Classes",
     description:
-      "Interactive live chess training that builds strong fundamentals, strategic thinking, and confidence — all from home.",
+      "Live online coaching for children in India and around the world who want structured learning with scheduling flexibility and long-term continuity.",
 
     idealFor: [
-      "Children aged 6+",
-      "Home-based structured learning",
-      "Building strong chess foundations",
+      "Students outside Delhi",
+      "International families",
+      "Children who need strong coaching with schedule flexibility",
     ],
 
-    outcome: "Improved focus, consistency, and decision-making skills",
+    outcome: "Consistent progress from anywhere in the world",
 
     includes: [
-      "One-on-One Online Coaching",
-      "Small Group Interactive Classes",
-    ],
-  },
-
-  {
-    id: "offline",
-    icon: Users,
-    title: "Offline Chess Classes",
-    description:
-      "In-person classroom training focused on discipline, real-board mastery, and deeper tactical understanding for competitive play.",
-
-    idealFor: [
-      "In-person learners",
-      "Developing discipline and concentration",
-      "Preparing for tournaments",
-    ],
-
-    outcome: "Stronger board vision and competitive confidence",
-
-    includes: [
-      "One-on-One Classroom Coaching",
-      "Structured Group Training Sessions",
+      "Live coach-led online sessions",
+      "The same Nimzo teaching approach worldwide",
     ],
   },
 ];

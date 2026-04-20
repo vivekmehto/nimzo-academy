@@ -1,0 +1,11 @@
+import LocationPage from "@/components/location/LocationPage";
+import { getLocationBySlug } from "@/data/locations";
+import { buildLocationMetadata } from "@/lib/seo";
+
+const location = getLocationBySlug("chess-classes-in-dwarka");
+
+export const metadata = buildLocationMetadata(location);
+
+export default function ChessClassesInDwarkaPage() {
+  return <LocationPage location={location} />;
+}

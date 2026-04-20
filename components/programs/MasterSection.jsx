@@ -92,10 +92,13 @@ export default function MasterSection({setActiveCurriculum}) {
             {/* Formats */}
             <div className="mt-8 flex flex-wrap gap-2">
               <span className="rounded-full border border-[var(--color-border-400)] px-4 py-1.5 text-xs font-medium text-white">
-                Online
+                Serious competitive focus
               </span>
               <span className="rounded-full bg-[var(--color-primary-600)] px-4 py-1.5 text-xs font-semibold text-white">
-                ⭐ Hybrid (Primary)
+                Select intake
+              </span>
+              <span className="rounded-full border border-[var(--color-border-400)] px-4 py-1.5 text-xs font-medium text-white">
+                Long-term coaching
               </span>
             </div>
 

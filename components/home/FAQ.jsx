@@ -23,8 +23,8 @@ export default function FAQ() {
               Frequently Asked Questions
             </h2>
             <p className="mt-4 text-base sm:text-lg text-muted-500">
-              Common questions parents ask before enrolling their child in our
-              chess programs.
+              Common questions parents ask before choosing a class format and
+              starting lessons.
             </p>
           </div>
 
@@ -90,7 +90,7 @@ export default function FAQ() {
           {/* CTA — SEPARATE & STRONG */}
           <div className="mt-20 text-center">
             <p className="text-base text-muted-500 mb-6">
-              Still have questions or need personal guidance?
+              Still unsure which format is right for your child?
             </p>
 
             <button

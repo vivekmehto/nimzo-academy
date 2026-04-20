@@ -88,13 +88,13 @@ export default function BeginnerSection({ setActiveCurriculum }) {
             <div className="mt-10">
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full border border-[var(--color-border-400)] bg-[var(--color-white-100)] px-4 py-1.5 text-xs font-medium text-[var(--color-body-700)]">
-                  Online
+                  Complete beginners
                 </span>
                 <span className="rounded-full border border-[var(--color-border-400)] bg-[var(--color-white-100)] px-4 py-1.5 text-xs font-medium text-[var(--color-body-700)]">
-                  Offline
+                  Age 5+
                 </span>
                 <span className="rounded-full bg-[var(--color-primary-600)] px-4 py-1.5 text-xs font-semibold text-white">
-                  ⭐ Hybrid (Recommended)
+                  Best first program
                 </span>
               </div>
             </div>

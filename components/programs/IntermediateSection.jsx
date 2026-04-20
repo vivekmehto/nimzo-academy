@@ -93,13 +93,13 @@ export default function IntermediateSection({ setActiveCurriculum }) {
             {/* Formats */}
             <div className="mt-10 flex flex-wrap gap-2">
               <span className="rounded-full border border-[var(--color-border-400)] bg-[var(--color-white-100)] px-4 py-1.5 text-xs font-medium text-[var(--color-body-700)]">
-                Online
+                Knows the rules
               </span>
               <span className="rounded-full border border-[var(--color-border-400)] bg-[var(--color-white-100)] px-4 py-1.5 text-xs font-medium text-[var(--color-body-700)]">
-                Offline
+                Needs structured growth
               </span>
               <span className="rounded-full bg-[var(--color-primary-600)] px-4 py-1.5 text-xs font-semibold text-white">
-                ⭐ Hybrid (Recommended)
+                Most common next step
               </span>
             </div>
 

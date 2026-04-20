@@ -4,7 +4,6 @@ import { useDemoModal } from "@/context/DemoModalContext";
 import Section from "@/components/ui/Section";
 
 export default function ProgramsCTA() {
-
   const {openModal} = useDemoModal();
 
   return (
@@ -28,7 +27,7 @@ export default function ProgramsCTA() {
             text-[var(--color-heading-900)]
           "
         >
-          Take the Next Step with Confidence
+          Ready to find the right stage and format?
         </h2>
 
         {/* Subheading */}
@@ -44,8 +43,8 @@ export default function ProgramsCTA() {
             text-[var(--color-body-700)]
           "
         >
-          Book a free assessment and let our coaches guide your child through
-          the right learning path.
+          Book a free assessment and we will recommend the most suitable
+          program and class format for your child.
         </p>
 
         {/* CTA Buttons */}
@@ -88,7 +87,7 @@ export default function ProgramsCTA() {
             text-[var(--color-muted-500)]
           "
         >
-          No commitment required · Small batch sizes · Regular parent feedback
+          No commitment required · Honest guidance · Regular parent feedback
         </p>
 
       </div>

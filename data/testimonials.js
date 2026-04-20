@@ -1,17 +1,17 @@
 export const testimonials = [
   {
-    text: "The coaching style is calm and patient. Our child enjoys learning chess here and has become more confident in decision-making through guided practice.",
-    name: "Anita Fernandez",
-    role: "Parent of a 7-year-old online student",
+    text: "We are part of Nimzo from past 2 years. My daughter started as beginner and now playing as Intermediate. We are thankful to Vivek sir for his guidance and hoping to have more successful and bright future ahead with Nimzo.",
+    name: "Priyanka Singhal",
+    role: "Parent of a 11 year old student",
   },
   {
-    text: "We’ve seen a clear improvement in our child’s focus and discipline since joining Nimzo Academy for structured chess coaching. The learning approach really makes a difference after a few months.",
-    name: "Rahul Singh",
-    role: "Parent of a 9-year-old beginner",
+    text: "Your classes are absolutely amazing. Specially the way you teach little kids. I also love Chess now ♟️😊, all thanks to you.",
+    name: "Rekha Chillar",
+    role: "Parent of a 6 year old online student",
   },
   {
     text: "What we appreciate most is the regular feedback and clear chess learning path. It helps us understand our child’s progress and development.",
     name: "Aditya Prasad",
-    role: "Parent of a 10-year-old competitive learner",
+    role: "Parent of a 15-year-old competitive learner",
   },
 ];

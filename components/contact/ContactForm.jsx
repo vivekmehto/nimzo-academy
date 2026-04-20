@@ -3,6 +3,19 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 
+function getInputClassName() {
+  return `
+    mt-1.5 w-full rounded-[var(--radius-md)]
+    border border-[var(--color-border-300)]
+    bg-[var(--color-light-100)]
+    px-4 py-3 text-sm text-[var(--color-heading-900)]
+    outline-none transition
+    placeholder:text-[var(--color-muted-500)]
+    focus:border-[var(--color-primary-600)]
+    focus:ring-2 focus:ring-[var(--color-primary-600)]/10
+  `;
+}
+
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -65,11 +78,14 @@ export default function ContactForm() {
 
   if (success) {
     return (
-      <div className="mt-6 rounded-(--radius-md) bg-back-500 p-6 text-center">
-        <h3 className="text-lg font-semibold text-primary-600">
-          Thank you for reaching out!
+      <div className="mt-6 rounded-[calc(var(--radius-lg)+0.05rem)] border border-[var(--color-border-300)] bg-[var(--color-back-500)] p-6 text-center">
+        <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-primary-600)]/10 text-[var(--color-primary-600)]">
+          <span className="text-lg">✓</span>
+        </div>
+        <h3 className="mt-4 text-lg font-semibold text-[var(--color-heading-900)]">
+          Thank you for reaching out
         </h3>
-        <p className="mt-2 text-sm text-body-700">
+        <p className="mt-2 text-sm text-[var(--color-body-700)]">
           Our team will respond within 24 hours.
         </p>
       </div>
@@ -89,111 +105,90 @@ export default function ContactForm() {
         aria-hidden="true"
       />
 
-      {/* Name */}
-      <div>
-        <label className="block text-sm font-medium text-body-700">
-          Full Name *
-        </label>
-        <input
-          name="name"
-          type="text"
-          required
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Enter your full name"
-          className="
-            mt-1 w-full rounded-(--radius-md)
-            border border-border-300
-            bg-light-100
-            px-4 py-3.5 text-base
-            focus:border-primary-600
-            focus:ring-1 focus:ring-primary-600
-            focus:outline-none transition
-          "
-        />
+      <div className="rounded-[var(--radius-md)] border border-[var(--color-border-300)] bg-[var(--color-light-100)] px-4 py-3 text-xs leading-relaxed text-[var(--color-muted-500)]">
+        Share the student&apos;s age, current level, and whether you are looking for centre classes, home coaching, or online learning.
       </div>
 
-      {/* Email */}
-      <div>
-        <label className="block text-sm font-medium text-body-700">
-          Email Address *
-        </label>
-        <input
-          name="email"
-          type="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter your email"
-          className="
-            mt-1 w-full rounded-(--radius-md)
-            border border-border-300
-            bg-light-100
-            px-4 py-3.5 text-base
-            focus:border-primary-600
-            focus:ring-1 focus:ring-primary-600
-            focus:outline-none transition
-          "
-        />
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="contact-name" className="block text-sm font-medium text-[var(--color-heading-900)]">
+            Full Name
+          </label>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Parent or guardian name"
+            className={getInputClassName()}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="contact-email" className="block text-sm font-medium text-[var(--color-heading-900)]">
+            Email Address
+          </label>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="name@example.com"
+            className={getInputClassName()}
+          />
+        </div>
       </div>
 
-      {/* Phone (Optional) */}
       <div>
-        <label className="block text-sm font-medium text-body-700">
-          Phone Number (Optional)
+        <label htmlFor="contact-phone" className="block text-sm font-medium text-[var(--color-heading-900)]">
+          Phone Number
+          <span className="ml-1 text-[var(--color-muted-500)]">(Optional)</span>
         </label>
         <input
+          id="contact-phone"
           name="phone"
           type="tel"
-          inputMode="numeric"
+          inputMode="tel"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="Enter your phone number"
-          className="
-            mt-1 w-full rounded-(--radius-md)
-            border border-border-300
-            bg-light-100
-            px-4 py-3.5 text-base
-            focus:border-primary-600
-            focus:ring-1 focus:ring-primary-600
-            focus:outline-none transition
-          "
+          placeholder="WhatsApp or mobile number"
+          className={getInputClassName()}
         />
       </div>
 
-      {/* Message */}
       <div>
-        <label className="block text-sm font-medium text-body-700">
-          Message *
+        <label htmlFor="contact-message" className="block text-sm font-medium text-[var(--color-heading-900)]">
+          Message
         </label>
         <textarea
+          id="contact-message"
           name="message"
-          rows={4}
+          rows={5}
           required
           value={formData.message}
           onChange={handleChange}
-          placeholder="Please share the student’s age and current chess level (if known)"
-          className="
-            mt-1 w-full rounded-(--radius-md)
-            border border-border-300
-            bg-light-100
-            px-4 py-3.5 text-base
-            focus:border-primary-600
-            focus:ring-1 focus:ring-primary-600
-            focus:outline-none transition resize-none
-          "
+          placeholder="Please tell us the student's age, current chess level, and what kind of classes you are looking for."
+          className={`${getInputClassName()} resize-none`}
         />
       </div>
 
-      {/* Error Message */}
       {error && (
-        <p className="text-sm text-red-600">{error}</p>
+        <div className="rounded-[var(--radius-md)] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {error}
+        </div>
       )}
 
-      {/* Submit */}
-      <Button type="submit" className="w-full" disabled={loading}>
+      <Button type="submit" className="w-full min-h-[52px]" size="lg" disabled={loading}>
         {loading ? "Sending..." : "Send Message"}
       </Button>
+
+      <p className="text-center text-xs text-[var(--color-muted-500)]">
+        No obligation. We usually reply within 24 hours.
+      </p>
     </form>
   );
 }

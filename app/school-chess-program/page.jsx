@@ -3,18 +3,14 @@ import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 import EducationalImpact from "@/components/school-chess/EducationalImapct";
 import ProgramsSection from "../../components/school-chess/ProgramsSection";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "School Chess Program in Dwarka & Delhi | Nimzo Academy",
+export const metadata = buildMetadata({
+  title: "School Chess Program in Delhi for Schools",
   description:
-    "Structured school chess program in Dwarka and across Delhi. In-school and after-school chess training, inter-school tournament support, and institutional partnership model by Nimzo Academy.",
-  openGraph: {
-    title: "School Chess Program | Nimzo Academy",
-    description:
-      "Curriculum-based chess training for schools in Dwarka and Delhi with tournament support and structured implementation.",
-    type: "website",
-  },
-};
+    "Partner with Nimzo Academy for school chess programs in Delhi, including in-school training, after-school batches, and tournament support.",
+  path: "/school-chess-program",
+});
 
 export default function SchoolChessProgramPage() {
   const orgSchema = {
@@ -109,7 +105,7 @@ export default function SchoolChessProgramPage() {
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white px-8 py-3 rounded-[var(--radius-md)] font-semibold transition"
+                className="bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-[var(--color-heading-900)] px-8 py-3 rounded-[var(--radius-md)] font-semibold transition"
               >
                 Request School Program Discussion
               </Link>
