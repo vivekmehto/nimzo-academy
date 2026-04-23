@@ -41,7 +41,12 @@ function inputClassName() {
   `;
 }
 
-export default function DemoFormContent({ type }) {
+export default function DemoFormContent({
+  type,
+  eyebrowOverride,
+  titleOverride,
+  subtitleOverride,
+}) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -58,11 +63,16 @@ export default function DemoFormContent({ type }) {
   });
 
   const title =
-    type === "assessment" ? "Book Chess Skill Assessment" : "Book a Free Demo Class";
+    titleOverride ||
+    (type === "assessment" ? "Book Chess Skill Assessment" : "Book a Free Demo Class");
   const subtitle =
-    type === "assessment"
+    subtitleOverride ||
+    (type === "assessment"
       ? "We will assess the student’s current level and suggest the right starting point."
-      : "Tell us a little about the student and we will help you choose the right format.";
+      : "Tell us a little about the student and we will help you choose the right format.");
+  const eyebrow =
+    eyebrowOverride ||
+    (type === "assessment" ? "Assessment Request" : "Free Demo Request");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -133,7 +143,7 @@ export default function DemoFormContent({ type }) {
     <div>
       <div className="border-b border-[var(--color-border-300)] pb-5">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-primary-600)]">
-          {type === "assessment" ? "Assessment Request" : "Free Demo Request"}
+          {eyebrow}
         </p>
         <h2 className="mt-2 text-2xl font-semibold text-[var(--color-heading-900)]">
           {title}
@@ -143,7 +153,7 @@ export default function DemoFormContent({ type }) {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+      <form onSubmit={handleSubmit} className="mt-7 space-y-6">
         <input
           type="text"
           name="website"
@@ -155,7 +165,7 @@ export default function DemoFormContent({ type }) {
           aria-hidden="true"
         />
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <label htmlFor="parentName" className="block text-sm font-medium text-[var(--color-heading-900)]">
               Parent Name
@@ -285,11 +295,11 @@ export default function DemoFormContent({ type }) {
           </div>
         )}
 
-        <div className="rounded-[var(--radius-md)] border border-[var(--color-border-300)] bg-[var(--color-light-100)] px-4 py-3 text-xs leading-relaxed text-[var(--color-muted-500)]">
+        <div className="rounded-[var(--radius-md)] border border-[var(--color-border-300)] bg-[var(--color-light-100)] px-4 py-3.5 text-xs leading-relaxed text-[var(--color-muted-500)]">
           Required details help us recommend the right class format and student stage more accurately.
         </div>
 
-        <Button type="submit" full size="lg" disabled={loading} className="min-h-[52px]">
+        <Button type="submit" full size="lg" disabled={loading} className="min-h-[54px]">
           {loading ? "Submitting..." : type === "assessment" ? "Book Assessment" : "Book Free Demo"}
         </Button>
 
