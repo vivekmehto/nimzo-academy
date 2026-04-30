@@ -1,24 +1,24 @@
+import { ArrowRight } from "lucide-react";
+import Button from "@/components/ui/Button";
+
 export default function ReferralCTA() {
   return (
-    <section className="py-24 bg-[var(--color-back-500)] text-center">
-      <div className="max-w-3xl mx-auto px-6 space-y-6 animate-fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-heading-900)] leading-tight">
-          Know a student who would thrive in a serious chess environment?
+    <section className="bg-[var(--color-back-500)] py-24 text-center">
+      <div className="mx-auto max-w-3xl px-6 space-y-6 animate-fade-up">
+        <h2 className="text-3xl font-bold leading-tight text-[var(--color-heading-900)] md:text-4xl">
+          Know a parent who may be looking for serious chess coaching?
         </h2>
 
         <p className="text-lg text-[var(--color-body-700)]">
-          Submit the referral and we will personally guide the family from there.
+          Send the referral while the interest is fresh. We will speak to the
+          family personally, explain the options clearly, and keep the process respectful.
         </p>
 
         <div>
-          <a
-            href="#referral-form"
-            className="inline-block px-8 py-3 rounded-[var(--radius-md)]
-            bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)]
-            text-white font-semibold transition"
-          >
-            Open the Referral Form
-          </a>
+          <Button href="#referral-form" size="lg" className="gap-2 px-8">
+            Submit a Referral
+            <ArrowRight className="h-4 w-4" />
+          </Button>
         </div>
       </div>
     </section>

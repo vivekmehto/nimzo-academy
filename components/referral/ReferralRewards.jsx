@@ -34,11 +34,9 @@ export default function ReferralRewards() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
             Reward Ladder
           </p>
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Make the reward progression feel exciting and easy to understand
-          </h2>
 
-          <p className="mt-4 text-base leading-relaxed text-white/85 md:text-lg">
+
+          <p className="mt-4 text-3xl leading-relaxed text-white/85">
             Each reward is unlocked only after a referral becomes fully valid,
             keeping the structure motivating and fair.
           </p>
@@ -66,7 +64,7 @@ export default function ReferralRewards() {
           </div>
         </div>
 
-        <div className="mt-10 text-center text-sm text-white/78">
+        <div className="mt-16 text-center text-sm text-white/78">
           Maximum 1 free month allowed per quarter per student. Rewards apply
           only after the referral becomes valid.
         </div>

@@ -7,11 +7,11 @@ export const testimonials = [
   {
     text: "Your classes are absolutely amazing. Specially the way you teach little kids. I also love Chess now ♟️😊, all thanks to you.",
     name: "Rekha Chillar",
-    role: "Parent of a 6 year old online student",
+    role: "Parent of a 5 year old online student",
   },
   {
-    text: "What we appreciate most is the regular feedback and clear chess learning path. It helps us understand our child’s progress and development.",
-    name: "Aditya Prasad",
-    role: "Parent of a 15-year-old competitive learner",
+    text: "Vivek sir has been a wonderful teacher and has helped sustain and grow interest of my child in the game. Thank you for your patient guidance.",
+    name: "Rupa Mukherjee",
+    role: "Parent of a 7 year old student",
   },
 ];

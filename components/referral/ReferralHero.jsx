@@ -1,117 +1,93 @@
 import Image from "next/image";
-import { ArrowRight, CircleCheckBig, Clock3, Gift } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 export default function ReferralHero() {
-  const highlights = [
-    {
-      icon: CircleCheckBig,
-      title: "Valid referral",
-
-    },
-    {
-      icon: Clock3,
-      title: "30 active days",
-
-    },
-    {
-      icon: Gift,
-      title: "Earn rewards",
-
-    },
-  ];
-
   return (
-    <section className="bg-[linear-gradient(135deg,var(--color-back-500)_0%,white_52%,var(--color-light-100)_100%)] py-16 md:py-24 lg:py-28">
+    <section className="bg-[linear-gradient(135deg,#f8faff_0%,#ffffff_50%,#f3f6ff_100%)] py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
-          <div className="space-y-7 animate-fade-up">
-            <p className="inline-flex items-center rounded-full border border-[var(--color-border-300)] bg-[var(--color-white-100)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-primary-600)] shadow-sm">
-              For Active Nimzo Academy Families
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+
+          {/* LEFT CONTENT */}
+          <div className="space-y-6">
+
+            {/* Tag */}
+            <p className="inline-block rounded-full border px-4 py-2 text-xs font-semibold tracking-wide text-blue-600 bg-white">
+              FOR ACTIVE NIMZO ACADEMY FAMILIES
             </p>
 
-            <div className="space-y-4">
-              <h1 className="max-w-2xl text-4xl font-bold leading-tight text-[var(--color-heading-900)] md:text-5xl md:leading-[1.06]">
-                Refer a student. Earn coaching fee credits.
-              </h1>
+            {/* Heading */}
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900">
+              Refer a student. Earn fee credits.
+            </h1>
 
-              <p className="max-w-xl text-lg leading-relaxed text-[var(--color-body-700)] md:text-xl">
-                Invite a serious learner to Nimzo Academy in Dwarka, Delhi. It
-                takes less than a minute to submit, and we handle the family
-                conversation from there.
-              </p>
+            {/* Subtext */}
+            <p className="text-lg text-gray-600 max-w-xl">
+              Invite a parent to Nimzo Academy. It takes less than a minute,
+              and we’ll handle the conversation from there.
+            </p>
+
+            {/* Small badges */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <div className="px-4 py-3 rounded-xl border bg-white text-sm font-medium shadow-sm">
+                ✔ Valid referral
+              </div>
+              <div className="px-4 py-3 rounded-xl border bg-white text-sm font-medium shadow-sm">
+                ⏱ 30 active days
+              </div>
+              <div className="px-4 py-3 rounded-xl border bg-white text-sm font-medium shadow-sm">
+                🎁 Earn rewards
+              </div>
             </div>
 
-            <div className="grid gap-3 sm:auto-rows-fr sm:grid-cols-3">
-              {highlights.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <div
-                    key={item.title}
-                    className="h-full rounded-[calc(var(--radius-lg)+0.05rem)] border border-[var(--color-border-300)] bg-[var(--color-white-100)] p-5 shadow-sm"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-600)]/10 text-[var(--color-primary-600)]">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-[var(--color-heading-900)]">
-                          {item.title}
-                        </p>
-
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button href="#referral-form" size="lg" className="gap-2 px-8">
+            {/* CTA */}
+            <div className="pt-4">
+              <Button
+                href="#referral-form"
+                size="lg"
+                className="gap-2 px-8"
+              >
                 Submit a Referral
                 <ArrowRight className="h-4 w-4" />
               </Button>
-
             </div>
           </div>
 
-          <div className="relative animate-fade-up">
-            <div className="absolute -inset-3 rounded-[calc(var(--radius-lg)+0.4rem)] bg-gradient-to-tr from-[var(--color-primary-600)]/15 via-transparent to-[var(--color-accent-500)]/25 blur-2xl" />
-
-            <div className="relative overflow-hidden rounded-[calc(var(--radius-lg)+0.35rem)] border border-white/70 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.12)]">
+          {/* RIGHT IMAGE */}
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/gallery/training-3.jpg"
-                alt="Children learning chess at Nimzo Academy"
-                width={760}
-                height={620}
-                priority
-                className="h-[340px] w-full object-cover md:h-[460px] lg:h-[500px]"
+                alt="Kids learning chess at Nimzo Academy"
+                width={700}
+                height={500}
+                className="w-full h-[420px] object-cover"
               />
+            </div>
 
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(15,23,42,0.78)] via-[rgba(15,23,42,0.34)] to-transparent px-5 pb-5 pt-16 text-white md:px-6 md:pb-6">
-                <div className="max-w-xs rounded-[var(--radius-lg)] border border-white/20 bg-white/12 p-4 backdrop-blur-sm">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
-                    Reward Ladder
-                  </p>
-                  <div className="mt-3 space-y-2 text-sm">
-                    <div className="flex items-center justify-between">
-                      <span>1 valid referral</span>
-                      <span className="font-semibold">Rs. 500</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>2 valid referrals</span>
-                      <span className="font-semibold">Rs. 1200</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>4 valid referrals</span>
-                      <span className="font-semibold">1 month free</span>
-                    </div>
-                  </div>
+            {/* Reward Overlay (Clean, Minimal) */}
+            <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-white/80 backdrop-blur-md p-4 shadow-lg">
+              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                Reward Ladder
+              </p>
+
+              <div className="mt-2 text-sm text-gray-700 space-y-1">
+                <div className="flex justify-between">
+                  <span>1 referral</span>
+                  <span className="font-semibold">₹500</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>2 referrals</span>
+                  <span className="font-semibold">₹1200</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>4 referrals</span>
+                  <span className="font-semibold">1 Month Free</span>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

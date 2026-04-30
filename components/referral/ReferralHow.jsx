@@ -4,18 +4,18 @@ export default function ReferralHow() {
   const steps = [
     {
       icon: Send,
-      title: "Submit the referral",
-      text: "Share the student details and the current Nimzo student name.",
+      title: "Share the details",
+      text: "Submit the referred child name, your Nimzo child name, and the parent WhatsApp number.",
     },
     {
       icon: PhoneCall,
-      title: "We contact the family",
-      text: "Our team explains the program and checks whether the student is a good fit.",
+      title: "We speak to the parent",
+      text: "Our team explains class options, batch fit, and fees directly so you do not have to chase or explain everything yourself.",
     },
     {
       icon: CreditCard,
-      title: "Credits are added later",
-      text: "Rewards apply after enrollment, fee payment, and 30 active days.",
+      title: "Your reward is added",
+      text: "Once the child enrolls, pays the first month fee, and remains active for 30 days, the fee credit is applied.",
     },
   ];
 
@@ -24,13 +24,14 @@ export default function ReferralHow() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-primary-600)]">
-            Simple Process
+            How It Works
           </p>
           <h2 className="mt-3 text-3xl font-bold text-[var(--color-heading-900)] md:text-4xl">
-            How the referral works from start to reward
+            Three simple steps. <br />No codes, no confusing points.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[var(--color-body-700)] md:text-lg">
-            The journey should feel easy for parents and easy for your team to manage.
+            Parents are most likely to refer when the process feels quick, clear,
+            and respectful for the other family.
           </p>
         </div>
 
@@ -73,6 +74,11 @@ export default function ReferralHow() {
             );
           })}
         </div>
+
+        <p className="mt-8 text-center text-sm leading-relaxed text-[var(--color-muted-500)]">
+          If the family has already contacted Nimzo Academy or is already in the
+          enrollment process, the referral may not be counted.
+        </p>
       </div>
     </section>
   );

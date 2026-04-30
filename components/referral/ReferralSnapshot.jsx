@@ -5,22 +5,23 @@ export default function ReferralSnapshot() {
     {
       icon: Users,
       title: "Who can refer",
-      text: "Active Nimzo Academy families.",
+      text: "Current Nimzo Academy families whose child is actively learning with us.",
     },
     {
       icon: CircleCheckBig,
-      title: "What counts",
-      text: "New student, paid enrollment, 30 active days.",
+      title: "What you earn",
+      text: "Fee credits from Rs. 500 to 1 free month, based on valid referrals.",
     },
     {
       icon: Gift,
-      title: "When rewards apply",
-      text: "After the referral becomes fully valid.",
+      title: "When it counts",
+      text: "After the new student enrolls, pays the first month, and stays active for 30 days.",
     },
   ];
 
   return (
-    <section className="bg-[var(--color-white-100)] py-8 md: mt-10 md:py-0">
+    <section className="bg-[linear-gradient(135deg,#f8faff_0%,#ffffff_50%,#f3f6ff_100%)] py-16 md:py-24">
+
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-px overflow-hidden rounded-[calc(var(--radius-lg)+0.2rem)] border border-[var(--color-border-300)] bg-[var(--color-border-300)] shadow-[0_16px_40px_rgba(15,23,42,0.06)] md:grid-cols-3">
           {items.map((item) => {

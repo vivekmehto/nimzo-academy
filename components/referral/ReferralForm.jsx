@@ -43,18 +43,18 @@ export default function ReferralForm() {
   const tips = [
     {
       icon: ShieldCheck,
-      title: "Only genuine referrals",
-      text: "The student should be new to Nimzo Academy and genuinely interested in learning.",
+      title: "Ask the parent first",
+      text: "Warm referrals convert better. A quick WhatsApp message before submitting usually works best.",
     },
     {
       icon: BookOpenCheck,
-      title: "We handle the next step",
-      text: "Your job is only to introduce the family. We take care of the explanation and onboarding.",
+      title: "We handle the explanation",
+      text: "You only need to make the introduction. We explain batches, format, and fees directly to the family.",
     },
     {
       icon: BadgeCheck,
-      title: "Rewards stay simple",
-      text: "Fee credits are applied only after enrollment, fee payment, and 30 active days.",
+      title: "Rewards stay transparent",
+      text: "Fee credits are applied only after enrollment, first-month payment, and 30 active days.",
     },
   ];
 
@@ -157,8 +157,12 @@ export default function ReferralForm() {
             Referral Form
           </p>
           <h2 className="mt-3 text-3xl font-bold text-[var(--color-heading-900)] md:text-4xl">
-            Submit the referral while interest is highest
+            Submit the referral in about a minute
           </h2>
+          <p className="mt-4 text-base leading-relaxed text-[var(--color-body-700)] md:text-lg">
+            Share the details while the parent&apos;s interest is fresh. We will
+            contact the family personally and take it forward from there.
+          </p>
         </div>
 
         <div className="grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
@@ -168,7 +172,7 @@ export default function ReferralForm() {
                 Before You Submit
               </p>
               <h3 className="mt-3 text-2xl font-semibold leading-tight">
-                Keep it simple
+                Keep it easy and genuine
               </h3>
 
               <div className="mt-5 space-y-3">
@@ -203,10 +207,11 @@ export default function ReferralForm() {
               {success ? (
                 <div className="text-center space-y-3">
                   <h3 className="text-xl font-semibold text-[var(--color-heading-900)]">
-                    Referral Submitted
+                    Referral received
                   </h3>
                   <p className="text-sm text-[var(--color-body-700)]">
-                    Our team will contact the family shortly.
+                    Thank you. Our team will review the details and contact the
+                    family shortly.
                   </p>
                 </div>
               ) : (
@@ -217,7 +222,8 @@ export default function ReferralForm() {
                         Referral details
                       </h3>
                       <p className="mt-1 text-sm text-[var(--color-muted-500)]">
-                        Fields marked with * are required.
+                        Only a few details are required. We use WhatsApp first
+                        because it is easiest for most parents.
                       </p>
                     </div>
                   </div>
@@ -239,7 +245,7 @@ export default function ReferralForm() {
                         htmlFor="referrerName"
                         className="block mb-1.5 text-sm font-medium text-[var(--color-heading-900)]"
                       >
-                        Your Name
+                        Your Name *
                       </label>
                       <input
                         id="referrerName"
@@ -247,7 +253,7 @@ export default function ReferralForm() {
                         name="referrerName"
                         value={formData.referrerName}
                         onChange={handleChange}
-                        placeholder="Parent name"
+                        placeholder="Your name"
                         aria-invalid={Boolean(fieldErrors.referrerName)}
                         aria-describedby={fieldErrors.referrerName ? "referrerName-error" : undefined}
                         className={getInputClassName("referrerName")}
@@ -264,7 +270,7 @@ export default function ReferralForm() {
                         htmlFor="currentStudentName"
                         className="block mb-1.5 text-sm font-medium text-[var(--color-heading-900)]"
                       >
-                        Nimzo Student
+                        Your Child&apos;s Name at Nimzo *
                       </label>
                       <input
                         id="currentStudentName"
@@ -272,7 +278,7 @@ export default function ReferralForm() {
                         name="currentStudentName"
                         value={formData.currentStudentName}
                         onChange={handleChange}
-                        placeholder="Ananya Goel"
+                        placeholder="Example: Ananya Goel"
                         aria-invalid={Boolean(fieldErrors.currentStudentName)}
                         aria-describedby="currentStudentName-help currentStudentName-error"
                         className={getInputClassName("currentStudentName")}
@@ -291,7 +297,7 @@ export default function ReferralForm() {
                         htmlFor="studentName"
                         className="block mb-1.5 text-sm font-medium text-[var(--color-heading-900)]"
                       >
-                        Student Name
+                        Child You Are Referring *
                       </label>
                       <input
                         id="studentName"
@@ -316,7 +322,7 @@ export default function ReferralForm() {
                         htmlFor="relationship"
                         className="block mb-1.5 text-sm font-medium text-[var(--color-heading-900)]"
                       >
-                        Relationship
+                        How do you know the family?
                       </label>
                       <input
                         id="relationship"
@@ -335,7 +341,7 @@ export default function ReferralForm() {
                       htmlFor="phone"
                       className="block mb-1.5 text-sm font-medium text-[var(--color-heading-900)]"
                     >
-                      WhatsApp Number
+                      Parent&apos;s WhatsApp Number *
                     </label>
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
                       <select
@@ -392,7 +398,7 @@ export default function ReferralForm() {
                         htmlFor="parentEmail"
                         className="block mb-1.5 text-sm font-medium text-[var(--color-heading-900)]"
                       >
-                        Email
+                        Parent Email
                       </label>
                       <input
                         id="parentEmail"
@@ -406,7 +412,7 @@ export default function ReferralForm() {
                         className={getInputClassName("parentEmail")}
                       />
                       <p id="parentEmail-help" className="mt-2 text-xs text-[var(--color-muted-500)]">
-                        Optional for international follow-up.
+                        Optional, but helpful for international follow-up.
                       </p>
                       {fieldErrors.parentEmail && (
                         <p id="parentEmail-error" className="mt-2 text-sm text-red-600">
@@ -420,7 +426,7 @@ export default function ReferralForm() {
                         htmlFor="grade"
                         className="block mb-1.5 text-sm font-medium text-[var(--color-heading-900)]"
                       >
-                        Grade
+                        Child&apos;s Grade
                       </label>
                       <input
                         id="grade"
@@ -428,7 +434,7 @@ export default function ReferralForm() {
                         name="grade"
                         value={formData.grade}
                         onChange={handleChange}
-                        placeholder="Example: Grade 4"
+                        placeholder="Optional"
                         className={getInputClassName("grade")}
                       />
                     </div>
@@ -446,7 +452,7 @@ export default function ReferralForm() {
                         name="location"
                         value={formData.location}
                         onChange={handleChange}
-                        placeholder="London, UK"
+                        placeholder="Optional"
                         className={getInputClassName("location")}
                       />
                     </div>
@@ -459,11 +465,12 @@ export default function ReferralForm() {
                   )}
 
                   <Button type="submit" disabled={loading} full size="lg" className="min-h-[56px] py-4">
-                    {loading ? "Submitting..." : "Submit Referral"}
+                    {loading ? "Submitting..." : "Send Referral"}
                   </Button>
 
                   <p className="text-xs text-center text-[var(--color-muted-500)]">
-                    Information will remain confidential.
+                    We only use this information to verify the referral and
+                    contact the family about Nimzo Academy.
                   </p>
                 </form>
               )}

@@ -2,11 +2,11 @@ import { MessageSquareQuote, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
 
 export default function ReferralTestimonials() {
-  const featuredTestimonials = testimonials.slice(0, 2);
+  const featuredTestimonials = testimonials.slice(0, 3);
   const trustPoints = [
-    "Structured coaching with a clear learning path",
-    "Strong communication with parents",
-    "Long-term development over casual play",
+    "Structured chess learning path",
+    "Regular updates for parents",
+    "Serious coaching in a child-friendly environment",
   ];
 
   return (
@@ -14,14 +14,14 @@ export default function ReferralTestimonials() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-primary-600)]">
-            Parent Confidence
+            Parent Trust
           </p>
           <h2 className="mt-3 text-3xl font-bold text-[var(--color-heading-900)] md:text-4xl">
-            Why parents feel confident referring Nimzo Academy
+            Why parents feel comfortable recommending Nimzo Academy
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[var(--color-body-700)] md:text-lg">
-            Referrals grow faster when the academy already feels trustworthy,
-            warm, and consistent to existing families.
+            Families usually refer us for one simple reason: they have already
+            seen steady progress, thoughtful teaching, and clear communication.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function ReferralTestimonials() {
           })}
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-3">
           {featuredTestimonials.map((item) => (
             <article
               key={item.name}
