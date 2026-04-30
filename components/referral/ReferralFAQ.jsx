@@ -5,12 +5,17 @@ import { HelpCircle } from "lucide-react";
 
 const faqItems = [
   {
-    question: "When does a referral become valid?",
+    question: "Who can use this referral program?",
     answer:
-      "A referral becomes valid after the student is confirmed as new to Nimzo Academy, completes enrollment, pays the first-month fee, and remains active for 30 days.",
+      "This program is for current Nimzo Academy families. The referred child should be new to Nimzo Academy.",
   },
   {
-    question: "What if the family has already contacted Nimzo Academy before?",
+    question: "When do I receive the reward?",
+    answer:
+      "The reward is applied after the new student is confirmed as new to Nimzo Academy, completes enrollment, pays the first-month fee, and remains active for 30 days.",
+  },
+  {
+    question: "What if the family has already spoken to Nimzo Academy?",
     answer:
       "If the student has already enrolled or is already being processed by the academy, the referral may not be counted. We verify each submission manually to keep the program fair.",
   },
@@ -20,9 +25,9 @@ const faqItems = [
       "Yes, as long as the student is genuinely interested in structured chess coaching and is new to Nimzo Academy.",
   },
   {
-    question: "How are the rewards used?",
+    question: "Are rewards paid in cash?",
     answer:
-      "Rewards are applied as coaching fee credits. They are not paid out as cash and are subject to the program rules listed on this page.",
+      "No. Rewards are applied as coaching fee credits. They are not paid out as cash and remain subject to the program rules on this page.",
   },
 ];
 
@@ -38,10 +43,10 @@ export default function ReferralFAQ() {
             Common questions
           </div>
           <h2 className="mt-4 text-3xl font-bold text-[var(--color-heading-900)] md:text-4xl">
-            Referral Questions Parents May Have
+            Questions parents usually ask before they refer
           </h2>
           <p className="mt-4 text-base text-[var(--color-body-700)] md:text-lg">
-            A few quick answers to remove confusion before a family submits a referral.
+            A few quick answers to remove doubt and help parents act faster.
           </p>
         </div>
 

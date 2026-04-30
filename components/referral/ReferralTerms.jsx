@@ -3,30 +3,30 @@ import Accordion from "@/components/ui/Accordion";
 export default function ReferralTerms() {
   const ruleItems = [
     {
-      question: "Eligibility",
+      question: "Who is eligible",
       answer: (
         <ul className="list-disc space-y-2 pl-5">
-          <li>Referrer must be an active Nimzo Academy student.</li>
-          <li>The referred student must not have previously enrolled at Nimzo Academy.</li>
-          <li>Referral must be submitted through the official website form.</li>
-          <li>The referred student must pay the full first-month fee.</li>
-          <li>The student must complete a minimum of 30 days of active training.</li>
+          <li>The referring family must currently be learning with Nimzo Academy.</li>
+          <li>The referred child must be new to Nimzo Academy.</li>
+          <li>The referral should be submitted through the official website form.</li>
+          <li>The referred child must pay the full first-month fee.</li>
+          <li>The referred child must complete at least 30 days of active training.</li>
         </ul>
       ),
     },
     {
-      question: "Reward calculation",
+      question: "How rewards are calculated",
       answer: (
         <ul className="list-disc space-y-2 pl-5">
-          <li>Coaching fee credits are awarded as per the official reward structure.</li>
-          <li>Upon claiming 1 free month, referral count resets.</li>
+          <li>Coaching fee credits are awarded according to the reward structure shown above.</li>
+          <li>Once 1 free month is claimed, the referral count resets.</li>
           <li>Maximum 1 free month allowed per quarter per student.</li>
-          <li>Referral rewards are applicable only after eligibility conditions are met.</li>
+          <li>Rewards apply only after all eligibility conditions are fully met.</li>
         </ul>
       ),
     },
     {
-      question: "Credit usage",
+      question: "How credits can be used",
       answer: (
         <ul className="list-disc space-y-2 pl-5">
           <li>Credits may be used toward monthly coaching fees.</li>
@@ -37,7 +37,7 @@ export default function ReferralTerms() {
       ),
     },
     {
-      question: "International referrals and fair use",
+      question: "International referrals and fairness",
       answer: (
         <div className="space-y-4">
           <p>
@@ -63,12 +63,12 @@ export default function ReferralTerms() {
             Full Program Rules
           </p>
           <h2 className="mt-3 text-3xl font-bold text-[var(--color-heading-900)] md:text-4xl">
-            Keep the full rules available without making the page feel heavy
+            Simple rules for full transparency
           </h2>
 
           <p className="mt-4 text-base leading-relaxed text-[var(--color-body-700)] md:text-lg">
-            The main decision points are already shown above. These details stay
-            available for transparency when a parent wants to read everything carefully.
+            Everything important is already explained above. These details are
+            here for parents who want to read the full policy carefully.
           </p>
         </div>
 
