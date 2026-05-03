@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import PhotoStoryGrid from "@/components/ui/PhotoStoryGrid";
 import {
   ArrowRight,
   Clock3,
@@ -12,6 +13,7 @@ import {
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import ContactForm from "../../components/contact/ContactForm";
+import { getGalleryImagesByIds } from "@/data/gallery";
 
 const quickPoints = [
   "Parents usually hear back within 24 hours",
@@ -54,6 +56,8 @@ const locationLinks = [
   { href: "/home-chess-coaching-in-delhi-cantt", label: "Delhi Cantt home coaching" },
   { href: "/chess-coaching-in-delhi", label: "Delhi coverage overview" },
 ];
+
+const contactPhotos = getGalleryImagesByIds([6, 10, 25]);
 
 export default function ContactPage() {
   return (
@@ -118,6 +122,16 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <PhotoStoryGrid
+        eyebrow="Before You Enquire"
+        title="Get a better feel for the learning environment"
+        description="Many parents contact us after trying to understand whether the class atmosphere feels focused, warm, and genuinely structured. These photos help make that decision easier before the first call or demo."
+        photos={contactPhotos}
+        ctaHref="/gallery"
+        ctaLabel="Browse the full Nimzo Academy gallery"
+        backgroundClassName="bg-white"
+      />
 
       <section className="bg-[var(--color-light-100)] px-4 py-14 md:py-20">
         <div className="mx-auto max-w-6xl">

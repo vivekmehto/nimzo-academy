@@ -297,14 +297,14 @@ export default function Footer() {
               </li>
 
               <li className="flex items-start gap-3">
-                <HiOutlineLocationMarker className="mt-0.5 h-5 w-5 md:h-7 md:w-7 text-primary-600" />
+                <HiOutlineLocationMarker className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
                 <Link
-                  href="https://maps.app.goo.gl/fygnZdqZiGkDvz538"
+                  href="https://maps.app.goo.gl/QQ5At2Kcg7Uky1M56"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary-600 transition leading-relaxed"
+                  className="block hover:text-primary-600 transition leading-relaxed"
                 >
-                  262, Block-A, Sector 8, Dwarka, New Delhi – 110077
+                  262, Block-A, Sector 8, Dwarka, New Delhi - 110077
                 </Link>
               </li>
             </ul>

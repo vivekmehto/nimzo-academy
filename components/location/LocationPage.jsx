@@ -10,13 +10,24 @@ import {
   School,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
+import PhotoStoryGrid from "@/components/ui/PhotoStoryGrid";
 import {
   centreLocations,
   cityOverviewLocation,
   homeLocations,
   locationPages,
 } from "@/data/locations";
+import { getGalleryImagesByIds } from "@/data/gallery";
 import { seoConfig } from "@/lib/seo";
+
+const locationPhotoIds = {
+  "chess-classes-in-dwarka": [24, 21, 18],
+  "chess-classes-in-rohini": [8, 29, 33],
+  "chess-classes-in-janakpuri": [1, 31, 17],
+  "chess-classes-in-kirti-nagar": [11, 27, 30],
+  "home-chess-coaching-in-delhi-cantt": [14, 19, 23],
+  "chess-coaching-in-delhi": [2, 15, 32],
+};
 
 const typeConfig = {
   Headquarters: {
@@ -93,6 +104,9 @@ export default function LocationPage({ location }) {
       text: location.highlights[0],
     },
   ];
+  const locationPhotos = getGalleryImagesByIds(
+    locationPhotoIds[location.slug] || [24, 21, 18],
+  );
 
   const schema = {
     "@context": "https://schema.org",
@@ -118,6 +132,44 @@ export default function LocationPage({ location }) {
     description: location.description,
     url: `${seoConfig.siteUrl}/${location.slug}`,
   };
+
+  const localBusinessSchema = location.address
+    ? {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "EducationalOrganization"],
+        name: `${seoConfig.siteName} Dwarka`,
+        url: `${seoConfig.siteUrl}/${location.slug}`,
+        description: location.description,
+        telephone: location.phoneHref?.replace("tel:", ""),
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "262, Block-A, Sector 8",
+          addressLocality: "Dwarka, New Delhi",
+          addressRegion: "Delhi",
+          postalCode: "110077",
+          addressCountry: "IN",
+        },
+        geo: location.geo
+          ? {
+              "@type": "GeoCoordinates",
+              latitude: location.geo.latitude,
+              longitude: location.geo.longitude,
+            }
+          : undefined,
+        hasMap: location.mapUrl,
+        openingHours: location.officeHours ? ["Mo-Sa 10:00-19:00"] : undefined,
+        areaServed: [
+          {
+            "@type": "Place",
+            name: "Dwarka, New Delhi",
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Delhi",
+          },
+        ],
+      }
+    : null;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -163,6 +215,12 @@ export default function LocationPage({ location }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
+      {localBusinessSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      ) : null}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -248,6 +306,54 @@ export default function LocationPage({ location }) {
               </div>
             </div>
 
+            {location.address ? (
+              <div className="rounded-[calc(var(--radius-lg)+0.05rem)] border border-[var(--color-border-300)] bg-white p-6 shadow-sm">
+                <h2 className="text-2xl font-semibold text-[var(--color-heading-900)]">
+                  Visit our Dwarka academy
+                </h2>
+                <div className="mt-5 space-y-4 text-sm leading-relaxed text-[var(--color-body-700)]">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-primary-600)]">
+                      Address
+                    </p>
+                    <p className="mt-1">{location.address}</p>
+                  </div>
+                  {location.officeHours ? (
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-primary-600)]">
+                        Office hours
+                      </p>
+                      <p className="mt-1">{location.officeHours}</p>
+                    </div>
+                  ) : null}
+                  {location.phoneDisplay && location.phoneHref ? (
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-primary-600)]">
+                        Phone
+                      </p>
+                      <a
+                        href={location.phoneHref}
+                        className="mt-1 inline-block font-medium text-[var(--color-heading-900)] transition hover:text-[var(--color-primary-600)]"
+                      >
+                        {location.phoneDisplay}
+                      </a>
+                    </div>
+                  ) : null}
+                </div>
+                {location.mapUrl ? (
+                  <Link
+                    href={location.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary-600)] transition hover:text-[var(--color-primary-700)]"
+                  >
+                    Open Dwarka location on Google Maps
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                ) : null}
+              </div>
+            ) : null}
+
             <div className="rounded-[calc(var(--radius-lg)+0.05rem)] border border-[var(--color-border-300)] bg-[var(--color-heading-900)] p-6 text-white shadow-[0_20px_50px_rgba(17,26,77,0.12)]">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-[var(--color-accent-500)]">
@@ -284,6 +390,16 @@ export default function LocationPage({ location }) {
           </div>
         </div>
       </section>
+
+      <PhotoStoryGrid
+        eyebrow="Real Class Moments"
+        title={`See how learning feels at Nimzo Academy in ${location.area}`}
+        description={`Parents often want to know whether the environment feels serious but child-friendly. These real class moments give a clearer sense of the concentration, structure, and confidence-building we aim for across our ${location.area} learning routes.`}
+        photos={locationPhotos}
+        ctaHref="/gallery"
+        ctaLabel="Explore the full gallery"
+        backgroundClassName="bg-white"
+      />
 
       <section className="bg-white py-14 md:py-18">
         <div className="mx-auto max-w-6xl px-6">
@@ -506,7 +622,8 @@ export default function LocationPage({ location }) {
       <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-3xl font-semibold text-[var(--color-heading-900)]">
-            Frequently asked questions about {location.h1.toLowerCase()}
+            {location.faqHeading ||
+              `Frequently asked questions about ${location.h1.toLowerCase()}`}
           </h2>
 
           <div className="mt-8 space-y-5">

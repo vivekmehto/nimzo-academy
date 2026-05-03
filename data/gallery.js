@@ -248,3 +248,9 @@ export const galleryCategories = [
   "Classroom Moments",
   "Students Playing",
 ];
+
+export function getGalleryImagesByIds(ids = []) {
+  return ids
+    .map((id) => galleryImages.find((image) => image.id === id))
+    .filter(Boolean);
+}

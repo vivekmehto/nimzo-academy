@@ -138,6 +138,16 @@ export default function Hero() {
               Centre classes in Delhi • Home coaching • Online worldwide
             </p>
 
+            <p className="mt-3 text-sm text-body-700">
+              Looking for our main academy?{" "}
+              <Link
+                href="/chess-classes-in-dwarka"
+                className="font-semibold text-primary-600 transition hover:text-primary-700"
+              >
+                Explore chess classes in Dwarka
+              </Link>
+            </p>
+
             <div className="mt-12 grid gap-4 sm:grid-cols-3">
               {coverageItems.map((item) => {
                 const Icon = item.icon;

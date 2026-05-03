@@ -87,10 +87,10 @@ const organizationSchema = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 28.5921,
-    longitude: 77.046,
+    latitude: 28.57375398674804,
+    longitude: 77.07187627520065,
   },
-  hasMap: "https://www.google.com/maps/place/Nimzo+Academy",
+  hasMap: "https://maps.app.goo.gl/QQ5At2Kcg7Uky1M56",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+91-9667275083",
