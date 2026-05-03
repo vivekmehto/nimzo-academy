@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import DwarkaSpotlight from "@/components/home/DwarkaSpotlight";
 import Programs from "@/components/home/Programs";
 import TrustIndicators from "@/components/home/TrustIndicators";
 import ChessLearningPath from "@/components/home/ChessLearningPath";
@@ -30,6 +31,7 @@ export default function Home() {
       <WhyParentsTrust />
       <ChessLearningPath />
       <CoachSection />
+      <DwarkaSpotlight />
       <FAQ />
       <FinalCTA />
     </>

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Globe2, House, MapPinned, School } from "lucide-react";
+import PhotoStoryGrid from "@/components/ui/PhotoStoryGrid";
 import {
   centreLocations,
   cityOverviewLocation,
   homeLocations,
   locationPages,
 } from "@/data/locations";
+import { getGalleryImagesByIds } from "@/data/gallery";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -97,6 +99,8 @@ const breadcrumbSchema = {
   ],
 };
 
+const coveragePhotos = getGalleryImagesByIds([3, 20, 26]);
+
 export default function LocationsPage() {
   return (
     <main className="bg-[var(--color-light-100)]">
@@ -186,6 +190,16 @@ export default function LocationsPage() {
           </div>
         </div>
       </section>
+
+      <PhotoStoryGrid
+        eyebrow="Across Our Formats"
+        title="Real students, real class energy, real training moments"
+        description="Families usually decide faster when they can see the environment instead of only reading about it. These moments reflect the concentration, tournament exposure, and classroom rhythm that run through Nimzo Academy across Delhi."
+        photos={coveragePhotos}
+        ctaHref="/gallery"
+        ctaLabel="See more classroom and tournament photos"
+        backgroundClassName="bg-[var(--color-light-100)]"
+      />
 
       <section className="bg-white py-16 md:py-18">
         <div className="mx-auto max-w-6xl px-6">

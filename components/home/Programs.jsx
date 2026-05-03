@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Section from "@/components/ui/Section";
 import ProgramCard from "@/components/ui/ProgramCard";
 import { programs } from "@/data/programs";
@@ -47,6 +48,17 @@ export default function Programs() {
 
         <p className="mt-3 text-xs text-muted-500">
           Not sure which format to choose? Start with a demo and we will guide you honestly.
+        </p>
+
+        <p className="mt-4 text-sm text-body-700">
+          For regular offline learning, start with our{" "}
+          <Link
+            href="/chess-classes-in-dwarka"
+            className="font-semibold text-primary-600 transition hover:text-primary-700"
+          >
+            chess classes in Dwarka
+          </Link>
+          .
         </p>
       </div>
     </Section>
