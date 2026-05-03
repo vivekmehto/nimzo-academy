@@ -318,6 +318,9 @@ export default function Footer() {
                 <Link href="/chess-classes-in-dwarka" className="hover:text-primary-600 transition">
                   Chess Classes in Dwarka
                 </Link>
+                <Link href="/home-chess-coaching-in-dwarka" className="hover:text-primary-600 transition">
+                  Home Chess Coaching in Dwarka
+                </Link>
                 <Link href="/chess-classes-in-rohini" className="hover:text-primary-600 transition">
                   Chess Classes in Rohini
                 </Link>
