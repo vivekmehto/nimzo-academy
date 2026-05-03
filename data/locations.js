@@ -95,6 +95,91 @@ export const locationPages = [
     ],
   },
   {
+    slug: "home-chess-coaching-in-dwarka",
+    area: "Dwarka",
+    type: "Home Coaching Service Area",
+    schemaServiceType: "Home chess coaching for children",
+    h1: "Home Chess Coaching in Dwarka for Children",
+    title: "Home Chess Coaching in Dwarka for Kids",
+    description:
+      "Explore home chess coaching in Dwarka with Nimzo Academy for children who benefit from personalised lessons, structured guidance, and optional online continuity.",
+    intro:
+      "For families in Dwarka who prefer the convenience of learning at home, Nimzo Academy offers structured home chess coaching designed to combine personal attention with a clear long-term path.",
+    focus:
+      "This page is for families who want home chess classes in Dwarka rather than regular centre attendance. The format works especially well when the child learns better in a familiar setting, needs more focused coach attention, or the family wants to reduce weekly travel.",
+    availability:
+      "Home chess coaching in Dwarka is offered based on coach scheduling, travel feasibility, and the child’s preferred learning format, with online support available whenever more flexibility is needed.",
+    seoKeywords: [
+      "home chess coaching in dwarka",
+      "home chess classes in dwarka",
+      "chess coaching at home in dwarka",
+      "chess tuition in dwarka at home",
+      "personalised chess coaching in dwarka",
+      "home chess tutor in dwarka",
+    ],
+    faqHeading: "Frequently asked questions about home chess coaching in Dwarka",
+    snapshotTitle: "At a glance",
+    snapshot: [
+      { label: "Format", value: "Home chess coaching in Dwarka" },
+      { label: "Best for", value: "Children who benefit from personal attention" },
+      { label: "Flexibility", value: "Less travel and easier weekly scheduling" },
+      { label: "Continuity", value: "Online support available when required" },
+    ],
+    whyTitle: "Why some Dwarka families prefer chess coaching at home",
+    highlights: [
+      "A more personalised coaching environment for children who learn better with direct attention",
+      "Less travel pressure for families who want quality chess coaching without repeated centre visits",
+      "Structured lessons that still follow Nimzo Academy's clear learning pathway",
+    ],
+    practicalTitle: "How home chess classes in Dwarka usually work",
+    practicalIntro:
+      "Most families considering home chess coaching in Dwarka want convenience without losing structure. The goal is to give the child a calmer, more focused setup while keeping progress measurable and coach-led.",
+    practicalPoints: [
+      "Sessions can be adapted more closely to the child’s current level, pace, and attention span",
+      "Parents often choose this format when the child responds better to one-to-one guidance than larger group rhythm",
+      "Online continuity remains available if schedules shift because of exams, travel, or changes in weekly routine",
+    ],
+    programsTitle: "What children can build through home chess coaching in Dwarka",
+    programsIntro:
+      "Home coaching in Dwarka is meant to provide serious chess learning in a more private and manageable environment, especially for children who need more direct coach involvement.",
+    programs: [
+      "One-to-one home sessions focused on board basics, thinking habits, and step-by-step confidence building",
+      "Personalised improvement work around tactics, calculation, and practical game decision-making",
+      "Flexible support for children who may later move into stronger academy or tournament pathways",
+      "Online continuation when the family wants extra consistency between home sessions",
+    ],
+    fitTitle: "Who this Dwarka format usually suits best",
+    fitIntro:
+      "Home chess coaching in Dwarka often works well for families who want convenience, direct coach attention, and a calmer learning routine without giving up structured progress.",
+    fitPoints: [
+      "Children who are easily distracted in group settings and improve better with personal guidance",
+      "Families who want home-based chess classes in Dwarka instead of repeated commuting",
+      "Learners who need a structured start before moving into broader academy pathways later",
+    ],
+    faqs: [
+      {
+        question: "Do you offer home chess coaching in Dwarka?",
+        answer:
+          "Yes. Nimzo Academy supports home chess coaching in Dwarka based on coach schedule, travel feasibility, and the child’s learning needs.",
+      },
+      {
+        question: "Is home chess coaching in Dwarka only for advanced students?",
+        answer:
+          "No. Home coaching can work for complete beginners as well as improving learners, especially when they benefit from focused personal attention.",
+      },
+      {
+        question: "How is home coaching different from your Dwarka centre classes?",
+        answer:
+          "Home coaching in Dwarka is more personalised and convenient, while the Dwarka centre works better for families who want regular academy rhythm, in-person class structure, and group learning energy.",
+      },
+      {
+        question: "Can Dwarka home coaching students continue online as well?",
+        answer:
+          "Yes. Families can combine home sessions with online support whenever they want extra flexibility or continuity.",
+      },
+    ],
+  },
+  {
     slug: "chess-classes-in-rohini",
     area: "Rohini",
     type: "Offline Branch",

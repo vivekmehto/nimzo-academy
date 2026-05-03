@@ -22,6 +22,7 @@ import { seoConfig } from "@/lib/seo";
 
 const locationPhotoIds = {
   "chess-classes-in-dwarka": [24, 21, 18],
+  "home-chess-coaching-in-dwarka": [5, 22, 28],
   "chess-classes-in-rohini": [8, 29, 33],
   "chess-classes-in-janakpuri": [1, 31, 17],
   "chess-classes-in-kirti-nagar": [11, 27, 30],

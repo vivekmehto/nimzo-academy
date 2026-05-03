@@ -50,6 +50,7 @@ const supportAreas = [
 
 const locationLinks = [
   { href: "/chess-classes-in-dwarka", label: "Dwarka centre" },
+  { href: "/home-chess-coaching-in-dwarka", label: "Dwarka home coaching" },
   { href: "/chess-classes-in-rohini", label: "Rohini classes" },
   { href: "/chess-classes-in-janakpuri", label: "Janakpuri home coaching" },
   { href: "/chess-classes-in-kirti-nagar", label: "Kirti Nagar home coaching" },
