@@ -30,7 +30,7 @@ export default function Home() {
       <TeachingProcess />
       <WhyParentsTrust />
       <ChessLearningPath />
-      <CoachSection />
+      {/* <CoachSection /> */}
       <DwarkaSpotlight />
       <FAQ />
       <FinalCTA />

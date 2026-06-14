@@ -23,7 +23,7 @@ export default function AboutPage() {
       <AboutIntro />
       <AboutWhy />
       <AboutPhilosophy />
-      <AboutFounder />
+      {/* <AboutFounder /> */}
       <AboutJourney />
       <AboutTrust />
       <AboutCTA />
